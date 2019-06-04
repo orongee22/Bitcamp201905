@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>레이아웃 과제</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <style>
         *{
             margin: 0;
@@ -14,17 +15,28 @@
         
         body{
             padding: 20px;
-            background-color: #eee;
+            background-color: orange;
+            font-family: 'Noto Sans KR', sans-serif;
         }
         #wrapper{
-            padding: 30px 15px 5px 15px;
+/*            padding: 30px 15px 5px 15px;*/
             min-width: 960px;
-            border: 3px solid #ddd;
+/*            border: 3px solid #ddd;*/
             border-radius: 5px;
+            overflow: hidden;
+        }
+        #header{
+            padding-top: 30px;
+            color: #000;
             background-color: #fff;
         }
         .header-top{
             padding-left: 40px;
+        }
+        .header-top p{
+            margin-top: 5px;
+            font-size: 14px;
+            color: #398a3d;
         }
         .header-bottom{
             margin-top: 40px;
@@ -47,16 +59,20 @@
         }
         .header-bottom li{
             float: left;
+            line-height: 2;
         }
         .header-bottom li a{
             display: block;
-            padding: 0 20px;
-            margin-right: 10px;
-            color: dimgray;
+            padding: 0 15px;
+            color: #398a3d;
+            border-right: 1px solid #bbb;
+            font-size: 12px;
+            font-weight: bold;
             text-decoration: none;
         }
         .header-bottom li a:hover{
             text-decoration: underline;
+            color: orange;
         }
         
         .header-bottom .search-box{
@@ -72,15 +88,17 @@
         }
         .search-box .btn{
             position: absolute;
-            top:0;
+            top: 1px;;
             right: 0;
             padding: 3px 10px;
-            background: #bbb;
-            border: 1px solid #bbb;
-            border-radius: 0 10px 10px 0;
+            background: #398a3d;
+            border: 1px solid #398a3d;
+            border-radius: 0 10px 10px 5px;
+            color: #fff;
+            font-weight: bold;
         }
         #main{
-            margin-top: 40px;
+            background-color: #eee;
         }
         #main::after{
             display: block;
@@ -89,50 +107,75 @@
         }
         #main .main-left{
             float: left;
-            width: 80%;
+            width: 78%;
         }
         #main .main-left .article{
-            padding: 20px 15px 50px 10px;
-            border-bottom: 1px solid #eee;            
+            background-color:#fff;
+            margin: 10px 10px 10px 0;
+            padding: 40px 30px 50px 30px;
+            border-bottom: 1px solid #eee;    
+            border-radius: 5px;
         }
         .main-left .article h2{
-            font-weight: normal;
+            margin-top:15px;
+            color: #398a3d;
+            font-size: 16px;
+/*            font-weight: bold;*/
         }
         .main-left .article span{
             display: block;
-            margin: 10px 0 14px;
-            font-size: 14px;
+            margin: 10px 0 36px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eaeaea;
+            font-size: 12px;
+            color: #aaa;
+        }
+        .article hr{
+            border-color: #398a3d;
         }
         .article .text-box p{
             margin-top: 20px;
             font-size: 12px;
+            color: #868581;
         }
         #aside{
             float: right;
-            width: 20%
+            margin-top: 10px;
+            padding: 30px;
+            width: 18%;
+            background-color: #fff;
+            border-radius: 5px;
         }
         #aside .aside-list{
             margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #eaeaea
+        }
+        #aside .aside-list li{
+            margin: 10px 0 0 10px;
         }
         #aside .aside-list li:first-child{
-            margin-bottom: 10px;
+            margin: 0 0 20px;
             font-weight: bold;
             font-size: 14px;
         }
         .aside-list li a{
             display: block;
-            margin-top: 5px;
-            padding-left: 20px;
+/*            padding-left: 20px;*/
             font-size: 12px;
             color: gray;
             text-decoration: none;
         }
         .aside-list li a:hover{
             text-decoration: underline;
+            color: #398a3d;
+        }
+        #footer{
+            padding: 10px 0 10px 30px;
+            border-radius: 5px;
         }
         .copyright{
-            color: blue;
-            padding-top: 10px;
+            color: #aaa;
         }
     </style>
 </head>
@@ -140,14 +183,16 @@
     <div id="wrapper">
         <div id="header">
             <div class="header-top">
-                <h1>HTML5 Example Preview</h1>
-                <p>비트캠프 종로센터</p>
+                <h1>레이아웃</h1>
+                <p>소제목</p>
             </div>
             <div class="header-bottom">
                 <ul id="nav">
-                    <li><a href="">HTML5</a></li>
-                    <li><a href="">CSS3</a></li>
-                    <li><a href="">JavaScript</a></li>
+                    <li><a href="">전체보기</a></li>
+                    <li><a href="">리스트1</a></li>
+                    <li><a href="">리스트2</a></li>
+                    <li><a href="">리스트3</a></li>
+                    <li><a href="">리스트4</a></li>
                 </ul>
                 <div class="search-box">
                     <input class="text-box" type="text">
