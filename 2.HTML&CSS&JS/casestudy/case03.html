@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>중앙 정렬</title>
+    <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        body{
+            background-color: beige;
+            font-family: "Jua";
+        }
+        #main_wrap{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -200px;
+            margin-top: -250px;
+            width: 400px; 
+            height: 500px;
+            border: 1px solid #ddd;
+            background-color: white;
+            box-shadow: 10px 10px 5px #aaa;
+            
+        }
+        hr{
+            margin: 5px 0;
+            border: 0;
+            border-top: 2px solid #ddd;
+        }
+        #main_wrap>h1{
+            padding: 15px 0;
+            height: 50px;
+            text-align: center;
+        }
+        input{
+            width: 100%;
+        }
+        #main_wrap>form>table{
+            width: 100%;
+        }
+        #main_wrap>form>table>tr{
+/*            padding:10px;*/
+        }
+        #main_wrap>form>table th{
+            padding: 5px;
+            width: 75px;
+        }
+        #main_wrap>form>table td{
+            padding: 5px;
+        }
+        #info{
+            text-align: center;
+        }
+        button, input[type=submit]{
+            display: block;
+            margin: 5px 0;
+            padding: 5px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_wrap">
+        <h1>LOGIN</h1>
+        <hr>
+        <form action="">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <th>PW</th>
+                    <td><input type="password"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="로그인">
+                        <button>취소</button>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+            <div id="info">
+                <a href="">회원가입</a> |
+                <a href="">ID 찾기</a> |
+                <a href="">PW 찾기</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
