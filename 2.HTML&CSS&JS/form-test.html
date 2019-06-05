@@ -5,22 +5,36 @@
     <title>div 테스트</title>
     <style>
         table{
-/*            background-color: lightcoral;*/
+/*            border-collapse: collapse;*/
+            border-spacing: 0;
+            display:block;
         }
         th{
             font-weight: normal;
             text-align: left;
         }
+        thead{
+            
+/*            display: inline-block;*/
+        }
+        tr{
+        }
     </style>
 </head>
+
 <body>
     <form action="">
         <fieldset>
         <hr>
         <h2>회원가입</h2>
-<!--         <legend>회원가입</legend>-->
-          <table border="1">
-           
+         <legend>회원가입</legend>
+          <table border>
+           <thead>
+               <tr>
+                   <td>이름</td>
+                   <td>이름??</td>
+               </tr>
+           </thead>
             <tr>
                 <th><label for="username">*이름</label></th>
                 <td><input type="text" id="username"></td>
@@ -30,16 +44,12 @@
                 <td><input type="text" id="userid"></td>
             </tr>
             <tr>
-                <th><label for="userPW">*비밀번호</label></th>
-                <td><input type="password" id="userrepw"></td>
-            </tr>
-            <tr>
-                <th><label for="userrePW">*비밀번호 확인</label></th>
+                <th><label for="userrepw">*비밀번호 확인</label></th>
                 <td><input type="password" id="userrepw"></td>
             </tr>
             <tr>
                 <th><label for="usernum">*주민등록번호</label></th>
-                <td><input type="text" id="usernum"> - <input type="text" id="usernum">
+                <td><input type="text" id="usernum"> - <input type="text">
                 <button type="button">주민등록번호 확인</button></td>
             </tr>
             <tr>
@@ -64,7 +74,7 @@
             </tr>
             <tr>
                 <th>*자기소개</th>
-                <td><textarea name="" id="" cols="80" rows="10" style="overflow-y: scroll"></textarea></td>
+                <td><textarea cols="80" rows="10" style="overflow-y: scroll"></textarea></td>
             </tr>
             <tr style="text-align: center">
                 <td colspan="2"><input type="submit" value="가입완료"><input type="reset" value="취소"></td>
@@ -75,11 +85,11 @@
     
     
     
-    
+<!--
     <form action="">
        <h1>회원가입</h1>
        <hr>
-            <table style="line-height: 40px; background-color: aqua;mar">
+            <table style="margin:0 auto;line-height: 40px;">
                 <tr>
                     <th><label for="userID">아이디(이메일)</label></th>
                     <td><input type="text" id="userID"></td>
@@ -101,5 +111,27 @@
                 </tr>
             </table>
     </form>
+-->
+
+<!--
+    
+    <form action="">
+       <h1>회원 로그인</h1>
+       <hr>
+            <table style="margin:0 auto;line-height:40px;">
+                <tr>
+                    <th><label for="userID">아이디(이메일)</label></th>
+                    <td><input type="text" id="userID"></td>
+                </tr>
+                <tr>
+                    <th><label for="userPW">비밀번호</label></th>
+                    <td><input type="text" id="userPW"></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center" colspan="2"><input type="submit" value="로그인"></td>
+                </tr>
+            </table>
+    </form>
+-->
 </body>
 </html>
