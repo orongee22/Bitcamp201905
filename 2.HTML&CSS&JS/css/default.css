@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+/*            font-family: 'Nanum Myeongjo', serif;*/
+    background-color: #eaeaea;
+}
+    
+/* 메인 블럭 */
+#main_wrap{
+    margin: 20px auto;
+    padding: 5px;
+    width: 938px;
+/*            height: 500px;*/
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px #aaa, 0 -1px 4px #ccc;
+}
+#header{
+    padding: 20px;
+}
+#header h1{
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+#header h4{
+    font-weight: normal;
+    }
+
+/* 내비게이션 */
+#nav{
+            overflow: hidden;
+            height: 35px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        #menu{
+            float: left;
+        } 
+        #menu>ul{
+            list-style: none;
+        }
+        #menu>ul>li{
+            float: left;
+/*            padding: 0 20px;*/
+            height: 25px;
+            line-height: 35px;
+        }
+        #menu>ul>li:hover{
+            background-color: orange;
+        }
+        #menu>ul>li>a{
+            display: block;
+            padding: 0 20px;
+            line-height: 35px;
+        }
+        
+        #menu>ul>li>a:hover{
+            background-color: orange;
+            text-decoration: none;
+            color: #fff;
+        }
+        #search{
+            float: right;
+            height: 25px;
+            line-height: 35px;
+        }
+        #search>input[type=text]{
+            padding: 5px 35px 5px 10px;
+        }
+        #search>input[type=button]{
+            margin-left: -25px;
+            height: 29px;
+            vertical-align: middle;
+            border: 1px solid #aaa;
+            border-radius: 0 5px 5px 0;
+
+        }    
+            
+        #contents{
+            overflow: hidden;
+            padding: 5px;
+        }
+        #content{
+            float: left;
+            width: 700px;
+            background-color: aliceblue;
+        }
+        #content>article{
+            margin: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        #content>article>img{
+            width: 300px;
+            margin-left: 5px;
+            margin-bottom: 15px;
+        }
+        #content>article>.date{
+            display: block;
+            padding-left: 5px;
+            margin-bottom: 14px;
+        }
+        #content>article>.title{
+            padding: 20px 5px;
+        }
+        #content>article>p{
+            padding: 5px;
+            line-height: 1.5;
+        }
+        #aside{
+            float: right;
+            padding: 15px;
+            width: 198px;
+/*            height: 200px;*/
+            background-color: oldlace;
+            
+        }
+        #aside>ul{
+            margin: 5px 0 30px 10px;
+            list-style: none;
+        }
+        
+        #aside>ul>li{
+            margin-top: 10px;
+            height: 25px;
+            line-height: 25px;
+        }
+        
+        #footer{
+            text-align: center;
+        }
