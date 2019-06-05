@@ -1,0 +1,143 @@
+@charset "utf-8";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+
+body{
+    background-color: #fafafa;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+header{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 26px 20px;
+    border-bottom: 1px solid #e6e6e6; 
+    background-color: #fff;
+    text-align: center;
+}
+.wrapper{
+    margin: 0 auto;
+    max-width: 960px;
+}
+.wrapper::after{
+    display: block;
+    clear: both;
+    content:'';
+}
+#logo{
+    float: left;
+}
+#logo a{
+    display: inline-block;
+    text-decoration: none;
+}
+#logo a:active{
+    opacity: 0.7;
+}
+#logo .insta_logo{
+    display: inline-block;
+    width: 22px;
+    height: 22px;background:url(../images/insta.png) -240px -203px;
+    vertical-align: middle;
+
+}
+#logo .bar{
+    display: inline-block;
+    margin: 0 10px;
+    width: 1px;
+    height: 30px;
+    background-color: #000;
+    vertical-align: middle;
+}
+#logo .instagram{
+    display: inline-block;
+    width: 103px;
+    height: 29px;
+    background: url(../images/insta.png) -94px -72px;
+    vertical-align: middle;
+}
+.text_box{
+    display: inline;
+}
+.text_box input[type=text]{
+    padding: 1px 20px;
+    width: 150px;
+    height: 25px;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    color: #999;
+    
+}
+.text_box button[type=reset]{
+    margin-left: -28px;
+    padding: 0;
+    width: 16px;
+    height: 16px;
+    background-color: #c7c7c7;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+}
+.user_sign{
+    float: right;
+    margin-top: -2px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.user_sign a{
+    display: inline-block;
+    padding: 10px;
+    letter-spacing: 1px;
+}
+.user_sign a:active{
+    opacity: 0.7;
+}
+.user_sign .user_login{
+    margin-right: 10px;
+    background-color: #3897f3;
+    color: #fff;
+    border-radius: 4px;
+}
+.user_sign .user_signup{
+    color: #3897f3;
+}
+
+#main{
+    margin-top: 83px;
+    
+}
+#main .wrapper{
+    padding: 1px 15px;
+}
+
+#main .top_header{
+    margin-top: 50px;
+}
+
+#main #user_main{
+    padding-left: 80px;
+}
+
+#user_main .img_wrapper{
+    float: left;
+    margin-right: 100px;
+    
+}
+#user_main .img_wrapper::after{
+    display: inline-block;
+    clear: both;
+    content:'';
+}
+
+#user_main .img_wrapper .image_wrapping{
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    border: 1px solid #aaa;
+    border-radius: 150px;
+}
