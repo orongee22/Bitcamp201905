@@ -1,19 +1,28 @@
 @charset "utf-8";
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 
-
+/* commons */
 body{
     background-color: #fafafa;
     font-family: 'Noto Sans KR', sans-serif;
+    min-width: 320px;
 }
 a{
     text-decoration: none;
+    color: inherit;
 }
+button, input[type=button]{
+    cursor: pointer;
+}
+
+
+/* header */
 header{
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
+    z-index: 1000;
     padding: 26px 20px;
     border-bottom: 1px solid #e6e6e6; 
     background-color: #fff;
@@ -91,7 +100,7 @@ header{
 }
 .user_sign a{
     display: inline-block;
-    padding: 10px;
+    padding: 8px 10px;
     letter-spacing: 1px;
 }
 .user_sign a:active{
@@ -107,31 +116,34 @@ header{
     color: #3897f3;
 }
 
+
+/* main */
 #main{
     margin-top: 83px;
     
 }
 #main .wrapper{
-    padding: 1px 15px;
+    padding: 1px 0px;;
 }
 
 #main .top_header{
     margin-top: 50px;
+    padding: 0 15px;
 }
 
 #main #user_main{
-    padding-left: 80px;
+    padding-left: 8%;
+}
+#main #user_main::after{
+    display: block;
+    clear: both;
+    content:'';
 }
 
 #user_main .img_wrapper{
     float: left;
-    margin-right: 100px;
+    margin-right: 10%;
     
-}
-#user_main .img_wrapper::after{
-    display: inline-block;
-    clear: both;
-    content:'';
 }
 
 #user_main .img_wrapper .image_wrapping{
@@ -140,4 +152,365 @@ header{
     height: 150px;
     border: 1px solid #aaa;
     border-radius: 150px;
+}
+#user_info{
+    float: left;
+}
+
+.user_name_wrapper::after{
+    display: block;
+    clear: both;
+    content:'';
+}
+.user_name_wrapper .user_name{
+    float: left;
+    font-size: 26px;
+    font-weight: 300;
+}
+.user_name_wrapper .mark{
+    display: inline-block;
+    margin: 3px 5px 3px;
+    width: 18px;
+    height: 18px;
+    background: url(../images/instagram.png) -436px -324px;    
+}
+
+.user_name_wrapper button{
+    padding: 6px 10px;
+    margin-left: 10px;
+    background-color: #3897f3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 1px;
+    vertical-align: top;
+}
+.user_name_wrapper button:active{
+    opacity: 0.6;
+}
+.user_information{
+    margin-top: 20px;
+}
+.user_information a{
+    display: inline-block;
+    margin-right: 40px;
+    font-weight: 300;
+}
+.user_information a:active{
+    opacity: 0.7;
+}
+.user_information a span{
+    padding-left: 5px;
+}
+.user_text{
+    margin-top: 30px;
+}
+.user_text>strong{
+    font-weight: bold;
+}
+.user_text>p{
+    margin-top: 10px;
+}
+.user_text>p>a{
+    color: #003569;
+    font-weight: bold;
+}
+.user_text>p>a:active{
+    opacity: 0.7;
+}
+#user_story{
+    padding: 50px;
+    overflow: hidden;
+    border-bottom: 1px solid #efefef;
+}
+
+#user_story::after{
+    display: block;
+    clear: both;
+    content:'';
+}
+#user_story ul{
+    width: 3000px;
+}
+#user_story .story_list{
+    float: left;
+    margin-right: 25px;
+    text-align: center;
+}
+
+#user_story .story_list a{
+    white-space: nowrap;
+}
+
+#user_story .story_list span{
+    display: block;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 80px;
+    height: 80px;
+    background-color: #000;
+    border-color: #dcdcdc;
+    border-radius: 50px;
+}
+#user_story .story_list img{
+    width: 80px;
+}
+#user_story .story_list em{
+    display: inline-block;
+    margin: 10px auto 0;
+    width: 95px;
+    font-size: 14px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    color: black;
+}
+
+#contents{
+    position: relative;
+}
+
+.content-tab{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+.content-tab a{
+    display: inline-block;
+    padding: 20px 0;
+    margin-right: 30px;
+    color: #ABABAB;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.content-tab a.active{
+    color: black;
+    border-top: 1px solid black;
+}
+.content-tab a:active{
+    opacity: 0.7;
+}
+
+.content-tab a span{
+    display: inline-block;
+    margin-right: 2px;
+    width: 12px;
+    height: 12px;
+}
+.content-tab a:first-child span{
+    background: url(../images/instagram.png) -50px -424px;
+}
+.content-tab a:last-child span{
+    background: url(../images/instagram.png) -436px -399px
+}
+
+#show_content{
+    padding-top: 54px;
+}
+#show_content::after{
+    display: block;
+    clear: both;
+    content:'';
+}
+#show_content .img_content_wrapper{
+    float: left;
+    width: 33.33%;
+    
+}
+#show_content .img_content{
+    margin: 0 15px 30px 15px;
+}
+#show_content .img_content a{
+    display: block;
+    position: relative;
+}
+#show_content .img_content_wrapper p{
+    display: none;
+    position: absolute;
+    padding-top: 46.5%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    color: #fff;
+    background-color: rgba(0,0,0,0.3);
+    text-align: center;
+}
+#show_content .img_content_wrapper a:hover p{
+    display: block;
+}
+
+.user_image img{
+    width: 100%;
+    height: auto;
+}
+#show_content .img_content_wrapper p span{
+    display: inline-block;
+    vertical-align: middle;
+}
+#show_content .img_content_wrapper p .heart{
+    margin-right: 4px;
+    width: 21px;
+    height: 20px;
+    background: url(../images/instagram.png) -225px -400px;
+}
+#show_content .img_content_wrapper p .comment{
+    margin-left: 20px;
+    margin-right: 4px;
+    width: 21px;
+    height: 20px;
+    background: url(../images/instagram.png) -246px -400px;
+}
+/* footer */
+footer{
+    padding: 15px 15px;
+    font-size: 13px;
+}
+footer::after{
+    display: block;
+    clear: both;
+    content:'';
+}
+#footer_nav{
+    width: 80%;
+}
+#footer_nav ul{
+    float: left;
+}
+#footer_nav ul::after{
+    display: block;
+    clear: both;
+    content:'';
+}
+#footer_nav ul>li{
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: bold;
+    color: #003569;
+}
+
+footer .copyright{
+    float: right;
+    color: #aaa;
+}
+
+
+
+@media screen and (max-width: 700px){
+    
+    #main .top_header{
+        position: relative;
+        padding: 0 0 60px;
+        margin-top: 30px;
+    }
+    header .text_box{
+        display: none;
+    }
+    #main #user_main{
+        padding-left: 10px;
+    }
+    #main #user_main .img_wrapper{
+        margin-right: 20px;
+    }
+    #main #user_main .image_wrapping{
+        width: 80px;
+        height: 80px;
+    }
+    #main #user_main .image_wrapping img{
+        width: 80px;
+    }
+    #user_info .user_name_wrapper{
+        width: 220px;
+    }
+    #user_info .user_name_wrapper button{
+        margin-left: 0;
+        margin-top: 10px;   
+    }
+    
+    .user_information{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px 0;
+        text-align: center;
+        font-size: 13px;
+        border-top: 1px solid #efefef;
+        border-bottom: 1px solid #efefef;
+    }
+    .user_information a{
+        margin: 0 12%;
+        box-sizing: content-box;
+        color: #aaa;
+    }
+    .user_information a span{
+        display: block;
+        padding: 0;
+        line-height: 24px;
+        color: #000;
+        
+        
+    }
+    
+    .user_text{
+        margin-top: 40px;
+        margin-left: -102px;
+        font-size: 13px;
+        line-height: 12px
+    }
+    #user_story{
+        padding: 20px 10px;
+        border: none;
+    }
+    #user_story .story_list{
+        margin-right: 0.7%
+    }
+    #user_story .story_list>a{
+        font-size: 12px;
+    }
+    #user_story .story_list span{
+        margin: 0;
+        width: 60px;
+        height: 60px;
+    }
+    #user_story .story_list span img{
+        width: 60px;
+    }
+    #user_story .story_list em{
+        width: 60px;
+        white-space: nowrap;
+        text-overflow:ellipsis;
+        font-size: 12px;
+    }
+    
+    #show_content .img_content{
+        margin: 0 1px 2px 1px;
+    }
+    
+    footer{
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    #footer_nav{
+        float: none;
+        width: 100%;
+        
+    }
+    
+    #footer_nav ul{
+        text-align: center;
+    }
+    #footer_nav ul li{
+        margin-right: 10px;
+        line-height: 20px;
+    }
+    footer .copyright{
+        float: none;
+        margin-top: 20px;
+        text-align: center;
+    }
 }
