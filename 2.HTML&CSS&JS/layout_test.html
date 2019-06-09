@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>레이아웃 과제</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li,ol{
+            list-style: none;
+        }
+        
+        body{
+            padding: 20px;
+            background-color: #eee;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        #wrapper{
+/*            padding: 30px 15px 5px 15px;*/
+            min-width: 960px;
+/*            border: 3px solid #ddd;*/
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        #header{
+            padding-top: 30px;
+            color: #000;
+            background-color: #fff;
+        }
+        .header-top{
+            padding-left: 40px;
+        }
+        .header-top p{
+            margin-top: 5px;
+            font-size: 14px;
+            color: #398a3d;
+        }
+        .header-bottom{
+            margin-top: 40px;
+            padding: 10px 10px 10px 0;
+            border-top: 1px solid #bbb;
+            border-bottom: 1px solid #bbb;
+        }
+        .header-bottom::after{
+            display: block;
+            clear: both;
+            content:'';
+        }
+        .header-bottom #nav{
+            float: left;
+        }
+        .header-bottom #nav::after{
+            display: block;
+            clear: both;
+            content: '';
+        }
+        .header-bottom li{
+            float: left;
+            line-height: 2;
+        }
+        .header-bottom li a{
+            display: block;
+            padding: 0 15px;
+            color: #398a3d;
+            border-right: 1px solid #bbb;
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .header-bottom li a:hover{
+            text-decoration: underline;
+            color: orange;
+        }
+        
+        .header-bottom .search-box{
+            position: relative;
+            float: right;
+            
+        }
+        .search-box .text-box{
+            padding: 5px 0 5px 10px;
+            border-radius: 10px;
+            border: 1px solid #bbb;
+            color: #bbb;
+        }
+        .search-box .btn{
+            position: absolute;
+            top: 1px;;
+            right: 0;
+            padding: 3px 10px;
+            background: #398a3d;
+            border: 1px solid #398a3d;
+            border-radius: 0 10px 10px 5px;
+            color: #fff;
+            font-weight: bold;
+        }
+        #main{
+            background-color: #eee;
+        }
+        #main::after{
+            display: block;
+            clear:both;
+            content: '';
+        }
+        #main .main-left{
+            float: left;
+            width: 78%;
+        }
+        #main .main-left .article{
+            background-color:#fff;
+            margin: 10px 10px 10px 0;
+            padding: 40px 30px 50px 30px;
+            border-bottom: 1px solid #eee;    
+            border-radius: 5px;
+        }
+        .main-left .article h2{
+            margin-top:15px;
+            color: #398a3d;
+            font-size: 16px;
+/*            font-weight: bold;*/
+        }
+        .main-left .article span{
+            display: block;
+            margin: 10px 0 36px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eaeaea;
+            font-size: 12px;
+            color: #aaa;
+        }
+        .article hr{
+            border-color: #398a3d;
+        }
+        .article .text-box p{
+            margin-top: 20px;
+            font-size: 12px;
+            color: #868581;
+        }
+        #aside{
+            float: right;
+            margin-top: 10px;
+            padding: 30px;
+            width: 15%;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        #aside .aside-list{
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #eaeaea
+        }
+        #aside .aside-list li{
+            margin: 10px 0 0 10px;
+        }
+        #aside .aside-list li:first-child{
+            margin: 0 0 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .aside-list li a{
+            display: block;
+/*            padding-left: 20px;*/
+            font-size: 12px;
+            color: gray;
+            text-decoration: none;
+        }
+        .aside-list li a:hover{
+            text-decoration: underline;
+            color: #398a3d;
+        }
+        #footer{
+            padding: 10px 10px 10px 30px;
+            width: 75%;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .copyright{
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <div class="header-top">
+                <h1>레이아웃</h1>
+                <p>소제목</p>
+            </div>
+            <div class="header-bottom">
+                <ul id="nav">
+                    <li><a href="">전체보기</a></li>
+                    <li><a href="">리스트1</a></li>
+                    <li><a href="">리스트2</a></li>
+                    <li><a href="">리스트3</a></li>
+                    <li><a href="">리스트4</a></li>
+                </ul>
+                <div class="search-box">
+                    <input class="text-box" type="text">
+                    <input class="btn" type="button" value="검색">
+                </div>
+            </div>
+        </div>
+        <div id="main">
+           <div class="main-left">
+                <div class="article">
+                    <h2>HTML5 개요와 활용</h2>
+                    <span>2013년 02월 14일</span>
+                    <div class="text-box">
+                        <img src="https://cdn.pixabay.com/photo/2018/03/08/17/02/tulips-3209128_960_720.jpg" width="500" alt="">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit voluptatum sapiente iure ab amet quibusdam sit natus distinctio id tenetur similique maxime ipsam illo veniam obcaecati commodi molestiae optio voluptatibus, eligendi impedit sed libero reprehenderit consequatur aperiam excepturi! Consequatur atque rerum vel libero asperiores, ipsam molestias architecto obcaecati, sapiente dolorum, nihil recusandae consequuntur, officiis adipisci saepe veniam error? Aliquam, in quisquam. Consectetur culpa officiis illo, atque quam ipsum nam iure.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit voluptatum sapiente iure ab amet quibusdam sit natus distinctio id tenetur similique maxime ipsam illo veniam obcaecati commodi molestiae optio voluptatibus, eligendi impedit sed libero reprehenderit consequatur aperiam excepturi! Consequatur atque rerum vel libero asperiores, ipsam molestias architecto obcaecati, sapiente dolorum, nihil recusandae consequuntur, officiis adipisci saepe veniam error? Aliquam, in quisquam. Consectetur culpa officiis illo, atque quam ipsum nam iure.</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <h2>HTML5 개요와 활용</h2>
+                    <span>2013년 02월 14일</span>
+                    <div class="text-box">
+                        <img src="https://isorepublic.com/wp-content/uploads/2019/05/iso-republic-pantone-color-book-1100x734.jpg" width="600" alt="">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit voluptatum sapiente iure ab amet quibusdam sit natus distinctio id tenetur similique maxime ipsam illo veniam obcaecati commodi molestiae optio voluptatibus, eligendi impedit sed libero reprehenderit consequatur aperiam excepturi! Consequatur atque rerum vel libero asperiores, ipsam molestias architecto obcaecati, sapiente dolorum, nihil recusandae consequuntur, officiis adipisci saepe veniam error? Aliquam, in quisquam. Consectetur culpa officiis illo, atque quam ipsum nam iure.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit voluptatum sapiente iure ab amet quibusdam sit natus distinctio id tenetur similique maxime ipsam illo veniam obcaecati commodi molestiae optio voluptatibus, eligendi impedit sed libero reprehenderit consequatur aperiam excepturi! Consequatur atque rerum vel libero asperiores, ipsam molestias architecto obcaecati, sapiente dolorum, nihil recusandae consequuntur, officiis adipisci saepe veniam error? Aliquam, in quisquam. Consectetur culpa officiis illo, atque quam ipsum nam iure.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="aside">
+                <ul class="aside-list">
+                    <li>카테고리</li>
+                    <li><a href="">데이터</a></li>
+                    <li><a href="">데이터</a></li>
+                    <li><a href="">데이터</a></li>
+                    <li><a href="">데이터</a></li>
+                    <li><a href="">데이터</a></li>
+                </ul>
+                <ul class="aside-list">
+                    <li>카테고리</li>
+                    <li><a href="">데이터</a></li>
+                    <li><a href="">데이터</a></li>
+                    <li><a href="">데이터</a></li>
+                    <li><a href="">데이터</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="footer">
+            <p class="copyright">Created By Team-HeXagon</p>
+        </div>
+    </div>
+</body>
+</html>
