@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>네이버 : 회원가입</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <div class="select_lang">
+                <select name="select_lang" id="">
+                    <option value="ko">한국어</option>
+                    <option value="en">English</option>
+                    <option value="">中文(简体)</option>
+                    <option value="">中文(台灣)</option>
+                </select>
+            </div>
+            <h1 class="logo"><img src="images/m_naver_logo.png" alt="네이버"></h1>
+        </header>
+        <div id="main_wrapper">
+            <form action="">
+                <div class="accept_list">
+                    <input type="checkbox" id="all_check" onClick="checked(this)"><label for="all_check">이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택),
+                        프로모션 안내 메일 수신(선택)에 모두 동의합니다.</label>
+                </div>
+                <div class="accept_list">
+                    <input type="checkbox" id="terms_check" class="check"><label for="terms_check">네이버 이용약관 동의<span class="require">(필수)</span></label>
+                    <div class="terms_box">
+                        <h4>여러분을 환영합니다.</h4>
+                        <p>네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.</p>
+                        <p>네이버 서비스에는 기본적으로 본 약관이 적용됩니다만 네이버가 다양한 서비스를 제공하는 과정에서 부득이 본 약관 외 별도의 약관, 운영정책 등을 적용하는 경우(예, 네이버페이, V LIVE 등)가 있습니다. 그리고 네이버 계열사가 제공하는 특정 서비스의 경우에도(예, LINE, SNOW등) 해당 운영 회사가 정한 고유의 약관, 운영정책 등이 적용될 수 있습니다. 이러한 내용은 각각의 해당 서비스 초기 화면에서 확인해 주시기 바랍니다.</p>
+                    </div>
+                </div>
+                <div class="accept_list">
+                    <input type="checkbox" id="per_info_check" class="check"><label for="per_info_check">개인정보 수집 및 이용에 대한 안내<span class="require">(필수)</span></label>
+                    <div class="terms_box">
+                       <p>정보통신망법 규정에 따라 네이버에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.</p>
+                       <h4>1. 수집하는 개인정보</h4>
+                       <p>이용자는 회원가입을 하지 않아도 정보 검색, 뉴스 보기 등 대부분의 네이버 서비스를 회원과 동일하게 이용할 수 있습니다. 이용자가 메일, 캘린더, 카페, 블로그 등과 같이 개인화 혹은 회원제 서비스를 이용하기 위해 회원가입을 할 경우, 네이버는 서비스 이용을 위해 필요한 최소한의 개인정보를 수집합니다.</p>
+                    </div>
+                </div>
+
+                <div class="accept_list">
+                    <input type="checkbox" id="local_check" class="check"><label for="local_check">위치정보 이용약관 동의<span class="selection">(선택)</span></label>
+                    <div class="terms_box">
+                        <p>위치정보 이용약관에 동의하시면, <strong>위치를 활용한 광고 정보 수신</strong> 등을 포함하는 네이버 위치기반 서비스를 이용할 수 있습니다.</p>
+                        <h4>제 1 조 (목적)</h4>
+                        <p>이 약관은 네이버 주식회사 (이하 “회사”)가 제공하는 위치정보사업 또는 위치기반서비스사업과 관련하여 회사와 개인위치정보주체와의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.</p>
+                    </div>
+                </div>
+                <div class="accept_list">
+                    <input type="checkbox" id="event_check" class="check"><label for="event_check">이벤트 등 프로모션 알림 메일 수신<span class="selection">(선택)</span></label>
+                </div>
+                <div class="btn_list">
+                    <input type="button" value="비동의">
+                    <input type="submit" value="동의">
+                </div>
+                <p class="group_signup">
+                    회사, 동아리 등 단체에서 사용할 ID가 필요하세요? <a href="">단체 회원 가입</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <ul class="policy">
+            <li><a href="">이용약관</a>|</li>
+            <li><a href="">개인정보처리방침</a>|</li>
+            <li><a href="">책임의 한계와 법적고지</a>|</li>
+            <li><a href="">회원정보 고객센터</a></li>
+        </ul>
+        <p class="copyright">
+            <img src="images/ci_naver.gif" width="80px"></img>
+            Copyright <em>NAVER Corp.</em> All Rights Reserved.
+        </p>
+    </footer>
+    <script>
+        var allCheck = document.getElementById("all_check");
+//        var isAllCheck = allCheck.hasAttribute('checked');
+        
+        function checked(){
+            if(allCheck.hasAttribute("checked")){
+                alert("Wkwkwksks");
+            }
+            
+        }
+        
+            //            document.querySelectorAll('.policy').setAttribute('style','background-color : #fff');
+        
+    </script>
+</body>
+</html>

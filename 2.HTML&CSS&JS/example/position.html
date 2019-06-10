@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POSITION 테스트</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        
+        #box1{
+            top: 40%;
+            left: 20%;            
+            background-color: red;
+        }
+        #box2{
+            top: 42%;
+            left: 22%;
+            background-color: green;
+        }
+        #box3{
+            bottom: 10%;
+            left: 24%;
+            background-color: blue;
+        }
+        a.box{
+            background-color: yellow;
+        }
+        #wrapper{
+/*            position: relative;*/
+/*
+            top: 20px;
+            left: 100px;
+*/
+/*            height: 200px;*/
+            border: 1px solid gray;
+        }
+        
+        #wrapper1{
+            border: 1px solid red;
+        }
+        #wrapper1::after{
+            display: block;
+            clear: both;
+            content: '';
+        }
+        #wrapper1 .box1{
+            float: left;
+            width: 100px;
+            height: 100px;
+        }
+        #box4{
+            background-color: orange;
+        }
+        #box5{
+            background-color: forestgreen;
+        }
+        #box6{
+            background-color: dodgerblue;
+        }
+        .wrapper2 .pink{
+            float: left;
+        }
+        .wrapper2>h1{
+            float: left;
+        }
+        .wrapper2>p{
+/*            float: left;*/
+/*            padding-left: 30px;*/
+        }
+        .wrapper2::after{
+            display: block;
+            clear: both;
+            content:'';
+        }
+        .wrapper2 p{
+            margin-left: 10px;
+        }
+        .wrapper2>h1{
+            border: 1px solid gray;
+            box-shadow: 5px 5px 5px gray;
+        }
+    </style>
+</head>
+<body>
+   <h1>header</h1>
+   <div id="wrapper">
+        <div id="box1" class="box"></div>
+        <div id="box2" class="box"></div>
+        <div id="box3" class="box"></div>
+        <a class="box" href=""></a>
+    </div>
+    
+    
+    
+    <div id="wrapper1">
+        <div id="box4" class="box1"></div>
+        <div id="box5" class="box1"></div>
+        <div id="box6" class="box1"></div>
+    </div>
+    <h1>footer</h1>
+    
+    <div class="wrapper2">
+        <img class="pink" src="http://mblogthumb1.phinf.naver.net/20151228_60/dbdbdb5875_1451287584813p410P_PNG/010.png?type=w2" width="300" alt="">
+        <h1>꽃꽃꽃꽃꽃꽃</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione, alias saepe, harum, officiis exercitationem voluptatem culpa laboriosam labore ducimus natus, enim ipsum illum? Omnis earum dolor facere, ipsum nulla, ipsam reprehenderit fuga, voluptatibus quod quae nihil rem quam repellat soluta beatae ipsa aspernatur officiis minima accusantium a vel natus minus alias. Totam quas minima quia beatae quae, obcaecati deserunt possimus! Nostrum quas, error, similique molestiae incidunt quo sint fuga quis temporibus consectetur necessitatibus dolor? Vitae perferendis, quas voluptate quidem distinctio, eos quia iure praesentium sapiente aperiam nulla magnam harum. Fugit aut suscipit sit, cumque facere ipsam ratione iste, doloribus.</p>
+        
+    </div>
+</body>
+</html>

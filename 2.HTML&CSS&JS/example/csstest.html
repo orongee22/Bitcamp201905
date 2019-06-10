@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS TEST</title>
+
+    <style> 
+        button,a,input[type="checkbox"],label{
+            cursor: pointer;
+        }
+        div h1{
+            color: red;
+        }
+        #header h1{
+            color: aqua;
+        }
+        #content h1{
+            color: purple;
+        }
+        
+        #header>h1{
+            background-color: black;
+        }
+        
+        #content>h1{
+            background-color: black;
+        }
+        button{
+            padding: 20px 30px;
+            background-image: linear-gradient(45deg, #8EC5FC 0%, #E0C3FC 100%);
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 1s;
+        }
+        button:hover{
+            background: #8EC5FC;
+        }
+        button:active{
+            background: #e8b620;
+        }
+        
+        h1+h2{
+            color: orange;
+        }
+        h1+h2:hover{
+            background-color: black;
+            color: orange;
+        }
+        h1~h2{
+            background-color: lightcoral;
+        }
+        h1~h2:active{
+            background-color: black;
+            color: red;
+        }
+        h1{
+/*            transition: all .5s;*/
+        }
+        h1:hover{
+            color: #ff0;
+            background-color: #2079e8;
+        }
+        
+        input{
+            padding: 10px 0 10px 20px;
+        }
+        input:disabled{
+            border: 1px solid darkgray;
+            background-color: lightgray;
+        }
+        input:focus{
+            background-color: darkslateblue;
+        }
+        
+        input[type=checkbox]{
+            display: none;
+        }
+        input[type=checkbox]:checked+div#menu{
+            display: block;
+        }
+        
+        #menu{
+            display: none;
+        
+        }
+        label:hover{
+            background-color: beige;
+        }
+        
+        #menu li:first-child{
+            color: red;
+        }
+        #menu li:last-child{
+            background-color: orange;
+            border-radius: 4px 10px 50px 1px;
+            color: blue;
+            
+        }
+        #menu li:nth-child(odd){
+            color: aqua;
+        }
+        #menu li:nth-last-child(1){
+            color: antiquewhite;
+        }
+        
+        #cir{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            border-radius: 100px;
+            overflow: hidden;
+        }
+        img{
+            margin-top: -40px;
+        }
+        #gnb{
+            padding: 0 10px;
+            overflow: hidden;
+        }
+
+        #gnb>li{
+            float: left;
+            margin-left: -1px;
+            overflow: hidden;
+/*            background-color: orange;*/
+            border: 1px solid #aaa;
+            list-style: none;
+        }
+        #gnb>li:first-child{
+            border-radius: 10px 0 0 10px;
+        }
+        #gnb>li:last-child{
+            border-radius: 0 10px 10px 0;
+        }
+        #gnb>li:nth-child(2n){
+            background-color: orange;
+        }
+        #gnb>li:nth-child(odd){
+            background-color: darkgray;
+        }
+        #gnb>li:hover{
+            background-color: lawngreen;
+        }
+        .test::first-letter{
+            background-color: orange;
+        }
+        .test::first-line{
+            color: red;
+        }
+        p::selection{
+            background-color: lightgray;
+        }
+        .test a{
+            background-color: orange;
+            color: black;
+            text-decoration: none;
+        }
+        .test a:visited{
+/*            color: currentColor;*/
+        }
+        #gnb a{
+            display: block;
+            padding: 5px 15px;
+            text-decoration: none;
+            color: inherit;
+        }
+        #gnb a:hover{
+            background-color: brown;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>타이틀 1</h1>
+        <div>
+            <h1>타이틀 2</h1>
+        </div>
+    </div>
+    <div id="content">
+        <h1>타이틀 3</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, tenetur. Necessitatibus excepturi in deleniti, mollitia animi sunt ipsum debitis dolorum commodi accusamus assumenda reprehenderit voluptatibus, voluptate voluptatum voluptatem perferendis aut. </p>
+    </div>
+    <button type="button">click</button>
+    
+   <h1>Header - 1</h1> 
+   <h2>Header - 2</h2> 
+   <h2>Header - 2</h2> 
+   <h2>Header - 2</h2> 
+   <h2>Header - 2</h2>
+   
+   <input type="text" placeholder="입력하세용">
+   <input disabled placeholder="키키키키">
+    <label for="checked_menu">메뉴</label>
+    <input type="checkbox" id="checked_menu">
+   <div id="menu">
+       <ul>
+           <li>홈</li>
+           <li>회사소개</li>
+           <li>서비스 소개</li>
+           <li>오시는 길</li>
+           <li>오시는 길</li>
+           <li>오시는 길</li>
+           <li>오시는 길</li>
+           <li>오시는 길</li>
+           <li>오시는 길</li>
+           <li>오시는 길</li>
+           <li>오시는 길</li>
+       </ul>
+   </div>
+   
+   <ul id="gnb">
+       <li><a href="">menu-01</a></li>
+       <li><a href="">menu-02</a></li>
+       <li><a href="">menu-03</a></li>
+       <li><a href="">menu-04</a></li>
+       <li><a href="">menu-05</a></li>
+   </ul>
+   
+   <div id="cir"><img src="http://img.hani.co.kr/imgdb/resize/2018/0313/00500561_20180313.JPG" width="200" height="auto" alt=""></div>
+   
+   <div id="cir2"></div>
+   <p class="test">
+   <a href="#">검색</a>
+   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem quia excepturi molestias, non ipsa facere enim eveniet laudantium, corporis odio deleniti. Quos repudiandae dolores voluptates non iste officia nobis iure.</p>
+   
+   
+</body>
+</html>
