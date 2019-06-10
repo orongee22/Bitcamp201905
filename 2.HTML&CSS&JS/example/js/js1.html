@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // example 1
+        // ------------------------
+        var person = {
+            name : '예리나',
+            age : 20,
+            check : true,
+            books : ['java의 정석','이것이 자바다','열혈 자바'],
+            eat : function(food){
+                console.log(this.name+'님이 '+food+'을(를) 먹습니다.')
+            }
+            // 객체의 속성 타입이 함수인 경우 method라 표현함
+        };
+        
+        
+        // 속성을 동적으로 추가할 수도 있다.
+        // 새로운 속성이름과 함께 값을 넣어주면 됨.
+        // 자바스크립트의 특징 중에 하나가 먼저 빈 객체를 생성한 다음 속성을 동적으로 추가할 수 있다는 것임.
+        person.job = '학생';
+        
+        // 물론 메소드도 속성 값으로 추가할 수도 있음.
+        person.hello = function(){
+            console.log('하이하이!');
+        }
+        
+        
+        
+        // for in 문을 이용해서 객체의 모든 속성 일괄 참조하기
+        // 'a'라는 변수에 person 속성의 값들이 순차적으로 저장됨.
+        for(var a in person){
+            console.log(person[a]);
+        }
+        
+        // 마지막에 저장된 `hello`라는 속성이 저장됨
+        console.log(a);
+        
+        // 객체 속성에 접근(참조)하기
+        // 점 표기법
+        console.log(person.eat());
+        person.eat('밥');
+        // [] 표기법
+        // 대괄호 안에 들어가는 이름은 항상 문자열로 표기한다.
+        console.log(person['age']);
+        
+        
+        
+        
+        
+        
+        // ------------------------
+        // example 2
+        // 학생 정보를 저장하는 배열을 생성함.
+        var students = [];
+        
+        // .push()메소드는 요소를 새로 넣어주는 메소드.
+        students.push({name:'홍길동1',kor:87,math:90,eng:57});
+        students.push({name:'홍길동2',kor:10,math:80,eng:83});
+        students.push({name:'홍길동3',kor:20,math:70,eng:77});
+        students.push({name:'홍길동4',kor:30,math:60,eng:53});
+        students.push({name:'홍길동5',kor:40,math:50,eng:20});
+        students.push({name:'홍길동6',kor:50,math:40,eng:23});
+        students.push({name:'홍길동7',kor:60,math:10,eng:49});
+        
+        // 학생 정보에 새로운 메소드들을 일괄적으로 추가하기!
+        for(var i in students){
+            
+            students[i].getSum = function(){
+                // this는 객체 그 자신을 반환함.
+                return this.kor+this.math+this.eng;
+            };
+            students[i].getAverage = function(){
+                return this.getSum()/3;
+            }
+        }
+        
+        var output  = '이름   총점    평균\n';   
+        
+        for(var j=0;j<students.length;j++){   
+            output += students[j].name + '   ' +students[j].getSum() + '     ' + students[j].getAverage()+'\n';
+        }
+        console.log(output);
+        
+    </script>
+</body>
+</html>
