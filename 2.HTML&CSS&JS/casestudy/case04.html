@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>position fixed 테스트</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        #top{
+            position: fixed;
+            left: 0;
+            right: 0;
+/*            width: 30px;*/
+            height: 100px;
+            background-color: red;
+        }
+        #left{
+            position: fixed;
+            left: 0;
+            top: 100px;
+            bottom: 0;
+            width: 100px;
+/*            height: 30px;*/
+            background-color: blue;
+        }
+        #content{
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="top"></div>
+    <div id="left"></div>
+    <div id="content">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste ducimus facere explicabo non quia neque voluptatum eum quis eveniet illum consequatur ratione nihil, quae, voluptatem, eaque alias. Praesentium, harum, quo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio consectetur ducimus dignissimos quae non? Distinctio ullam, quos cumque earum aliquid a, accusamus ipsa deserunt quaerat, ipsam sed aperiam vero fuga quia placeat voluptatum iste obcaecati suscipit officia eligendi repellat! Adipisci nulla similique delectus libero, laudantium at vitae dolorum soluta eius.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste ducimus facere explicabo non quia neque voluptatum eum quis eveniet illum consequatur ratione nihil, quae, voluptatem, eaque alias. Praesentium, harum, quo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio consectetur ducimus dignissimos quae non? Distinctio ullam, quos cumque earum aliquid a, accusamus ipsa deserunt quaerat, ipsam sed aperiam vero fuga quia placeat voluptatum iste obcaecati suscipit officia eligendi repellat! Adipisci nulla similique delectus libero, laudantium at vitae dolorum soluta eius.
+    </div>
+</body>
+</html>
