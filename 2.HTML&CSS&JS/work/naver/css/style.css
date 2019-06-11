@@ -136,16 +136,18 @@ footer{
     font-size: 12px; text-align: center;
 }
 footer .policy{
-    display: inline-block;
+/*    display: inline-block;*/
     text-align: center;
 }
+/*
 footer .policy::after{
     display: block;
     clear: both;
     content: '';
 }
+*/
 footer .policy li{
-    float: left;
+    display: inline-block;
     margin-right: 10px;
 }
 footer .policy li a{

@@ -22,7 +22,7 @@
         <div id="main_wrapper">
             <form action="">
                 <div class="accept_list">
-                    <input type="checkbox" id="all_check" onClick="checked(this)"><label for="all_check">이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택),
+                    <input type="checkbox" id="all_check"><label for="all_check">이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택),
                         프로모션 안내 메일 수신(선택)에 모두 동의합니다.</label>
                 </div>
                 <div class="accept_list">
@@ -79,15 +79,30 @@
         var allCheck = document.getElementById("all_check");
 //        var isAllCheck = allCheck.hasAttribute('checked');
         
-        function checked(){
-            if(allCheck.hasAttribute("checked")){
-                alert("Wkwkwksks");
+        var checklist = document.getElementsByClassName('check');
+        
+        var checkResult = allCheck.checked;
+        
+        function allChecked(){
+            if(allCheck.checked){
+                for(var i=0;i<checklist.length;i++){
+//                    console.log(checklist[i]);
+                    checklist[i].checked = true;
+                    
+                }
+            } else {
+                for(var i=0;i<checklist.length;i++){
+//                    console.log(checklist[i]);
+                    checklist[i].checked = false;
+                    
+                }
             }
-            
         }
         
-            //            document.querySelectorAll('.policy').setAttribute('style','background-color : #fff');
+
+    allCheck.onclick = allChecked;
         
+
     </script>
 </body>
 </html>
