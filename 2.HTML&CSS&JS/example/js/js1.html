@@ -88,6 +88,92 @@
         }
         console.log(output);
         
+        
+        
+        // -----------------------------------------
+        // 생성자 함수 정의
+        // 함수의 이름(식별자)은 대문자로 시작한다.
+        function Student(name,math,kor,eng){
+            this.name = name;
+            this.math = math;
+            this.kor = kor;
+            this.eng = eng;
+            
+//            this.getSum = function(){
+//                return this.kor+this.eng+this.math;
+//            };
+//            this.getAverage = function(){
+//                return this.getSum() / 3;
+//            };
+//            
+//            this.toString = function(){
+//                return this.name + '\t'+this.getSum()+'\t'+this.getAverage()+'\n';
+//            };
+        }
+        
+        Student.prototype.getSum = function(){
+            return this.kor+this.eng+this.math;
+        }
+        Student.prototype.getAverage = function(){
+            return this.getSum() / 3;
+        }
+        
+        Student.prototype.toString = function(){
+            return this.name + '\t'+this.getSum()+'\t'+this.getAverage()+'\n';
+        }
+        
+        
+        
+        var students = [];
+        students.push(new Student("예리나",80,45,67));
+        students.push(new Student("예리나",80,45,67));
+        students.push(new Student("예리나",80,45,67));
+        students.push(new Student("예리나",80,45,67));
+        students.push(new Student("예리나",80,45,67));
+    
+        var output  = '이름   총점    평균\n';   
+        
+        for(var k in students){
+            output += students[k].toString();
+        }
+        console.log(output);
+        
+        
+        
+        // --------------------------------
+        // example3
+        
+        // 캡슐화
+        function A(w,h){
+            this.width = w;
+            var height = h;
+            
+            this.getWidth = function(){return width};
+            this.getHeight = function(){return height;};
+            this.setWidth = function(w){
+                width = w;
+            };
+        }
+        
+        var a1 = new A(10,20);
+        
+        console.log(a1.width);
+        console.log(width);
+        
+        students.sort(function(left, right){
+            return right.getSum()-left.getSum();
+        });
+        
+        students = students.slice(0,2);
+       
+        
+        
+        
+        
+        
+        
+        
+        
     </script>
 </body>
 </html>

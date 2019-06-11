@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트 테스트</title>
+    
+</head>
+<body>
+   
+   
+   <form action="" id="login_form" action="/json_test.html">
+        아이디 <input type="text" id="uId"><br>
+        이메일 <input type="email">
+        비밀번호 <input type="password" id="uPw"><br>
+        이용약관 동의 <input type="checkbox" id="chk">
+        <input type="submit" value="로그인">
+       
+   </form>
+   
+   
+   <div id="header">
+       
+       <h1 id="title">안녕하세요.</h1>
+      
+      
+      <input type="text" id="msg" value="메시지 입력">
+       <input type="submit" id="btn" value="변경">
+       
+       
+       <h2 id="text">g2</h2>
+       
+       <button id="btn00" ondblclick="h1()">버튼-인라인방식 이벤트처리하기기기기기</button>
+   </div>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   <script>
+       
+       
+       var loginform = document.getElementById('login_form');
+       
+       loginform.onsubmit = function(){
+           var uId = document.getElementById('uId');
+           var uPw = document.getElementById('uPw');
+           var chk = documnet.getElementById('chk');
+           
+           
+           // true / false 값을 가짐.
+           console.log(chk.chekced);
+           
+           if(uId.value.length<1){
+                alert('아이디를 입력해주세요.');
+               uId.focus();
+               
+               
+               
+               // return false를 사용할 경우, 폼 제출 이벤트를 막아준다.
+               return false;
+               
+           }
+           
+           if(uPw.value.length<1){
+               alert('비밀번호를 입력하세ㅐㅔ');
+               return false;
+           }
+           
+           
+           if(!chk.checked){
+               alert('이용약관에 동의해주세요.');
+               retrun false;
+           }
+           return true;
+       }
+       
+       function h1(){
+           var message = '안녕하세요';
+           alert(message);
+       }
+       
+       
+       function delMsg(index){
+           var result = confirm('진짜 삭제할거야????');
+           if(result){
+               alert(index + '번 메시지 삭제');
+               console.log("delMsg : "+this)
+           } else {
+               alert('취소!')
+           }
+       }
+       
+       
+        window.onload = function(e){
+            var btn = document.getElementById('btn');
+            var cnt = 1;
+            var text = document.getElementById('text');
+                var inputMsg = document.getElementById('msg');
+            
+            function click(e){ 
+//                this.style.color = 'red';
+//                
+//                
+//                var title = document.getElementById('title');
+//                
+                title.innerHTML += inputMsg.value;
+                
+                var event = e || window.event;
+            
+            
+                for(var k in event){
+                    
+                    console.log(k + ' : ' + event[k]);
+//                    text.innerHTML += k + ' : ' + event[k] + '<br>';
+                }
+                
+                var msgStr = inputMsg.value;;
+                
+                title.innerHTML += '<br> ' + msgStr + '<input type="button" id="delBtn" value="삭제" onclick="delMsg(' + cnt++ + ')">';
+            
+            };
+            
+            
+            btn.onclick = click;
+            
+            inputMsg.onfocus = function(){
+                this.value = '';
+            };
+            
+            
+            
+//            header.onmousemove = click();
+        }
+    </script>
+</body>
+</html>

@@ -20,7 +20,7 @@
             <h1 class="logo"><img src="images/m_naver_logo.png" alt="네이버"></h1>
         </header>
         <div id="main_wrapper">
-            <form action="">
+            <form action="" id="terms_form">
                 <div class="accept_list">
                     <input type="checkbox" id="all_check"><label for="all_check">이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택),
                         프로모션 안내 메일 수신(선택)에 모두 동의합니다.</label>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="btn_list">
                     <input type="button" value="비동의">
-                    <input type="submit" value="동의">
+                    <input type="submit" value="동의" href="naver2.html">
                 </div>
                 <p class="group_signup">
                     회사, 동아리 등 단체에서 사용할 ID가 필요하세요? <a href="">단체 회원 가입</a>
@@ -77,13 +77,14 @@
     </footer>
     <script>
         var allCheck = document.getElementById("all_check");
-//        var isAllCheck = allCheck.hasAttribute('checked');
         
         var checklist = document.getElementsByClassName('check');
         
         var checkResult = allCheck.checked;
         
-        function allChecked(){
+        var acceptBox = document.getElementsByClassName('accept_list')[3];
+        
+        allCheck.onclick = function(){
             if(allCheck.checked){
                 for(var i=0;i<checklist.length;i++){
 //                    console.log(checklist[i]);
@@ -99,8 +100,25 @@
             }
         }
         
-
-    allCheck.onclick = allChecked;
+        
+        
+        var termsForm = document.getElementById('terms_form');
+        
+        
+        termsForm.onsubmit = function(){
+            var termsInfo = document.getElementById('terms_check');
+            var personInfo = document.getElementById('per_info_check');
+            
+            if(!(personInfo.checked) && !(termsInfo.checked)){
+              acceptBox.innerHTML += '<p style="color: red; font-size: 12px">네이버 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.</p>';
+//                console.log(btnBox);
+                return false;
+            }
+        }
+        
+        
+        
+        
         
 
     </script>

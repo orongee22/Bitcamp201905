@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .red{color: red}
+        .blue{color: blue}
+    </style>
+</head>
+<body>
+   <div>
+      <h1>Cities</h1>
+      <ul>
+        <li id="one" class="red">Seoul</li>
+        <li id="two" class="red">London</li>
+        <li id="three" class="red">Newyork</li>
+        <li id="four">Tokyo</li>
+      </ul>
+    </div>
+    
+    
+    <script>
+    
+//        var firstP = document.querySelector('p');
+//        
+//        var node = document.querySelectorAll('p');
+//        
+//        console.log(node[0]);
+        
+        // #one 요소 선택
+//        var elem = document.getElementById('one');
+//        // 해당 요소에 .blue 클래스를 변경함.
+//        elem.className = 'blue';
+        
+//        console.log(elem); // <li id="one" class="blue">Seoul</li>
+//        console.log(elem.__proto__);           // HTMLLIElement
+//        console.log(elem.__proto__.__proto__); // HTMLElement
+//        console.log(elem.__proto__.__proto__.__proto__);           // Element
+//        console.log(elem.__proto__.__proto__.__proto__.__proto__); // Node
+        
+        
+        var elems = document.getElementsByClassName('red');
+        
+        console.log(elems);
+        
+        for(var i = 0;i<elems.length;i++){
+            elems[i].className = 'blue';
+        }
+        
+        var elem = document.getElementById('one');
+        var parent = elem.parentNode;
+        parent.style.backgroundColor = 'yellow';
+        
+    </script>
+</body>
+</html>

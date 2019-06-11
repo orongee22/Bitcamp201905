@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Window 객체 테스트</title>
+
+</head>
+<body>
+<h1 id="clock"></h1>
+<h1 id="msg">인사하는거임</h1>
+<div id="text"></div>
+<p class="title"></p>
+<h1 id="remove">이 태그는 곧 지워질 예정.....ㅎ</h1>
+
+
+<script>
+//        var child = window.open('','child','width=600,height=300, location=yes');
+//        
+//        child.document.write('<h1>안녕하세요</h1>');
+//        
+//        
+//        function moveUrl(){
+//            alert(location.href);
+//            location.href = ""
+//        }
+        
+//        alert(1);
+    
+        window.onload = function(){
+            
+            
+            
+            var clock = document.getElementById('clock');
+            
+            var clockTime = new Date();
+            
+            setInterval(function(){
+                clock.innerHTML = clockTime;
+            }, 1000);
+            
+            
+            
+            
+            
+            var header = document.createElement('h1');
+            var text = document.createTextNode('안녕ㅇ안녕');
+            
+            
+            var header1 = document.createElement('h2');
+            var text1 = document.createTextNode('ㅂ2ㅂ2');
+            
+            var img = document.createElement('img');
+            img.src = '../../work/naver/images/ci_naver.gif';
+            img.width = 200;
+            
+            
+            
+            header.appendChild(text);
+            header1.appendChild(text1);
+            
+//            document.body.appendChild(header);
+//            document.body.appendChild(header1);
+            
+//            document.getElementById('msg').appendChild(img);
+            
+//            document.getElementById('msg').appendChild(header1);
+            
+            
+            
+            // 문서객체 캐스팅 ? 태그를 문서 객체로 만드는 것.
+            
+            var h1 = document.getElementById('msg');
+            
+            var div1 = document.querySelector('#text');
+            div1.innerHTML = '안녕하세요';
+            div1.style.color = 'blue';
+            
+//            var innerhtml = h1.innerHTML;
+            
+            var p1 = document.querySelector('.title');
+            p1.innerHTML = '하이!<strong>zzzzzzz</strong>';
+            p1.style.backgroundColor = 'red';
+            
+            
+            // 태그 삭제 - 
+            // 1. 먼저 삭제 대상을 캐스팅한다.
+            // 2. 그 다음 삭제 대상의 부모 태그를 캐스팅 한다.
+            // 3. 부모 태그 객체에 removeChild()메소드를 통해 대상을 삭제한다.
+            if(confirm('진짜로 삭제할건가여?')){
+                var r = document.querySelector('#remove');
+                document.body.removeChild(r);
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            h1.innerHTML = '<span style="color: #f00">새로운 엘리먼트 요소 넣기</span>';
+            
+//            console.log(typeof(h1));
+//            console.log(innerhtml)
+//            
+            
+            
+            
+            
+            
+}
+    
+    </script>
+</body>
+</html>

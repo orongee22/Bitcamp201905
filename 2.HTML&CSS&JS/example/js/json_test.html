@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON 테스트</title>
+</head>
+<script>
+    // onload = window가 로딩되고 나서!
+    // 스크립트가 body보다 위에 있어서 윈도우가 다 실행되고 나서 처리해주게끔 하는 것임.
+    window.onload = function(){
+        // h1 안에 있는 요소를 저장.
+        var h1_str = document.getElementById('json').innerHTML = "djjjdjfjdjfjdfj";
+        
+        var book = {
+            name: 'JAVA',
+            price : 20000,
+            publisher : '오렌지 미디어',
+        };
+        
+        // 자바스크립트 객체 -> JSON 형식의 문자열로 변환할 것임.
+        var obj_json = JSON.stringify(book);
+        document.getElementById('json').innerHTML = obj_json;
+        
+        console.log(obj_json.name);
+        console.log(obj_json.price);
+        console.log(obj_json.publisher);
+        
+        var newJSON = '{"name":"Javascript","price":20000,"publisher":"이지 출판사 웅앵"}';
+        var new_json = JSON.parse(newJSON);
+        
+        console.log(new_json.name);
+        console.log(new_json.price);
+        console.log(new_json.publisher);
+    };
+</script>
+
+<body>
+    <h1 id="json">하이</h1>
+</body>
+</html>
