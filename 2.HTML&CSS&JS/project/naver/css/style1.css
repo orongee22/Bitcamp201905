@@ -33,23 +33,19 @@ header .logo img{
 
 #main_wrapper .signup_list{
     margin-bottom: 40px;
-    
 }
 #main_wrapper .signup_list label{
-    margin-left: 10px;
     font-weight: bold;
 }
-#main_wrapper .signup_list input[type=checkbox]{
-    width: 24px;
-    height: 24px;
-    border: none;
-    appearance: none;
-    -webkit-appearance: none;
-    background: url(../images/pc_chcek_off_s_20.png) no-repeat 0 0;
-    background-size: 24px;
-    vertical-align: middle;
+
+#main_wrapper .input_box{
+    padding: 10px 20px 10px 20px;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid #bbb;
     
 }
+
 #main_wrapper .signup_list input[type=checkbox]:checked{
     background:url(../images/pc_check_on_l_24.png) no-repeat 0 0;
 }
