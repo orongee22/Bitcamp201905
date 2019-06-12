@@ -1,7 +1,5 @@
 # 프로젝트 & 과제물 리스트
 
------------------------------------
-
 
 ## [1. 블로그 레이아웃](https://orongee22.github.io/Bitcamp201905/2.HTML%26CSS%26JS/example/layout_test.html)
 
