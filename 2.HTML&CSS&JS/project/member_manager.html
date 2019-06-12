@@ -71,7 +71,7 @@
         font-size: 14px;
     }
     #edit_box{
-/*        display: none;*/
+        display: none;
         position: absolute;
         padding: 10px;
         left: 50%;
@@ -181,8 +181,26 @@
     
     
     <script>
-    var members = [];
+    
+    // 저장소의 변수를 선언!
+    // localStorage에서 데이터 유무에 따라 배열을 선언할거임.....
+//    var members = [];
+    var members;
+    
+    // 로컬스토리지에서 받아올 아이템이 없다면 null값이 나오니까 false값을 반환할거임!
+    // console.log(localStorage.getItem) // 현재 아무 값이 없다면 null!
+    if(!localStorage.getItem('members')){
+        members = [];
+        //localStorage에 배열을 저장!
+        localStorage.setItem('members',JSON.stringify(members));
+    } else{
+        // 로컬스토리지에 members가 존재하는 경우임
+        members = JSON.parse(localStorage.getItem('members'));
+        console.log(members)
+        setList();
+    }
     var editBox = document.getElementById('edit_box');
+
         
     // data 저장 -> 자바스크립트 객체로 생성자 함수로 받아서 저장함. 
     
@@ -196,23 +214,24 @@
         this.userPW = pw;
         this.userName = name;
     }
+        
     
     // input으로 데이터를 받으면 그 사용자 데이터를 가지고 HTML 텍스트를 새로 생성해서 뿌려줄거임. 그 생성할 메소드를 정의.
-    Member.prototype.makeHtml = function(index){
-        
-        var nHtml = '';
-        
-        nHtml += '<tr>\n';
-        nHtml += '  <td>'+index+'</td>\n';
-        nHtml += '  <td>'+this.userId+'</td>\n';
-        nHtml += '  <td>'+this.userPW+'</td>\n';
-        nHtml += '  <td>'+this.userName+'</td>\n';
-        nHtml += '  <td><a onclick="editMember('+index+')">수정</a> | <a onclick="delMember('+index+')">삭제</a></td>\n';
-        nHtml += '</tr>\n';
-        
-        return nHtml;
-    
-    };
+//    Member.prototype.makeHtml = function(index){
+//        
+//        var nHtml = '';
+//        
+//        nHtml += '<tr>\n';
+//        nHtml += '  <td>'+index+'</td>\n';
+//        nHtml += '  <td>'+this.userId+'</td>\n';
+//        nHtml += '  <td>'+this.userPW+'</td>\n';
+//        nHtml += '  <td>'+this.userName+'</td>\n';
+//        nHtml += '  <td><a onclick="editMember('+index+')">수정</a> | <a onclick="delMember('+index+')">삭제</a></td>\n';
+//        nHtml += '</tr>\n';
+//        
+//        return nHtml;
+//    
+//    };
         
 //    Member.prototype.showData = function(){
 //        alert('아이디 :'+this.userId+' \n 비밀번호 : '+this.userPW+'\n이름 : '+this.userName)
@@ -221,7 +240,6 @@
 //        var str = '<h4>아이디 : '+this.userId+', 비밀번호 : '+this.userPW+', 이름 : '+this.userName+'</h4>';
 //        return str;
 //    }
-    
     
     window.onload = function(){
         var regForm = document.getElementById('regForm');
@@ -265,6 +283,7 @@
             
 //            newMember.showData();
             members.push(newMember);
+            localStorage.setItem('members',JSON.stringify(members));
             
             alert('정상적으로 입력되었습니다.')
             setList();
@@ -275,7 +294,7 @@
 //            폼에 적힌 애들 reset 시키는거
             regForm.reset();
 
-            return false;
+            return true;
         };
         
         editForm.onsubmit = function(){
@@ -331,11 +350,19 @@
         for(var i=0;i<members.length;i++){
             // newHTML += members[i].toString()+'\n';
             //  console.log("members[i]");
-            newHtml += members[i].makeHtml(i);
-        }
+//            newHtml += members[i].makeHtml(i);
         
-            // alert(newHtml);
-        listRow.innerHTML = newHtml;
+            newHtml += '<tr>\n';
+            newHtml += '  <td>'+i+'</td>\n';
+            newHtml += '  <td>'+members[i].userId+'</td>\n';
+            newHtml += '  <td>'+members[i].userPW+'</td>\n';
+            newHtml += '  <td>'+members[i].userName+'</td>\n';
+            newHtml += '  <td><a onclick="editMember('+i+')">수정</a> | <a onclick="delMember('+i+')">삭제</a></td>\n';
+            newHtml += '</tr>\n';
+            }
+
+                // alert(newHtml);
+            listRow.innerHTML = newHtml;
     }
         
     // 폼 수정하는 거.
@@ -360,6 +387,7 @@
         editName.value = members[index].userName;
         eIndex.value = index;
         
+        localStorage.setItem('members',JSON.stringify(members));
         
     };
         
@@ -376,6 +404,7 @@
         if(delChk){
             members.splice(index,1);
             setList();
+            localStorage.setItem('members',JSON.stringify(members));
             alert('삭제를 완료했습니다.');
         } else{
             alert('취소했습니당.');
