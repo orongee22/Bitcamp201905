@@ -12,26 +12,26 @@
             <h1 class="logo"><img src="images/m_naver_logo.png" alt="네이버"></h1>
         </header>
         <div id="main_wrapper">
-            <form action="">
-                <div class="signup_list">
+            <form action="" id="register_form">
+                <div class="reg_id signup_list">
                    <label for="signup_id">아이디</label>
-                   <div class="input_box"><input type="text" id="signup_id"></div>
+                   <div class="regpw input_box"><input type="text" id="signup_id"></div>
+                </div>
+                <div class="reg_pw signup_list">
+                   <label for="signup_pw">비밀번호</label>
+                   <div class="input_box"><input type="password" id="signup_pw"></div>
+                </div>
+                <div class="reg_pw signup_list">
+                   <label for="signup_repw">비밀번호 재확인</label>
+                   <div class="input_box"><input type="password" id="signup_repw"></div>
+                </div>
+                <div class="reg_name signup_list">
+                   <label for="signup_name">이름</label>
+                   <div class="input_box"><input type="text" id="signup_name"></div>
                 </div>
                 <div class="signup_list">
-                   <label for="signup_id">비밀번호</label>
-                   <div class="input_box"><input type="text"><span>@naver.com</span></div>
-                </div>
-                <div class="signup_list">
-                   <label for="signup_id">비밀번호 재확인</label>
-                   <div class="input_box"><input type="text"><span>@naver.com</span></div>
-                </div>
-                <div class="signup_list">
-                   <label for="signup_id">이름</label>
-                   <div class="input_box"><input type="text"></div>
-                </div>
-                <div class="signup_list">
-                   <label for="signup_id">생년월일</label>
-                   <div class="birth_list"><input type="text" placeholder="년(4자)"></div>
+                   <label for="signup_birth">생년월일</label>
+                   <div class="birth_list"><input type="text" id="signup_birth" placeholder="년(4자)"></div>
                    <div class="birth_list">
                         <select name="" id="">
                            <option value="" selected>월</option>
@@ -47,13 +47,13 @@
                         <input type="text" placeholder="일">
                    </div>
                 </div>
-                <div class="signup_list">
+                <div class="reg_gender signup_list">
                    <label for="signup_id">성별</label>
                    <div class="input_box">
-                   <select name="" id="">
-                       <option value="">여자</option>
-                       <option value="">남자</option>
-                   </select>
+                       <select name="" id="">
+                           <option value="">여자</option>
+                           <option value="">남자</option>
+                       </select>
                     </div>
                 </div>
                 <div class="signup_list">

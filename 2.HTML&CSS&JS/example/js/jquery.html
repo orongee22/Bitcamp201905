@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>제이쿼리 테스트</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        
+        
+        
+        // $  = jQuery. 이랑 같음
+        // ready() = onload()
+        // 브라우저에서 document가 모두 로드될 때 실행됨쓰
+        $(document).ready(function(){
+           $('h1').css('background-color','red');
+            $('.italic').css('font-style','italic');
+            var $heading1 = $('h1#title');
+            
+            var $str = $('input[type=text]').val();
+            
+            
+            $heading1.css('background-color','blue');
+            console.log($heading1);
+            
+            var $submit = $('input[type=submit]');
+            
+            $submit.on('click',function(){
+               $('body').css('background-color','red'); 
+            
+            });
+            
+            setTimeout(function(){
+                var $chk = $('input:checkbox:checked').val();
+                console.log($chk);
+            },1000);
+            
+                
+            var str = document.getElementsByTagName('input');
+            console.log(str);
+            
+            $('h1:odd').css('font-size','12px');
+            $('h1:even').css('font-weight','normal');
+            $('h1:first').css('padding-left','50px');
+            $('h1:last').css('background-color','#eaeaea');
+//            var h1 = document.getElementsByTagName('h1');
+            
+            
+            var arr = ["안녕","하","세","요"];
+            
+            $.each(arr,function(){
+                
+            });
+            
+        });
+    </script>
+</head>
+<body>
+    <h1 id="title">하이!</h1>
+    <h1 id="title1">하이!</h1>
+    <h1 id="title2">하이!</h1>
+    <h1 id="title3">하이!</h1>
+    <h1 class="italic">하이!</h1>
+    <input type="text" value="hello">
+    <input type="submit" value="등록">
+    
+    
+    
+    개인정보 동의<input type="checkbox" value="y"><br>
+    성별 <select name="gender">
+           <option value="ns" selected>성별</option>
+            <option value="female">여자</option>
+            <option value="male">남자</option>
+        </select>
+    
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>제이쿼리 배열처리 하는법법법</title>
+    <style>
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        $(document).ready(function(){
+          var imgPath = $('img').attr('src');
+            console.log(imgPath);
+            
+            console.log($('a').css('color'));
+            $('a').css('color','blue');
+            
+            
+            var text2 = $('h1').text('<p>안녕ㅇㅇ여여여여연연여</p>');
+            var text1 = $('h1').html('<p>안녕ㅇㅇ여여여여연연여</p>');
+            
+            
+            console.log(text1+' : '+text2);
+//           $('img').attr('src','../../project/instagram/images/instagram.png').attr('alt','인스타웅앵');
+            
+            setTimeout(function(){
+//                $('img').attr({
+//                    src:'../../project/instagram/images/instagram.png',
+//                    width:function(i){
+//                        return (i+2)*50;
+//                    },
+//                    alt:'insta'
+//                });
+                
+                // css 속성 = attr
+                var chk1 = $('input:checkbox').attr('checked');
+                // 자바스크립트 속성  = prop
+                var chk2 = $('input:checkbox').prop('checked');
+                
+                console.log(chk1 + ' : '+chk2);
+                
+                if(!chk2){
+                    
+                    console.log('체크해주세여');
+                }
+                
+                var href1 = $('a').attr('href');
+                var href2 = $('a').prop('href');
+                console.log(href1 + ' : '+href2);
+                
+            }, 1000);
+        });
+        
+        
+    </script>
+</head>
+<body>
+<input type="checkbox">
+<select name="" id="">
+    <option value=""></option>
+    <option value=""></option>
+    <option value=""></option>
+    <option value=""></option>
+</select>
+<a href="">dkssud</a>
+
+<h1>
+    <p>안녕</p>
+</h1>
+<!--
+<img src="../../project/instagram/images/insta.png" alt="">
+<img src="../../project/instagram/images/insta.png" alt="">
+<img src="../../project/instagram/images/insta.png" alt="">
+<img src="../../project/instagram/images/insta.png" alt="">
+<img src="../../project/instagram/images/insta.png" alt="">
+<img src="../../project/instagram/images/insta.png" alt="">
+<img src="../../project/instagram/images/insta.png" alt="">
+-->
+    
+    
+</body>
+</html>

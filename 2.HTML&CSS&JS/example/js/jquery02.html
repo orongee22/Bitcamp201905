@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>제이쿼리 배열처리 하는법법법</title>
+    <style>
+        .title{
+            height: 50px;            
+            border-radius: 5px;
+            background-color: aqua;
+            color: #fff;
+            font-size: 48px;
+            text-align: center;
+            font-family: '바탕',serif;
+        }
+        div{
+            margin: 20px;
+            border: 1px solid #ddd;
+        }
+        h1{
+            background-color: orange;
+            line-height: 1;
+/*            vertical-align: top;*/
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        $(document).ready(function(){
+//            $('h1:even').css('background-color','black').css('color','#fff');
+//            $('h1').filter(':even').css('background-color','black').css('color','#fff');
+//            
+//            $('h1').filter(function(i){
+//               return i%2 == 1; 
+//            }).css('color','#0f0');
+//            
+//            $('h1').css('background-color','orange').filter(':even').css('color','#fff').filter(':odd').css('color','red');
+//            
+//            
+//            console.log($('h1').className);
+//            
+//            $('h1').css('background-color','aqua').add('h2').css('color','blue').css('float','left');
+//        
+//            $('input').parent().css('border','1px solid #aaa');
+            
+//            var xml = '';
+//            xml += '<friends>';
+//            xml += '    <friend>';
+//            xml += '        <name>네이버</name>';
+//            xml += '        <language>자바</language>';
+//            xml += '    </friend>';
+//            xml += '    <friend>';
+//            xml += '        <name>다음</name>';
+//            xml += '        <language>C#</language>';
+//            xml += '    </friend>';
+//            xml += '    <friend>';
+//            xml += '        <name>페북</name>';
+//            xml += '        <language>C++</language>';
+//            xml += '    </friend>';
+//            xml += '</friends>';
+//            
+//            
+//            
+//            var xmlDoc = $.parseXML(xml);
+//            $(xmlDoc).find('friend').each(function(index){
+//                var name = $(this).find('name').text();
+//                var lang = $(this).find('language').text();
+//                
+//                var output = '';
+//                output += '<div>';
+//                output += '   <h1>';
+//                output += name;
+//                output += '   </h1>';
+//                output += '   <h3>';
+//                output += lang;
+//                output += '   </h3>';
+//                output += '</div>';
+//                
+//                document.body.innerHTML += output;
+////                console.log($(this).find('name'));
+//            });
+            
+            
+            var xml = "<rss version='2.0'><channel><title>RSS 타이틀</title></channel></rss>";
+            var xmlDoc = $.parseXML(xml);
+            var $xml = $(xmlDoc);
+            $title = $xml.find('title');
+            
+            console.log($title.text());
+            console.log($($title).text());
+            
+            $('#someElement').append($title.text());
+            $title.text('XML 타이틀');
+            
+            $('#anotherElement').append($title.text());
+            
+            $('#anotherElement').addClass('title');
+        
+        });
+        
+        
+    </script>
+</head>
+<body>
+<!--
+    <h1 class="h1">H1-01</h1>
+    <h1 class="h1">H1-02</h1>
+    <h1 class="h1">H1-03</h1>
+    <h1 class="h1">H1-04</h1>
+    <h1 class="h1">H1-05</h1>
+    
+    <h2>h2-01</h2>
+    <h2>h2-02</h2>
+    
+    <div><input type="text"></div>
+-->
+   
+   <p id="someElement"></p>
+   <p id="anotherElement"></p>
+    
+    
+</body>
+</html>

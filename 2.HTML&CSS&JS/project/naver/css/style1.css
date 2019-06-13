@@ -40,18 +40,32 @@ header .logo img{
 
 #main_wrapper .input_box{
     padding: 10px 20px 10px 20px;
+    margin-top: 5px;
     height: 30px;
     background-color: #fff;
     border: 1px solid #bbb;
     
 }
 
-#main_wrapper .signup_list input[type=checkbox]:checked{
-    background:url(../images/pc_check_on_l_24.png) no-repeat 0 0;
+#main_wrapper .input_box input,select{
+/*    display: block;*/
+    height: 25px;
+/*    border: none;*/
 }
-
-#main_wrapper .signup_list label[for=all_check]{
-    text-decoration: underline;
+#main_wrapper .input_box input[type=text]{
+    width: 100%;
+}
+#main_wrapper .reg_id .input_box::after{
+    display: inline-block;
+    margin-left: 10px;
+    color: #aaa;
+    content:'@naver.com';
+}
+#main_wrapper #signup_id{
+    width: 350px;
+}
+#main_wrapper .reg_pw{
+    
 }
 
 #main_wrapper .signup_list span{
@@ -59,57 +73,19 @@ header .logo img{
     font-weight: lighter;
     
 }
-#main_wrapper .signup_list span.require{
-    color: #1CBD02;
-}
 
-#main_wrapper .signup_list span.selection{
-    color: #aaa;
-}
-#main_wrapper .signup_list .terms_box{
-    overflow-y: scroll;
-    padding: 10px 15px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    height: 66px;
-    border: 1px solid #bbb;
-    background-color: #fff;
-    color: #656565;
-    font-size: 13px;
-}
-#main_wrapper .signup_list .terms_box p{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    line-height: 1.5;
-    color: #656565
-}
 #main_wrapper .btn_list input{
     padding: 20px; 0;
-    width: 49%;
-/*    box-sizing: content-box;*/
+    width: 100%;
     border: none;
     color: #fff;
     font-size: 20px;
     letter-spacing: 2px
 }
-#main_wrapper .btn_list input[type=button]{
-    background-color: #8e8e8e;
-}
 #main_wrapper .btn_list input[type=submit]{
     background-color: #09A600;
 }
 
-#main_wrapper .group_signup{
-    margin-top: 20px;
-    color: #656565;
-    text-align: center;
-    font-size: 12px;
-    
-}
-#main_wrapper .group_signup a{
-    padding: 10px 0;
-    color: #000;
-}
 
 footer{
     margin: 30px auto;

@@ -6,12 +6,13 @@
     <style>
         .red{color: red}
         .blue{color: blue}
+        .big{font-size: 32px;}
     </style>
 </head>
 <body>
    <div>
       <h1>Cities</h1>
-      <ul>
+      <ul id="parent">
         <li id="one" class="red">Seoul</li>
         <li id="two" class="red">London</li>
         <li id="three" class="red">Newyork</li>
@@ -42,15 +43,57 @@
         
         var elems = document.getElementsByClassName('red');
         
-        console.log(elems);
+//        console.log(elems);
         
-        for(var i = 0;i<elems.length;i++){
-            elems[i].className = 'blue';
-        }
+//        for(var i = 0;i<elems.length;i++){
+//            elems[i].className = 'blue';
+//        }
         
         var elem = document.getElementById('one');
         var parent = elem.parentNode;
         parent.style.backgroundColor = 'yellow';
+        
+        
+        const list = document.querySelector('ul');
+        
+        
+        var first = list.firstElementChild;
+        var last = list.lastElementChild;
+        
+//        console.log(list.childNodes);
+//        console.log(list.hasChildNodes());
+//        console.log(list.children);
+        
+        
+//        console.log(first);
+//        console.log(last);
+        
+//        console.log(first.nextSibling);
+//        console.log(last.previousSibling);
+        
+//        console.log(first.nextElementSibling);
+//        console.log(last.previousElementSibling);
+        
+        console.log(first.firstChild.nodeValue);
+        
+        first.firstChild.nodeValue = 'gdkgkkgkgkgkgk';
+        last.firstChild.nodeValue = '뉴욕뉴욕뉴열';
+        
+        
+//        first.className = 'blue';
+        first.classList.add('big');
+//        first.classList.replace('blue');
+        
+        console.log(first.getAttribute('style'));
+//        console.log(document.nodeType);
+        
+        var newEl = document.createElement('li');
+        var newText = document.createTextNode('베이징');
+        newEl.appendChild(newText);
+        
+        list.appendChild(newEl);
+        
+        
         
     </script>
 </body>
