@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>제이쿼리를 이용한 동적 문서제어</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Noto Serif KR', serif;
+        }
+        div{
+            border: 3px solid #000;
+            border-radius: 5px;
+            width: 150px;
+            padding: 5px;
+        }
+        h1{
+            width: 300px;
+        }
+        .reverse{
+/*            display: inline-block;*/
+            transform: rotate(180deg);
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        $(document).ready(function(){
+            var heading1 = $('<h1>dd</h1>');
+//            $('body').append(heading1);
+            
+//            $('<h2>dd</h2>').appendTo(heading1);
+//            heading1.append('<p>안녕</p>');
+            
+            
+//            $('<img>').attr({
+//                src : 'https://scontent-atl3-1.cdninstagram.com/vp/5c64e5a7b54297aff7eacde38bab5763/5D783C90/t51.2885-15/e35/56971128_133714221036857_3007609423667225389_n.jpg?_nc_ht=scontent-atl3-1.cdninstagram.com',
+//                width : 150
+//            }).appendTo('body');
+            
+            
+            var h1 = '<h1>h1-01</h1>';
+            var h2 = '<h1>h1-02</h1>';
+            var h3 = '<h1>h1-03</h1>';
+            
+//            $('body').prepend(h1,h2,h3);
+            
+            
+            
+//            var arr = [];
+//            arr.push({name: '네이버',url : 'https://naver.com'});
+//            arr.push({name: '다음',url : 'https://daum.net'});
+//            arr.push({name: '인스타',url : 'https://instagram.com'});
+//            
+//            $('div').append(function(index,item){
+//                var output = '';
+//                output += '<a href="'+arr[index].url+'">';
+//                output += arr[index].name;
+//                output += '</a>';
+//                
+//                console.log(item);
+//                
+//                return output;
+//            });
+//            
+//            setInterval(function(){
+//                $('img').first().appendTo('div');
+//            },1000);
+            
+            
+            $('h1').on('click',function(){
+                var wow = '와우';
+                
+                $(this).html(function(index,html){
+                    return html+wow;
+                });
+                
+            });
+            
+//            
+            $('h1').on({
+                'mouseover' : function(){
+                    $(this).css('color','red');
+                    $(this).addClass('reverse');
+//                    $(this).off();
+                },
+                'mouseleave' : function(){
+                    $(this).css('color','black');
+                    $(this).removeClass('reverse');
+                }
+            });
+            
+            
+//            $('div').click(function(){
+//                var name = $('h2',this).text();
+//                var pNum = $('p').text();
+//                alert(name);
+//            });
+            
+            $('a').click(function(e){
+               $('p').css('background-color','black'); 
+               $('p').css('color','white');
+//                e.preventDefault();
+                console.log(e);
+                return false;
+            });
+            
+            
+            $('#e1').click(function(e){
+                $(this).css('background-color','yellow');
+                e.stopPropagation();
+            }); 
+            $('#e2').click(function(e){
+                $(this).css('font-size','14px');
+                e.stopPropagation();
+            }); 
+            $('#e3').click(function(e){
+                $(this).css('font-size','24px');
+                e.stopPropagation();
+            });
+            
+            
+            
+            $('#wrap').on('click', 'h3', function(){
+               var length = $('h3').length;
+                var nHtml = $(this).html();
+                $('#wrap').append('<h3>'+length+'-'+nHtml+'</h3>');
+            });
+            
+            
+            $('body').on('keydown',function(event){
+                var key = event.keyCode;
+                switch(key){
+                    case 65:
+                        $('#a').css('background-color','yellow');
+                        console.log($('#a').text());
+                        break;
+                    case 83:
+                        $('#s').css('background-color','yellow');
+                        console.log($('#s').text());
+                        break;
+                    case 68:
+                        $('#d').css('background-color','yellow');
+                        console.log($('#d').text());
+                        break;
+                }
+            });
+            
+            $('body').on('keyup',function(e){
+               $('#wrap div').removeAttr('background-color');
+            });
+            
+            
+            $('form').submit(function(e){
+                var userId = $('#userId').val();
+                var userPw = $('#userPw').val();
+                
+                if(userId.length<1){
+                    console.log(userId);
+                    $('#userId').focus();
+                    return false;
+                }
+                
+                if(userPw.legnth<1){
+                    console.log('비밀번호 다시쓰셈.')
+                if(userPw.legnth<1){
+                    console.log('ddddd');
+                    
+                }
+                
+            });
+                
+                
+            $('select').change(function(){
+                var v1 = $('option').val();
+                if()
+            });
+                
+                
+        });
+        
+        
+    </script>
+</head>
+<body>
+<!--
+<div></div>
+<div></div>
+<div></div>
+-->
+<!--
+<div style="overflow:hidden;width:150px;height:150px">
+    <img src="https://scontent-atl3-1.cdninstagram.com/vp/5c64e5a7b54297aff7eacde38bab5763/5D783C90/t51.2885-15/e35/56971128_133714221036857_3007609423667225389_n.jpg?_nc_ht=scontent-atl3-1.cdninstagram.com" width="150" height="150" alt="">
+    <img src="http://file3.instiz.net/data/cached_img/upload/2019/01/05/13/bd1299429ce6d0d63ba1b321c66ee5aa.jpg" width="150" height="150" alt="">
+    <img src="http://file3.instiz.net/data/cached_img/upload/2019/05/01/22/8c3d13ef52ac1e6516396869b59b547e.jpg" width="150" height="150" alt="">
+</div>
+-->
+
+
+<h1>dk</h1>
+<h1>dkdkk</h1>
+<h1>ddddd</h1>    
+
+
+<form action="">
+    id <input type="text" id="userId"><br>
+    pw <input type="text" pw="userPw"><br>
+    
+    내용<br>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <h2>150</h2>
+    
+    <br>
+    <input type="submit" value="입력"> 
+    <select name="" id="">
+        <option value="http://naver.com">네이버</option>
+        <option value="http://daum.net">다음</option>
+        <option value="http://facebook.com">페북</option>
+    </select>
+</form>
+
+
+<div id="e1">ㄴㅇㄹㄴㄹㅇ
+    <h2 id="e2">차학연
+        <p id="e3">우와우와우와우와</p>
+    </h2>
+    <p>010-1990-0630</p>
+    <a href="">안녕</a>
+</div>
+<div>
+    <h2>정택운</h2>
+    <p>010-1990-1110</p>
+</div>
+<div>
+    <h2>이재환</h2>
+    <p>010-1992-0406</p>
+</div>
+
+
+
+
+
+<div id="wrap">
+    <div id="a">a</div>
+    <div id="s">s</div>
+    <div id="d">d</div>
+    <div id="f">f</div>
+    <div id="g">g</div>
+</div>
+</body>
+</html>

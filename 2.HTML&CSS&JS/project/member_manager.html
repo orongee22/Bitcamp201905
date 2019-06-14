@@ -196,7 +196,7 @@
     } else{
         // 로컬스토리지에 members가 존재하는 경우임
         members = JSON.parse(localStorage.getItem('members'));
-        console.log(members)
+//        console.log(members)
         setList();
     }
     var editBox = document.getElementById('edit_box');
@@ -210,9 +210,10 @@
     // name = 회원 이름
     
     function Member(id, pw, name){
-        this.userId = id;
+        this.userID = id;
         this.userPW = pw;
         this.userName = name;
+//        console.log(this.userID);
     }
         
     
