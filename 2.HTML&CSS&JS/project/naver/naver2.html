@@ -21,7 +21,7 @@
                    <label for="signup_pw">비밀번호</label>
                    <div class="input_box"><input type="password" id="signup_pw"></div>
                 </div>
-                <div class="reg_pw signup_list">
+                <div class="reg_repw signup_list">
                    <label for="signup_repw">비밀번호 재확인</label>
                    <div class="input_box"><input type="password" id="signup_repw"></div>
                 </div>
@@ -31,7 +31,8 @@
                 </div>
                 <div class="signup_list">
                    <label for="signup_birth">생년월일</label>
-                   <div class="birth_list"><input type="text" id="signup_birth" placeholder="년(4자)"></div>
+                   <div class="input_wrapper">
+                    <div class="birth_list"><input type="text" id="signup_birth" placeholder="년(4자)"></div>
                    <div class="birth_list">
                         <select name="" id="">
                            <option value="" selected>월</option>
@@ -46,6 +47,9 @@
                    <div class="birth_list">
                         <input type="text" placeholder="일">
                    </div>
+                       
+                   </div>
+                   
                 </div>
                 <div class="reg_gender signup_list">
                    <label for="signup_id">성별</label>
@@ -73,12 +77,12 @@
                             <option value="">대한민국 +82</option>
                         </select>
                     </div>
-                   <div class="input_box">
+                   <div class="input_box number">
                         <input type="text" placeholder="전화번호 입력">
-                        <button type="button">인증번호 받기</button>
                     </div>
-                   <div class="input_box">
-                        <input type="text" placeholder="인증번호 입력하세요">
+                    <button type="button" class="number_btn">인증번호 받기</button>
+                   <div class="input_box disable">
+                        <input type="text" placeholder="인증번호 입력하세요" disabled>
                     </div>
                 </div>
                    
