@@ -80,7 +80,7 @@
         
         var checklist = document.getElementsByClassName('check');
         
-        var checkResult = allCheck.checked;
+//        var checkResult = allCheck.checked;
         
         var acceptBox = document.getElementsByClassName('accept_list')[3];
         
@@ -109,10 +109,15 @@
             var termsInfo = document.getElementById('terms_check');
             var personInfo = document.getElementById('per_info_check');
             
-            if(!(personInfo.checked) || !(termsInfo.checked)){
-              acceptBox.innerHTML += '<p style="color: red; font-size: 12px">네이버 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.</p>';
-//                console.log(btnBox);
+            if(!(personInfo.checked && termsInfo.checked)){
+                                
+                if(acceptBox.lastElementChild.nodeName != 'P'){
+//                    
+                    acceptBox.innerHTML += '<p style="color: red; font-size: 12px">네이버 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.</p>';
+                }
                 return false;
+                
+                
             }
         }
         
