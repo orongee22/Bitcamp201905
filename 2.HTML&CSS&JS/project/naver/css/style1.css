@@ -45,6 +45,7 @@ header .logo img{
     margin-bottom: 40px;
 }
 #main_wrapper .signup_list label{
+    display: block;
     font-weight: bold;
 }
 
