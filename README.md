@@ -1,15 +1,5 @@
 # Bitcamp201905
-<<<<<<< .merge_file_a06440
-<<<<<<< HEAD
-비트캠프 수업자료 / 과제 올리기용
+비트캠프 수업자료 / 과제용
 
-
-충돌 만들기 
-=======
-
-수업 내 자료 / 과제물 올릴 예정
->>>>>>> 662aa3e19a28a0bc03359a6b8ec9cf07b567a0f0
-=======
-
-수업 내 자료 / 과제물 올릴 예정
->>>>>>> .merge_file_a02988
+### 1. Java
+### [2. HTML/CSS/JS](https://github.com/orongee22/Bitcamp201905/tree/master/2.HTML%26CSS%26JS/project)
