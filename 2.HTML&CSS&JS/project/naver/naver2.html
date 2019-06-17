@@ -141,19 +141,19 @@
         
         // 정규식 idCheck
         function idVal(t){
-            var userId = document.getElementById('signup_id');
-            var userIdChk = /[a-z0-9]{5,21}/;
+//            var userId = document.getElementById('signup_id');
+            var userIdChk = /^[a-z0-9]{5,21}$/;
             
             
             // 5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.
             // 멋진 아이디네요!
             
             
-            if(!userIdChk.test(userId.value)){
-                userId.parentElement.parentElement.innerHTML += '<p style="color:red;font-size:12px;">5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.</p>'
+            if(!userIdChk.test(t.value)){
+                t.parentElement.parentElement.innerHTML += '<p style="color:red;font-size:12px;">5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.</p>'
                 return false;
             } else{
-                userId.parentElement.parentElement.innerHTML += '<p style="color:green;font-size:12px;">멋진 아이디네요.</p>'
+                t.parentElement.parentElement.innerHTML += '<p style="color:green;font-size:12px;">멋진 아이디네요.</p>'
             }
             
         }
