@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>레이아웃 과제</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="">
     <style>
         *{
             margin: 0;
@@ -38,30 +39,30 @@
             font-size: 14px;
             color: #398a3d;
         }
-        .header-bottom{
+        #nav{
             margin-top: 40px;
             padding: 10px 10px 10px 0;
             border-top: 1px solid #bbb;
             border-bottom: 1px solid #bbb;
         }
-        .header-bottom::after{
+        #nav::after{
             display: block;
             clear: both;
             content:'';
         }
-        .header-bottom #nav{
+        #nav>ul{
             float: left;
         }
-        .header-bottom #nav::after{
+        #nav>ul::after{
             display: block;
             clear: both;
             content: '';
         }
-        .header-bottom li{
+        #nav li{
             float: left;
             line-height: 2;
         }
-        .header-bottom li a{
+        #nav li a{
             display: block;
             padding: 0 15px;
             color: #398a3d;
@@ -70,12 +71,12 @@
             font-weight: bold;
             text-decoration: none;
         }
-        .header-bottom li a:hover{
+        #nav li a:hover{
             text-decoration: underline;
             color: orange;
         }
         
-        .header-bottom .search-box{
+        #nav .search-box{
             position: relative;
             float: right;
             
@@ -188,8 +189,8 @@
                 <h1>레이아웃</h1>
                 <p>소제목</p>
             </div>
-            <div class="header-bottom">
-                <ul id="nav">
+            <div id="nav">
+                <ul>
                     <li><a href="">전체보기</a></li>
                     <li><a href="">리스트1</a></li>
                     <li><a href="">리스트2</a></li>

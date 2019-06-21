@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    a{
+        cursor: pointer;
+    }
+    #main_wrap{
+        margin: 0 auto;
+        padding: 10px;
+        width: 478px;
+        border: 2px solid #000;
+        border-radius: 5px;
+/*        background-color: skyblue;*/
+    } 
+    .title{
+        font-size: 24px;
+        text-transform: uppercase;
+    }
+    hr{
+        margin: 10px 0;
+        border: none;
+        border-top: 2px solid #000;
+        
+    }
+    
+    #regBox table{
+        width: 100%;
+    }
+    
+    #regBox table td{
+        width: 25%;
+    }
+    .input{
+        display: block;
+        margin-top: 5px;
+        padding: 10px 12px;
+        width: 100%;
+        border-color: #000;
+        box-sizing: border-box;
+        font-size: 12px;
+        
+    }
+    input[type="submit"]{
+/*        margin-top: 15px;*/
+        padding: 8px 0 9px;
+        border: none;
+        border-radius: 4px;
+        background-color: black;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .table{
+        margin-top: 5px;
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .table td{
+        padding: 5px;
+        text-align: center;
+        border: 2px solid;
+        font-size: 14px;
+    }
+    #edit_box{
+        display: none;
+        position: absolute;
+        padding: 10px;
+        left: 50%;
+        top: 100px;
+        transform: translate(-50%);
+        border: 2px solid #000;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+    #edit_box label{
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        padding-right: 5px;
+    }
+    
+    #edit_box #cancel::before{
+        display: block;
+        content:'ddd';
+        width:10px;
+        height: 20px;
+        background-color:
+        
+    }
+    #edit_box #cancel{
+/*        overflow: hidden;*/
+/*        position: absolute;*/
+        width: 100%;
+/*        height: 20px;*/
+        border: none;
+/*        background-color: #000;*/
+/*        transform: rotate(45deg);*/
+    }
+    #edit_box #cancel::after{
+        content:'dhdldfksljdfklsjfkl sjdlfksjdklfjsklfjlskjdfklsjfk';
+    }
+    
+    
+</style>
+<body>
+    
+    
+    <div id="main_wrap">
+        <h1 class="title">member manager</h1>
+        <hr>
+        <div id="regBox">
+            <h3>회원 등록</h3>
+            <form id="regForm" type="post">
+                <table>
+                    <tr>
+                        <td>
+<!--                            <label for="userID">아이디(이메일)</label>-->
+                            <input type="text" id="userID" name="userID" class="input" placeholder="아이디 (이메일)">
+                        </td>
+                        <td>
+<!--                            <label for="userPW">비밀번호</label>-->
+                            <input type="password" id="userPW" name="userPW" class="input" placeholder="비밀번호">
+                        </td>
+                        <td>
+<!--                            <label for="userName">이름</label>-->
+                            <input type="text" id="userName" name="userName" class="input" placeholder="이름">
+                        </td>
+                        <td>
+                            <input type="submit" value="등록" class="input">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <hr>
+        <h3>회원 리스트</h3>
+        <div id="memberlist">
+            <table class="table">
+                <tbody id="listRow">
+                <tr>
+                    <td>index</td>
+                    <td>아이디</td>
+                    <td>비밀번호</td>
+                    <td>이름</td>
+                    <td>관리</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="edit_box">
+            <h3>데이터 수정</h3>
+            <hr>
+            <form action="" id="editForm" method="post">
+                <table class="editTable">
+                    <tr>
+                        <td><label for="editID">아이디 (이메일)</label></td>
+                        <td><input type="text" class="input" id="editID"></td>
+
+                    </tr>
+                    <tr>
+                        <td><label for="editPW">비밀번호</label></td>
+                        <td><input type="password" class="input" id="editPW"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="editName">이름</label></td><td><input type="text" class="input" id="editName"><input type="hidden" id="editIndex"></td>
+                    </tr>
+                    <tr><td colspan="2"><input type="submit" value="수정" class="input"><input type="button" value="취소" id="cancel"></td></tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    
+    
+    <script>
+    
+    // 저장소의 변수를 선언!
+    // localStorage에서 데이터 유무에 따라 배열을 선언할거임.....
+//    var members = [];
+    var members;
+    
+    // 로컬스토리지에서 받아올 아이템이 없다면 null값이 나오니까 false값을 반환할거임!
+    // console.log(localStorage.getItem) // 현재 아무 값이 없다면 null!
+    if(!localStorage.getItem('members')){
+        members = [];
+        //localStorage에 배열을 저장!
+        localStorage.setItem('members',JSON.stringify(members));
+    } else{
+        // 로컬스토리지에 members가 존재하는 경우임
+        members = JSON.parse(localStorage.getItem('members'));
+//        console.log(members)
+        setList();
+    }
+    var editBox = document.getElementById('edit_box');
+
+        
+    // data 저장 -> 자바스크립트 객체로 생성자 함수로 받아서 저장함. 
+    
+    // 1. 회원 데이터 저장 목적으로 하는 생성자 함수 정의!
+    // id = 회원의 아이디, 이메일 주소.
+    // pw  = 회원 비밀번호
+    // name = 회원 이름
+    
+    function Member(id, pw, name){
+        this.userID = id;
+        this.userPW = pw;
+        this.userName = name;
+//        console.log(this.userID);
+    }
+        
+    
+    // input으로 데이터를 받으면 그 사용자 데이터를 가지고 HTML 텍스트를 새로 생성해서 뿌려줄거임. 그 생성할 메소드를 정의.
+//    Member.prototype.makeHtml = function(index){
+//        
+//        var nHtml = '';
+//        
+//        nHtml += '<tr>\n';
+//        nHtml += '  <td>'+index+'</td>\n';
+//        nHtml += '  <td>'+this.userId+'</td>\n';
+//        nHtml += '  <td>'+this.userPW+'</td>\n';
+//        nHtml += '  <td>'+this.userName+'</td>\n';
+//        nHtml += '  <td><a onclick="editMember('+index+')">수정</a> | <a onclick="delMember('+index+')">삭제</a></td>\n';
+//        nHtml += '</tr>\n';
+//        
+//        return nHtml;
+//    
+//    };
+        
+//    Member.prototype.showData = function(){
+//        alert('아이디 :'+this.userId+' \n 비밀번호 : '+this.userPW+'\n이름 : '+this.userName)
+//    }
+//    Member.prototype.toString = function(){
+//        var str = '<h4>아이디 : '+this.userId+', 비밀번호 : '+this.userPW+', 이름 : '+this.userName+'</h4>';
+//        return str;
+//    }
+    
+    window.onload = function(){
+        var regForm = document.getElementById('regForm');
+        var listRow = document.getElementById('listRow');
+        var editForm = document.getElementById('editForm');
+        var cBtn = document.getElementById('cancel');
+        
+        cBtn.onclick = function(){
+            editBox.style.display = 'none';
+        }
+        
+        
+        // 폼이 제출될 때 함수 실행.
+        // input의 value값을 받아 HTML 요소도 만들어서 제공할 것임.
+        regForm.onsubmit = function(){
+            var uId = document.getElementById('userID');
+            var uPw = document.getElementById('userPW');
+            var uName = document.getElementById('userName');
+            
+            
+            // 입력값이 없으면 경고창 띄우기.
+            if(uId.value.length<1){
+                alert('아이디를 입력해주세요.');
+                uId.focus();
+                return false;
+            }
+            
+            if(uPw.value.length<1){
+                alert('비밀번호를 입력해주세요.');
+                uPw.focus();
+                return false;
+            }
+            if(uName.value.length<1){
+                alert('이름을 입력해주세요.');
+                uName.focus();
+                return false;
+            }
+            
+            
+            var newMember = new Member(uId.value,uPw.value,uName.value);
+            
+//            newMember.showData();
+            members.push(newMember);
+            localStorage.setItem('members',JSON.stringify(members));
+            
+            alert('정상적으로 입력되었습니다.')
+            setList();
+//            
+//            uId.value = '';
+//            uPw.value = '';
+//            uName.value = '';
+//            폼에 적힌 애들 reset 시키는거
+            regForm.reset();
+
+            return true;
+        };
+        
+        editForm.onsubmit = function(){
+//            console.log(members);
+            var editId = document.getElementById('editID');
+            var editPw = document.getElementById('editPW');
+            var editName = document.getElementById('editName');
+            var editIndex = document.getElementById('editIndex');
+            
+            
+
+        // 입력값이 없으면 경고창 띄우기.
+            if(editId.value.length<1){
+                alert('수정할 아이디를 입력해주세요.');
+                editId.focus();
+                return false;
+            }
+            
+            if(editPw.value.length<1){
+                alert('수정할 비밀번호를 입력해주세요.');
+                editPw.focus();
+                return false;
+            }
+            if(editName.value.length<1){
+                alert('수정할 이름을 입력해주세요.');
+                editName.focus();
+                return false;
+            }
+            
+            members[editIndex.value].userId = editId.value;
+            members[editIndex.value].userPW = editPw.value;
+            members[editIndex.value].userName = editName.value;
+                
+            console.log(members[editIndex.value]);
+//            members[editIndex.value] = new Member(editId.value,editPw.value,editName.value);
+            setList();
+            
+            editForm.reset();
+            alert('정상적으로 수정되었습니다.')
+            
+            editBox.style.display = 'none';
+            return false;
+        };
+        
+    };
+        
+        
+        
+    // members 배열의 요소 하나씩 출력하기
+    function setList(){
+        var newHtml = '<tr>\n   <td>index</td>\n<td>아이디</td>\n<td>비밀번호</td>\n<td>이름</td>\n<td>관리</td>\n</tr>';
+        
+        for(var i=0;i<members.length;i++){
+            // newHTML += members[i].toString()+'\n';
+            //  console.log("members[i]");
+//            newHtml += members[i].makeHtml(i);
+        
+            newHtml += '<tr>\n';
+            newHtml += '  <td>'+i+'</td>\n';
+            newHtml += '  <td>'+members[i].userId+'</td>\n';
+            newHtml += '  <td>'+members[i].userPW+'</td>\n';
+            newHtml += '  <td>'+members[i].userName+'</td>\n';
+            newHtml += '  <td><a onclick="editMember('+i+')">수정</a> | <a onclick="delMember('+i+')">삭제</a></td>\n';
+            newHtml += '</tr>\n';
+            }
+
+                // alert(newHtml);
+            listRow.innerHTML = newHtml;
+    }
+        
+    // 폼 수정하는 거.
+    // 수정 버튼 누르면
+    // 데이터 수정 박스 display: none / display: block 시켜라
+    // 해당 인덱스 찾아서 수정한 후 수정이 완료 되면 다시 setList() 해서 화면에 갱신된 리스트 뿌리기
+    function editMember(index){
+        alert(index+'번 요소 수정');
+        
+        
+        editBox.style.display = 'block';
+        
+        // 수정 박스 내 아이디,비밀번호,이름 input요소 캐스팅함.
+        var editId = document.getElementById('editID');
+        var editPw = document.getElementById('editPW');
+        var editName = document.getElementById('editName');
+        var eIndex = document.getElementById('editIndex');
+        
+        
+        editId.value = members[index].userId;
+        editPw.value = members[index].userPW;
+        editName.value = members[index].userName;
+        eIndex.value = index;
+        
+        localStorage.setItem('members',JSON.stringify(members));
+        
+    };
+        
+        
+    // confirm을 사용해서 확인 버튼을 눌러서 ㅇㅋ??
+        // 배열에서 해당하는 undex의 요소를 삭제한다.
+        // 특정 요소 삭제 후 -> 새로운 배열 반환하는 메소드가 있을것이니..ㅎ...찾아봐... 화이팅
+        // 배열이 반환되었다면 setList()로 다시 화면에 뿌랴주기
+        
+    function delMember(index){
+//        alert(index+'번 요소 삭제');
+        var delChk = confirm("삭제하시겠습니까??????????");
+        
+        if(delChk){
+            members.splice(index,1);
+            setList();
+            localStorage.setItem('members',JSON.stringify(members));
+            alert('삭제를 완료했습니다.');
+        } else{
+            alert('취소했습니당.');
+        }
+        
+    }
+    
+    // 로컬스토리지 이용해서 브라우저에 데이터 저장하는 법도 알아보긔그기ㅡ기ㅡ기ㅣ기기ㅠㅠㅠㅠ
+    // 로컬스토리지에 올릴 땐 해당 객체를 stringify()로 문자열로 변환후 올려!
+    // 그리고 저장된 문자열을 다시 객체로 가져올땐 .parse() 메소드로 변환한 후 화면에 뿌려!
+        
+        
+        
+    </script>
+</body>
+</html>
