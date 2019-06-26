@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <%@page import="member.MemberInfo"%>
+=======
+>>>>>>> gh-pages
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
@@ -14,6 +17,7 @@
 </head>
 <body>
 <% 
+<<<<<<< HEAD
 	// request.setCharacterEncoding("utf-8");
 	String userId = request.getParameter("uId"); 
 	String userPw = request.getParameter("uPw");
@@ -47,6 +51,19 @@
 	}
 %>
 <%--
+=======
+	request.setCharacterEncoding("utf-8");
+	String userId = request.getParameter("uId"); 
+	String userPw = request.getParameter("uPw");
+	
+	
+	if(userId != null && userPw != null && userId.equals("admin") && userPw.equals("1111")){
+		// 해당 아이디와 비밀번호와 일치하면 루트 페이지로 가게 하는 거임.
+		response.sendRedirect(request.getContextPath());
+	}
+	
+%>
+>>>>>>> gh-pages
 <!-- 동적인 걸 원한다면 action을 사용 / 정적인 걸 원한다면 include사용  -->
 <!-- header 시작 -->
 <%@ include file="../frame/header.jsp" %>
@@ -69,7 +86,11 @@
 			</tr>
 			<tr>
 				<td></td>
+<<<<<<< HEAD
 				<td><input type="submit" value="로그인"></td>
+=======
+				<td>아이디 저장<input type="checkbox"><input type="submit" value="로그인"></td>
+>>>>>>> gh-pages
 			</tr>
 		</table>
 	</div>
@@ -89,4 +110,8 @@
 
 
 </body>
+<<<<<<< HEAD
 </html> --%>
+=======
+</html>
+>>>>>>> gh-pages

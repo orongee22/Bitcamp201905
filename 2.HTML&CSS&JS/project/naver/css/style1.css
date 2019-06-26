@@ -45,6 +45,7 @@ header .logo img{
     margin-bottom: 40px;
 }
 #main_wrapper .signup_list label{
+    display: block;
     font-weight: bold;
 }
 
@@ -167,6 +168,9 @@ header .logo img{
     background-color: #09A600;
 }
 
+#main_wrapper .signup_list p{
+    font-size: 12px;
+}
 
 footer{
     margin: 30px auto;

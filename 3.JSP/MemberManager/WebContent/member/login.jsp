@@ -27,6 +27,7 @@
 		<table>
 			<tr>
 				<td>아이디</td>
+<<<<<<< HEAD
 				<td><input type="text" name="uId" required></td>
 			</tr>
 			<tr>
@@ -36,6 +37,17 @@
 			<tr>
 				<td></td>
 				<td><input type="submit" value="로그인"></td>
+=======
+				<td><input type="text" name="uId"></td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="password" name="uPw"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>아이디 저장<input type="checkbox"><input type="submit" value="로그인"></td>
+>>>>>>> gh-pages
 			</tr>
 		</table>
 	</form>

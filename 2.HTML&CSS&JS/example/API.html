@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form API에 대해 알아보자</title>
+    <input type="text" autocomplete>
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.js"></script>
+  <script>
+    $(document).ready(function(){
+        $('#range').change(function(){
+           console.log($(this).val()); 
+        });
+        
+        
+        $('#color').change(function(){
+           $('#color+span').html($(this).val()); 
+            $('body').css('background-color',$(this).val());
+        });
+    });
+    </script>
+</head>
+<body>
+    <form action="">
+    이름<input type="text" name="keyword" autocomplete="off"><br>
+    이메일<input type="email" name="email" formnovalidate><br>
+    나이<input type="number" name="age"><br>
+    URL<input type="url" name="url"><br>
+    번호<input type="tel" name="tel"><br>
+    번호<input type="tel" name="tel"><br>
+    날짜<input type="date" id="date" name="date" style="width:100%"><br>
+    color<input type="color" id="color" name="color"><span>d</span>
+    우편번호<input type="text" name="zip" id="zip" pattern="[0-9 ㄱ-ㅎ a-z A-Z]{1}">
+    
+    <input type="submit">
+    </form>
+</body>
+</html>

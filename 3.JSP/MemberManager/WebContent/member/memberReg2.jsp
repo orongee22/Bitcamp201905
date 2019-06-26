@@ -8,6 +8,7 @@
 <jsp:setProperty property="*" name="memberInfo"/>
 
 <%@ page trimDirectiveWhitespaces="true" %>
+<<<<<<< HEAD
 <%
 	request.setCharacterEncoding("utf-8");
 	if(memberInfo.getuPhoto() == null){
@@ -17,6 +18,8 @@
 	// 내장객체 안으로 회원정보 객체를 저장함. = application에!
 	application.setAttribute(memberInfo.getuId(),memberInfo);
 %>
+=======
+>>>>>>> gh-pages
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +32,10 @@
 </head>
 <body>
 <% 
+<<<<<<< HEAD
+=======
+	request.setCharacterEncoding("utf-8");
+>>>>>>> gh-pages
 	String userId = request.getParameter("uId"); 
 	String userPw = request.getParameter("uPw");
 	String userName = request.getParameter("uName");
@@ -43,7 +50,11 @@
 <!-- navigation 끝 -->
 <!-- contents 시작 -->
 <div id="contents">
+<<<<<<< HEAD
 	<h1>회원가입 페이지 입니다.</h1>
+=======
+	<h1>회원가입 요청 정보 페이지 입니다.</h1>
+>>>>>>> gh-pages
 	<hr>
 	<%= memberInfo.makeHtmlDiv() %>	
 <!-- contents 끝 -->
