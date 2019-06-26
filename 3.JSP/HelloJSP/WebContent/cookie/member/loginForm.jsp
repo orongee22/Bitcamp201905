@@ -28,14 +28,10 @@
 	<a href="loginCheck.jsp">loginCheck</a>
 	<script>
 		$(document).ready(function(){
-			var isChk = $("#chk").val();
+			
 			
 			console.log(isChk);
 			
-			console.log("dnddod");
-			if(!isChk){
-				alert("아이디를 저장하시겠습니까?");
-			}
 		});
 		
 	</script>

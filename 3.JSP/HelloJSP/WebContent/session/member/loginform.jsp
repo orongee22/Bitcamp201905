@@ -12,12 +12,12 @@
 </style>
 </head>
 <body>
-<!-- invalidate() 현재 세션을 종료시키는 메소드. -->
-<% request.getSession(false).invalidate(); %>
-<h1>세션을 종료했습니다.</h1>
-
-	<a href="viewSession.jsp">viewSession1</a>
-	<a href="../response/viewSession.jsp">response/viewSession1</a>
-"
+	<h1>로그인</h1>
+	<hr>
+	<form action="login.jsp" method="post">
+		ID : <input type="text" name="uId"><br>
+		PW : <input type="text" name="uPw"><br>
+		<input type="submit" value="로그인">
+	</form>
 </body>
 </html>

@@ -36,7 +36,6 @@
 
 	<!-- 에러페이지 지정 -->
 	<!-- http 코드로 지정함 -->
-	<!-- 
 	<error-page>
 		<error-code>404</error-code>
 		<location>/errorpage/vieError404.jsp</location>
@@ -57,8 +56,6 @@
 		<exception-type>java.lang.NullPointerException</exception-type>
 		<location>/errorpage/viewErrorNull.jsp</location>
 	</error-page>
-
-	-->
 
 	<!-- 자동 코드 추가 설정 -->
 	<jsp-config>

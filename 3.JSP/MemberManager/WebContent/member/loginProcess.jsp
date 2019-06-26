@@ -46,7 +46,7 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="submit" value="로그인"></td>
+				<td>아이디 저장<input type="checkbox"><input type="submit" value="로그인"></td>
 			</tr>
 		</table>
 	</div>

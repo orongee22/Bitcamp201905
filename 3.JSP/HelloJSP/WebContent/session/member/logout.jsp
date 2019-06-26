@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
+<% 
+	// 현재 세션 삭제하기.
+	session.invalidate();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,12 +16,10 @@
 </style>
 </head>
 <body>
-<!-- invalidate() 현재 세션을 종료시키는 메소드. -->
-<% request.getSession(false).invalidate(); %>
-<h1>세션을 종료했습니다.</h1>
-
-	<a href="viewSession.jsp">viewSession1</a>
-	<a href="../response/viewSession.jsp">response/viewSession1</a>
-"
+	<h1>정상적으로 로그아웃 되었습니다.</h1>
+	<a href="loginform.jsp">로그인 창으로 이동</a>
+	<script>
+		
+	</script>
 </body>
 </html>
