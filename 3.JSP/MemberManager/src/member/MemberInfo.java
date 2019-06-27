@@ -90,7 +90,6 @@ public class MemberInfo {
 			
 			return str;
 		}
-<<<<<<< HEAD
 		
 		//MemberInfo 객체에서 LoginInfo 객체 생성해서 반환해줌.
 		public LoginInfo toLoginInfo() {
@@ -98,7 +97,5 @@ public class MemberInfo {
 			return new LoginInfo(uId, uName, uPhoto);
 			
 		}
-=======
->>>>>>> gh-pages
 	
 }

@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 <%@page import="member.MemberInfo"%>
-=======
->>>>>>> gh-pages
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
@@ -17,7 +14,6 @@
 </head>
 <body>
 <% 
-<<<<<<< HEAD
 	// request.setCharacterEncoding("utf-8");
 	String userId = request.getParameter("uId"); 
 	String userPw = request.getParameter("uPw");
@@ -112,6 +108,4 @@
 </body>
 <<<<<<< HEAD
 </html> --%>
-=======
 </html>
->>>>>>> gh-pages

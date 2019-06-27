@@ -21,36 +21,28 @@
 <!-- navigation 끝 -->
 <!-- contents 시작 -->
 <div id="contents">
-	<h1>회원가입 페이지 입니다.</h1>
+	<h1>로그인 페이지입니다.</h1>
 	<hr>
-		<form action="memberReg2.jsp" method="post">
-			<table>
-				<tr>
-					<td>아이디(이메일)</td>
-					<td><input type="email" name="uId" required></td>
-				</tr>
-				<tr>
-					<td>비밀번호</td>
-					<td><input type="password" name="uPw" required></td>
-				</tr>
-				<tr>
-					<td>이름</td>
-					<td><input type="text" name="uName" required></td>
-				</tr>
-				<tr>
-					<td>사진</td>
-					<td><input type="file" name="uPhoto"></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="submit" value="로그인"></td>
-				</tr>
-			</table>
-		</form>
-	</div>
+	<form action="loginProcess.jsp" method="post">
+		<table>
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" name="uId"></td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="password" name="uPw"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>아이디 저장<input type="checkbox"><input type="submit" value="로그인"></td>
+			</tr>
+		</table>
+	</form>
+</div>
 <!-- contents 끝 -->
 <!-- footer 시작 -->
-<%@ include file="../frame/footer.jsp" %>
+<%@ include file="../frame2/footer.jsp" %>
 <!-- footer 끝 -->
 </body>
 </html>

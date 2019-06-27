@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
->>>>>>> gh-pages
 <!--
   Licensed to the Apache Software Foundation (ASF) under one or more
   contributor license agreements.  See the NOTICE file distributed with
@@ -153,11 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-<<<<<<< HEAD
-      <Context docBase="HelloJSP" path="/apps" reloadable="true" source="org.eclipse.jst.jee.server:HelloJSP"/><Context docBase="MemberManager" path="/mm" reloadable="true" source="org.eclipse.jst.jee.server:MemberManager"/></Host>
-=======
-      <Context docBase="ExampleJSP" path="/ExampleJSP" reloadable="true" source="org.eclipse.jst.jee.server:ExampleJSP"/><Context docBase="HelloJSP" path="/apps" reloadable="true" source="org.eclipse.jst.jee.server:HelloJSP"/><Context docBase="MemberManager" path="/mm" reloadable="true" source="org.eclipse.jst.jee.server:MemberManager"/></Host>
->>>>>>> gh-pages
+      <Context docBase="MemberManager" path="/mm" reloadable="true" source="org.eclipse.jst.jee.server:MemberManager"/><Context docBase="ExampleJSP" path="/ExampleJSP" reloadable="true" source="org.eclipse.jst.jee.server:ExampleJSP"/><Context docBase="HelloJSP" path="/apps" reloadable="true" source="org.eclipse.jst.jee.server:HelloJSP"/></Host>
     </Engine>
   </Service>
 </Server>
