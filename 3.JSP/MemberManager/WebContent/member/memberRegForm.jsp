@@ -23,7 +23,15 @@
 <div id="contents">
 	<h1>회원가입 페이지 입니다.</h1>
 	<hr>
+<<<<<<< HEAD
 		<form action="memberReg.jsp" method="post">
+=======
+<<<<<<< HEAD
+		<form action="memberReg2.jsp" method="post">
+=======
+		<form action="memberReg.jsp" method="post">
+>>>>>>> gh-pages
+>>>>>>> parent of 6b576f2... el 예제파일 업로드
 			<table>
 				<tr>
 					<td>아이디(이메일)</td>
