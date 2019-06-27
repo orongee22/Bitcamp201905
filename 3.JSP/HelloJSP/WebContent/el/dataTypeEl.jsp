@@ -12,15 +12,12 @@
 </style>
 </head>
 <body>
-	<h1>
-		<%
-			
-			// HttpServlet으로 형변환을 해줘야함...???ㅠㅠ
-			HttpServletRequest req = (HttpServletRequest)pageContext.getRequest();
-		%>
-		<!-- 같은 객체를 참조하고 있는 지 알아볼 고임! -->
-		<%= request == req	%>
-		<% pageContext.getOut.println("같은 객체 참조중."); %>
-	</h1>
+
+boolean : ${true} / ${false}<br>
+정수 & 실수 : ${256} / ${2.113234}<br> 
+문자열 : ${'문자열1'} / ${"문자열2"}<br>
+<a href="${'www.naver.com/'}"></a>
+
+null : ${null}
 </body>
 </html>

@@ -1,12 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<!-- usebean 액션 테그를 이용한 객체 생성 ( 찾고 -> 없을 때 생성 )  -->
-<jsp:useBean id="memberInfo" class="member.MemberInfo"/>
-
-<!-- 생성된 객체에 데이터 바인딩 : 폼의 name 속성과 beans 클래스의 변수 이름이 동일해야한다 !!!!!  -->
-<jsp:setProperty property="*" name="memberInfo"/>
-
 <%@ page trimDirectiveWhitespaces="true" %>
 <!DOCTYPE html>
 <html>
@@ -19,13 +12,6 @@
 
 </head>
 <body>
-<% 
-	request.setCharacterEncoding("utf-8");
-	String userId = request.getParameter("uId"); 
-	String userPw = request.getParameter("uPw");
-	String userName = request.getParameter("uName");
-	
-%>
 <!-- 동적인 걸 원한다면 action을 사용 / 정적인 걸 원한다면 include사용  -->
 <!-- header 시작 -->
 <%@ include file="../frame/header.jsp" %>
@@ -35,12 +21,28 @@
 <!-- navigation 끝 -->
 <!-- contents 시작 -->
 <div id="contents">
-	<h1>회원가입 요청 정보 페이지 입니다.</h1>
+	<h1>로그인 페이지입니다.</h1>
 	<hr>
-	<%= memberInfo.makeHtmlDiv() %>	
+	<form action="loginProcess.jsp" method="post">
+		<table>
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" name="uId"></td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="password" name="uPw"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>아이디 저장<input type="checkbox"><input type="submit" value="로그인"></td>
+			</tr>
+		</table>
+	</form>
+</div>
 <!-- contents 끝 -->
 <!-- footer 시작 -->
-<%@ include file="../frame/footer.jsp" %>
+<%@ include file="../frame2/footer.jsp" %>
 <!-- footer 끝 -->
 </body>
 </html>
