@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<%@page import="member.MemberInfo"%>
+=======
+>>>>>>> gh-pages
+>>>>>>> parent of 6b576f2... el 예제파일 업로드
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
@@ -13,6 +20,44 @@
 </head>
 <body>
 <% 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	// request.setCharacterEncoding("utf-8");
+	String userId = request.getParameter("uId"); 
+	String userPw = request.getParameter("uPw");
+	
+	// boolean loginChk = false;
+	
+	
+	/* if(userId != null && userPw != null && userId.equals("admin") && userPw.equals("1111")){
+		// 해당 아이디와 비밀번호와 일치하면 루트 페이지로 가게 하는 거임.
+		response.sendRedirect(request.getContextPath());
+	} */
+	
+	// 1. 사용자가 로그인 폼에서 입력한 id로 회원 정보를 검색해서 비교를 할 것임.
+	// 2. 있다면? 해당 객체를 받아서 그 안에 pw와 또 비교. -> 또 같다면? 로그인 : 세션영역에 회원 정보를 저장할고임.
+	//	     								     없다면? 오류메시지 전달 -> 로그인 페이지로 이동시킴
+	// 3. 존재하지 않는 아이디? 오류메시지 전달-> 로그인 페이지로 이동시킴.
+			
+	MemberInfo memberInfo = (MemberInfo)application.getAttribute(userId);
+	
+	if(memberInfo !=null && memberInfo.getuPw().equals(userPw)){
+		session.setAttribute("loginInfo",memberInfo.toLoginInfo());
+		
+		response.sendRedirect(request.getContextPath());
+	} else {
+%>
+<script>
+	alert("아이디 혹은 비밀번호가 틀립니다.\다시 로그인 해주세요.");
+	history.go(-1);
+</script>
+<%
+	}
+%>
+<%--
+=======
+>>>>>>> parent of 6b576f2... el 예제파일 업로드
 	request.setCharacterEncoding("utf-8");
 	String userId = request.getParameter("uId"); 
 	String userPw = request.getParameter("uPw");
@@ -66,4 +111,12 @@
 
 
 </body>
+<<<<<<< HEAD
 </html>
+=======
+<<<<<<< HEAD
+</html> --%>
+=======
+</html>
+>>>>>>> gh-pages
+>>>>>>> parent of 6b576f2... el 예제파일 업로드
