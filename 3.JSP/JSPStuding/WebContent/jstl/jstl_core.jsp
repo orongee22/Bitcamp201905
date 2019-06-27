@@ -1,10 +1,11 @@
+    
 <%@page import="java.util.ArrayList"%>
 <%@page import="member.Member"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page trimDirectiveWhitespaces="true" %>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page trimDirectiveWhitespaces="true" %>
 <%
 	List<Member> list = new ArrayList<Member>();
 
@@ -18,7 +19,7 @@
 	list.add(new Member("guuguu7","구구7","010-9999-9999"));
 	list.add(new Member("guuguu8","구구8","010-9999-9999"));
 	
-	application.setAttribute("list", "list");
+	application.setAttribute("members", "list");
 	
 %>
 <!DOCTYPE html>
@@ -29,23 +30,63 @@
 <script
   src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <style>
+span.nopnum {
+		color : red;
+	}
 </style>
 </head>
 <body>
+		<c:set value="test" var="msg" />
+	msg : ${msg} <br>
+	
+	<c:if test="${msg eq 'test'}">
+		
+		msg의 문자열은 test와 같습니다.
+		
+	</c:if>
+	
+	<c:if test="${msg eq 'test'}" var="condition" />
+	
+	<br>
+	결과값은 : ${condition}
+
+
+	<hr>
+
 	<h3>
-		<c:out value="${param.core}" escapeXml="false">
-			<span style="color:red">BBB</span>
+		${param.code} <br>
+		<c:out value="${param.code}" escapeXml="false">
+			<span style="color: red">b</span>
 		</c:out>
 	</h3>
-	<hr>
+	<hr>	
 	<table>
 		<tr>
-			<td>이름</td><td>아이디</td><td>번호</td>
+			<td>index/count</td>
+			<td>이름</td>
+			<td>아이디</td>
+			<td>전화번호</td>
 		</tr>
-		<c:forEach items="${members}" var="member">
-		<!-- var="member"는 member객체를 가리킴. -->
-			<tr></tr>
+		
+		<c:forEach items="${members}" var="member" varStatus="status" begin="0" end="5">
+		<tr>
+			<td>${status.index} / ${status.count} </td>
+			<td>${member.name}</td>
+			<td>${member.id}</td>
+			<td>
+				
+				<c:out value="${member.pNum}" escapeXml="false">
+					<span class="nopnum">전화번호 없음</span>
+				</c:out>
+				
+			</td>
+		</tr>
 		</c:forEach>
+		
+		<c:forTokens items="홍길동,010-8888-6666,서울" delims="," var="sel">
+			${sel} <br>			
+		</c:forTokens>
 	</table>
+
 </body>
 </html>

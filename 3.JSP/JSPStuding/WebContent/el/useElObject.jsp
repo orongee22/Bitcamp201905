@@ -7,6 +7,7 @@
 	request.setAttribute("name01", "requestData");
 	session.setAttribute("name02", "sessionData");
 	application.setAttribute("name03","applicationData");
+	pageContext.setAttribute("name04","pageData");
 %>
 <!DOCTYPE html>
 <html>
@@ -24,7 +25,7 @@
 		request 영역 : ${requestScope.name01}<br>
 		session 영역 : ${sessionScope.name02}<br>
 		application 영역 : ${applicationScope.name03}<br><br>
-		
+		page 영역 : ${pageScope.name04}<br>
 		<%-- member 객체 참조 1 - id:${requestScope.member} --%>
 		<!-- Map.get("member") 랑 똑같은 형식인거임. -->
 		member 객체 참조 1 - id:${requestScope.member.id}<br>
