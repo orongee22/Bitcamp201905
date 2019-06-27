@@ -27,11 +27,7 @@
 		<table>
 			<tr>
 				<td>아이디</td>
-				<td><input type="text" name="uId" required></td>
-			</tr>
-			<tr>
-				<td>비밀번호</td>
-				<td><input type="password" name="uPw" required></td>
+				<td><input type="text" name="uId"></td>
 			</tr>
 			<tr>
 				<td>비밀번호</td>
