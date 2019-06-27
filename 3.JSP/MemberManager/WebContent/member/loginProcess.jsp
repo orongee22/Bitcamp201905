@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 <%@page import="member.MemberInfo"%>
-=======
->>>>>>> gh-pages
->>>>>>> parent of 6b576f2... el 예제파일 업로드
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
@@ -20,9 +14,6 @@
 </head>
 <body>
 <% 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 	// request.setCharacterEncoding("utf-8");
 	String userId = request.getParameter("uId"); 
 	String userPw = request.getParameter("uPw");
@@ -57,7 +48,6 @@
 %>
 <%--
 =======
->>>>>>> parent of 6b576f2... el 예제파일 업로드
 	request.setCharacterEncoding("utf-8");
 	String userId = request.getParameter("uId"); 
 	String userPw = request.getParameter("uPw");
@@ -69,6 +59,7 @@
 	}
 	
 %>
+>>>>>>> gh-pages
 <!-- 동적인 걸 원한다면 action을 사용 / 정적인 걸 원한다면 include사용  -->
 <!-- header 시작 -->
 <%@ include file="../frame/header.jsp" %>
@@ -91,7 +82,11 @@
 			</tr>
 			<tr>
 				<td></td>
+<<<<<<< HEAD
+				<td><input type="submit" value="로그인"></td>
+=======
 				<td>아이디 저장<input type="checkbox"><input type="submit" value="로그인"></td>
+>>>>>>> gh-pages
 			</tr>
 		</table>
 	</div>
@@ -99,24 +94,11 @@
 <!-- footer 시작 -->
 <%@ include file="../frame/footer.jsp" %>
 <!-- footer 끝 -->
-
 <jsp:useBean id="loginInfo" class="member.MemberInfo" scope="session"/>
 <jsp:setProperty property="uId" name="loginInfo" value="<%= userId %>"/>
 <%
 	loginInfo.setuPw(userPw);
 %>
-
-
-
-
-
 </body>
 <<<<<<< HEAD
-</html>
-=======
-<<<<<<< HEAD
 </html> --%>
-=======
-</html>
->>>>>>> gh-pages
->>>>>>> parent of 6b576f2... el 예제파일 업로드
