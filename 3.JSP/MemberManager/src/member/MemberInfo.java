@@ -94,7 +94,7 @@ public class MemberInfo {
 		//MemberInfo 객체에서 LoginInfo 객체 생성해서 반환해줌.
 		public LoginInfo toLoginInfo() {
 			
-			return new LoginInfo(uId, uName, uPhoto);
+			return new LoginInfo(uId, uName, uPhoto, regDate);
 			
 		}
 	

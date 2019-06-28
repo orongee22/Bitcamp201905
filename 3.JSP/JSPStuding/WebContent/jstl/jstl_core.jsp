@@ -36,7 +36,17 @@ span.nopnum {
 </style>
 </head>
 <body>
-		<c:set value="test" var="msg" />
+
+	<c:url value="/member/list.jsp" var="uri_mList">
+		<c:param name="pno">5</c:param>
+	</c:url>
+	
+	<h3>단순 출력 : ${uri_mList}</h3>
+	<h3>링크 연동 1: <a href="${uri_mList}">회원 리스트</a></h3>
+	<h3>링크 연동2:<a href="<c:uri value='/member/list.jsp'">회원리스트2</a></h3>
+	
+	
+	<c:set value="test" var="msg" />
 	msg : ${msg} <br>
 	
 	<c:if test="${msg eq 'test'}">

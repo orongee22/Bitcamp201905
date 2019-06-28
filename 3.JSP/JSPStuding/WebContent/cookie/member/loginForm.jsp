@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
-
+<%
+	Cookie[] ck = request.getCookies();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,9 +31,17 @@
 	<script>
 		$(document).ready(function(){
 			
-			
-			console.log(isChk);
-			
+			$("#chk").on("click", function(){
+				var result = confirm("아이디를 저장하시겠습니까?");
+				
+				if($("#chk").is(":checked") == true){
+					if(result){
+						// 저장하겠다고 하면? 해당 아이디가 admin인지 확인 후 맞다면 저장 아니면 ㄴㄴ안함
+						
+					}
+				}
+				
+			});
 		});
 		
 	</script>

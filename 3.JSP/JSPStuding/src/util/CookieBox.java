@@ -16,7 +16,7 @@ public class CookieBox {
 	// 생성자 초기화 -> request 객체에서 Cookie[]를 받아 cookieMap에 저장!
 	public CookieBox(HttpServletRequest request) {
 		// 전달받은 request 매개변수를 뜻하는거임.
-		Cookie[] cookies = request.getCookies();;;
+		Cookie[] cookies = request.getCookies();
 		
 		if(cookies != null && cookies.length>0) {
 			// 반복처리해서 Cookie객체 Map에 저장....

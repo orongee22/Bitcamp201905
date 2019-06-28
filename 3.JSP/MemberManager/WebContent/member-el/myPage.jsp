@@ -23,7 +23,7 @@
 	
 	<div id="contents">
 		<h3>마이 페이지</h3>
-		<%= loginInfo %>
+		${LoginInfo. }
 	</div>
 	
 	<!-- 푸터 시작 -->
