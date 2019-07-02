@@ -5,6 +5,7 @@
 <%
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
+	String saveId = request.getParameter("id");
 	
 	boolean chk = false;
 	
