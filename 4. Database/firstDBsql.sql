@@ -65,6 +65,8 @@ select * from emp where hiredate = '80/12/17';
 select hiredate, ename, job from emp where hiredate < '81/12/01';
 
 
+
+
 -- 논리 연산 : AND, OR, NOT
 select * from emp where deptno=10 and job='MANAGER';
 select * from emp where deptno=10 or deptno=30;
