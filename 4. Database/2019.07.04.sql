@@ -22,10 +22,12 @@ where deptno = 10;
 select sum(comm)
 from emp;
 
+select comm from emp;
+
 
 
 -- @ AVG(컬럼) : 그룹에 포함된 값들의 평균값 반환
-select avg(sal) from emp; -- 그룹함수 결과는 단일행 하나의 컬럼임.
+select avg(sal) as "전체사원의 평균월급여" from emp; -- 그룹함수 결과는 단일행 하나의 컬럼임.
 
 select trunc(avg(sal))
 from emp -- 단일함수 사용가능!
@@ -84,7 +86,11 @@ from emp
 group by job
 ;
 
-
+-- 부서의 최대 급여가 2900 이상
+select deptno, sum(sal), round(avg(sal)),count(*), count(comm), max(sal),min(sal)
+from emp
+group by deptno
+having max(sal) >= 2900;
 
 -------------------------------------
 -- 조인 JOIN : 두 개 이상의 테이블을 합침. 표현하는 컬럼이 늘어남.
@@ -92,7 +98,7 @@ group by job
 -- @ CROSS JOIN : 테이블 붙이기
 select *
 from emp, dept
- where emp.deptno = dept.deptno;
+where emp.deptno = dept.deptno;
  
 -- EQUI JOIN : 동등 비교 / 테이블 내 중복되는 컬럼을 서로 일치시켜 연결함.
 -- 중복되는 컬럼 이름 앞에 '테이블 이름.'을 붙여 구별한다.
@@ -101,7 +107,8 @@ select * from emp e, dept d where e.deptno = d.deptno;
 
 
 -- 이름이 'SCOTT'인 사원의 이름과 부서 이름을 출력.
-select ename, dname, ename( from emp, dept where emp.deptno = dept.deptno ;
+select * from emp, dept;
+select ename, dname from emp, dept where emp.deptno = dept.deptno and ename='SCOTT';
 
 
 
