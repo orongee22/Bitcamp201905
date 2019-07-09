@@ -253,7 +253,7 @@ create table memberinfo(
     userpw varchar2(8) not null constraint memberinfo_userpw_nn,
     username varchar2(10) not null constraint memberinfo_username_nn,
     userphoto varchar2(30),
-    regdate date default sysdate,
+    regdate date default sysdate
 );
 
 
