@@ -295,6 +295,34 @@ insert into dept01 values (test_seq.nextval, 'DESIGN', 'SEOUL');
 insert into dept01 values (test_seq.nextval, 'aa', 'SEOUL');
 
 -- 회원가입 시 
+\
+
+insert into dept values(60,'DESIGN','SEOUL');
+
+select * from emp;
+
+commit;
+delete dept where deptno=60;
+
+insert into emp values(8000,DESIGNER,null,2500,null,60);
 
 
+select * from emp order by deptno, sal;
+delete emp where ename='yerina';
 
+update emp set sal=1000 where ename='SCOTT';
+
+commit;
+
+select emp.*, dname, loc
+from emp inner join dept 
+on emp.deptno = dept.deptno;
+
+select * (select dname from dept where emp.deptno=dept.deptno) from emp;
+
+select * from (select dname, loc from dept where emp.deptno = dept.deptno);
+
+select dname
+from emp e, dept d
+where e.deptno = d.deptno;
+rollback;

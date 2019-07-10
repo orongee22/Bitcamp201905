@@ -1,70 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	id="WebApp_ID" version="3.1">
-	<display-name>HelloJSP</display-name>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
-	</welcome-file-list>
-
-
-	<!-- context-param:프로그램 전체에서 공유 가능한 데이터를 등록하는 것임. -->
-	<context-param>
-		<!-- 있으나 마나 필요 ㄴㄴ -->
-		<description></description>
-		<param-name>logEnabled</param-name>
-
-		<!-- value:true로 하면 서버를 재실행 하기만 해도 코드 바꿔짐. -->
-		<param-value>false</param-value>
-	</context-param>
-	<context-param>
-		<param-name>debugLevel</param-name>
-		<param-value>5</param-value>
-	</context-param>
-
-	<!-- 서블릿 등록: 서블릿 이름, 클래스 이름 -->
-	<!-- 어노테이션을 통해 등록할 수도 있음. 방법은 두가지! -->
-
-	<!-- <servlet> <servlet-name></servlet-name> <servlet-class></servlet-class> 
-		</servlet> -->
-
-	<!-- 에러페이지 지정 -->
-	<!-- http 코드로 지정함 -->
-	<error-page>
-		<error-code>404</error-code>
-		<location>/errorpage/vieError404.jsp</location>
-	</error-page>
-
-	<error-page>
-		<error-code>500</error-code>
-		<location>/errorpage/viewError500.jsp</location>
-	</error-page>
-
-	<error-page>
-		<exception-type>java.lang.NullPointerException</exception-type>
-		<location>/errorpage/viewError500.jsp</location>
-	</error-page>
-
-
-	<error-page>
-		<exception-type>java.lang.NullPointerException</exception-type>
-		<location>/errorpage/viewErrorNull.jsp</location>
-	</error-page>
-
-	<!-- 자동 코드 추가 설정 -->
-	<jsp-config>
-		<jsp-property-group>
-			<url-pattern>/actionTag/view/*</url-pattern>
-			<include-prelude>/common/variable.jspf</include-prelude>
-			<include-coda>/common/footer.jspf</include-coda>
-		</jsp-property-group>
-	</jsp-config>
-	
-	
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>HelloJSP</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <description></description>
+    <param-name>logEnabled</param-name>
+    <param-value>false</param-value>
+  </context-param>
+  <context-param>
+    <param-name>debugLevel</param-name>
+    <param-value>5</param-value>
+  </context-param>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/errorpage/vieError404.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/errorpage/viewError500.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.NullPointerException</exception-type>
+    <location>/errorpage/viewError500.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.NullPointerException</exception-type>
+    <location>/errorpage/viewErrorNull.jsp</location>
+  </error-page>
+  <jsp-config>
+    <jsp-property-group>
+      <url-pattern>/actionTag/view/*</url-pattern>
+      <include-prelude>/common/variable.jspf</include-prelude>
+      <include-coda>/common/footer.jspf</include-coda>
+    </jsp-property-group>
+  </jsp-config>
 </web-app>
