@@ -42,6 +42,10 @@ where sal in (select min(sal)
             group by deptno) 
 order by deptno;
 
+select ename, sal, e1.deptno
+from emp e1, (select deptno, min(sal) as minsal from emp group by deptno) e2
+where e1.deptno=e2.deptno and e1.sal = e2.minsal;
+
 
 --48. 담당업무가 ANALYST 인 사원보다 급여가 적으면서 업무가 ANALYST가 아닌 사원들을 표시(사원번호, 이름, 담당 업무, 급여)하시오.
 select empno, ename, job, sal 

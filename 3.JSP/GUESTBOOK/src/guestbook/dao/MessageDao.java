@@ -57,7 +57,7 @@ public class MessageDao {
 	// select의 반환 값은 행 단위 웅앵~
 	// 이걸 message객체로 받아서 사용할 것임.
 	public Message select(Connection conn, int messageId) {
-		Message message = new Message();
+		Message message = null;
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
