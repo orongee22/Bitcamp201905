@@ -76,7 +76,9 @@
 			메시지 번호 : <%= message.getId() %><br>
 			손님 이름 : <%=message.getGuestName() %><br>
 			메시지 : <%=message.getMessage() %><br>
-			<a>삭제하기</a>
+			<!-- 삭제할 때 id값을 파라미터값으로 같이 보냄. 이 아이디로 어떤 메시지를 삭제할 건지 찾을 수가 있음 -->
+			<!-- DB에서 만들어 낸 시퀀스 객체가 메시지 아이디가 됨. 시퀀스 객체는 메시지를 만들 떄마다 하나씩 증가하기때문에 지금 현재 메시지는 11번...바뀔수도있음 ㅇㅅㅇ -->
+			<a href="confirmDeletion.jsp?messageId=<%=message.getId()%>">삭제하기</a>
 		</div>
 		<%
 			}

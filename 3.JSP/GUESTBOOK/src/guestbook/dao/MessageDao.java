@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import guestbook.model.Message;
+import jdbc.jdbcUtil;
 
 
 public class MessageDao {
@@ -152,5 +153,22 @@ public class MessageDao {
 		
 		
 		return list;
+	}
+	public int deleteMessage(Connection conn, int messageId) throws SQLException {
+		int resultCnt = 0;
+		// Result rs에 담기
+		
+		PreparedStatement pstmt = null;
+		String sql = "delete from guestbook_message where message_id=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, messageId);
+			
+			resultCnt = pstmt.executeUpdate();
+		} finally {
+			jdbcUtil.close(pstmt);
+		}
+		return resultCnt;
 	}
 }
