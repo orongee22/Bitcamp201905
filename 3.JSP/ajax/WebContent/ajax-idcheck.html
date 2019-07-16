@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Ajax Basic</title>
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+        	$('#uId').focusout(function(){
+        	
+	        	setTimeout(function(){
+	        		$('#idcheckMsg').html("");
+	        		$.ajax({
+	                    url: 'idcheck.jsp',
+	                    type: 'GET',
+	                    data: {
+	                        uId: $('#uId').val()
+	                    },
+	                    success: function (data) {
+	                    	console.log(data);
+	                        if(data == "Y"){
+	                        	alert("멋진 아이디입니다.");
+	                        	$('#idcheckMsg').html("GOOOOOOOOOOOOOOOD!");
+	                        	$('#idcheckMsg').css('color','green');
+	                        } else { 
+	                        	alert("잘못된 아이디입니다..");
+	                        	$('#idcheckMsg').html("NOOOOOOOOOOOOOOOO!");
+	                        	$('#idcheckMsg').css('color','red');
+	                        }
+	                    }
+	                });
+	        	});
+        	});
+        });
+    </script>
+</head>
+<body>
+
+<input type="text" id="uId" value=""><br>
+<span id="idcheckMsg"></span>
+
+</body>
+</html>

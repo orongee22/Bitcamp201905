@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Ajax Basic</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+        	setTimeout(function(){
+        		$.ajax({
+                    url: 'idcheck.jsp',
+                    type: 'GET',
+                    data: {
+                        name: $('#txt').val(),
+                        price: 'test'
+                    },
+                    success: function (data) {
+                    	if(data == 'Y'){
+                    		alert("멋진 아이디네요!");
+                    	}
+                        $('body').append(data);
+                    }
+                });
+        	}, 1000);
+        });
+    </script>
+</head>
+<body>
+
+<input type="text" id="txt" value="akwldrkwpxm"><br>
+
+</body>
+</html>
