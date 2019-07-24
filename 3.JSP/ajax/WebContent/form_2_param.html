@@ -11,7 +11,7 @@
                 var region = $('#region').val();
 
                 // Ajax 요청을 수행합니다.
-                var url = '/parameter';
+                var url = '/parameter.jsp?name='+name+'&price='+region;
                 var data = { name: name, region: region };
                 var params = $.param(data);
                 $('#wrap').load(url, params);

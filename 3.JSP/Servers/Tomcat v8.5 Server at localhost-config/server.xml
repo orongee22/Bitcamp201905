@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="MemberManager" path="/mm" reloadable="true" source="org.eclipse.jst.jee.server:MemberManager"/><Context docBase="ExampleJSP" path="/ExampleJSP" reloadable="true" source="org.eclipse.jst.jee.server:ExampleJSP"/><Context docBase="JDBC-WEB" path="/jdbc" reloadable="true" source="org.eclipse.jst.jee.server:JDBC-WEB"/><Context docBase="GUESTBOOK" path="/gb" reloadable="true" source="org.eclipse.jst.jee.server:GUESTBOOK"/><Context docBase="JSPStuding" path="/JSPStuding" reloadable="true" source="org.eclipse.jst.jee.server:JSPStuding"/><Context docBase="ajax" path="/ajax" reloadable="true" source="org.eclipse.jst.jee.server:ajax"/><Context docBase="sharehobby" path="/hobby" reloadable="true" source="org.eclipse.jst.jee.server:sharehobby"/></Host>
+      <Context docBase="sharehobby-project" path="/hobby" reloadable="true" source="org.eclipse.jst.jee.server:sharehobby-project"/><Context docBase="MemberManager" path="/mm" reloadable="true" source="org.eclipse.jst.jee.server:MemberManager"/><Context docBase="ajax" path="/ajax" reloadable="true" source="org.eclipse.jst.jee.server:ajax"/></Host>
     </Engine>
   </Service>
 </Server>
