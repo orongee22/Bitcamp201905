@@ -1,0 +1,5 @@
+/LoginForm=member.service.LoginFormService
+/Login=member.service.LoginService
+/RegForm=member.service.RegFormService
+/Reg=member.service.RegService
+
