@@ -11,7 +11,7 @@ public class MainForSpring {
 	
 	
 	// 스프링 컨테이너 생성 : 조립기 설정파일 appCtx1.xml
-	private static ApplicationContext ctx = new GenericXmlApplicationContext("classpath:appCtx8.xml");
+	private static ApplicationContext ctx = new GenericXmlApplicationContext("classpath:appCtx5.xml");
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

@@ -4,11 +4,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class MainForAssembler {
-	private static Assembler assembler = new Assembler();
-	// assembler에서 샏성한 인스턴스를 getter로 통해 전달받음.
-	private static MemberRegisterService registerService = assembler.getRegistService();
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class MainForSpring4 {
 	
+	
+	// 스프링 컨테이너 생성 : 조립기 설정파일 appCtx1.xml
+	public static ApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx3.class);
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -34,13 +38,16 @@ public class MainForAssembler {
 		}
 	}
 	
+	
 	private static void processNewCommand(String[] args) {
 		if(args.length != 5) {
 			printHelp();
 			return;
 		}
 		
-		MemberRegisterService service = assembler.getRegistService();
+		// appCtx1.xml에서 해당 객체를 getBean을 통해 받아올 수 있음.
+		// 가져오는 이름은 설정해둔 식별자 id와 동일해야 한다. 객체가 아닌 반환 타입을 내가 따로 설정할 수도 있음. class 타입으로 가져올 예정
+		MemberRegisterService2 service = ctx.getBean("registerMemberService", MemberRegisterService2.class);
 		
 		RegisterRequest request = new RegisterRequest();
 		
@@ -75,7 +82,7 @@ public class MainForAssembler {
 			return;
 		}
 		
-		ChangePasswordService service = assembler.getPwService();
+		ChangePasswordService2 service = ctx.getBean("changePwService", ChangePasswordService2.class);
 		
 		try {
 			service.changePassword(args[1], args[2], args[3]);
