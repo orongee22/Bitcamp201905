@@ -14,6 +14,15 @@
 </style>
 </head>
 <body>
+    <h1>
+    <c:if test="${chk}">
+        ${resultCnt} 개 행이 삭제되었습니다.    
+    </c:if>
+
+    <c:if test="${!chk}">
+        ${msg}    
+    </c:if>
+    </h1>
 	<a href="<c:url value="/guest/list"/>">리스트</a>
 </body>
 </html>
