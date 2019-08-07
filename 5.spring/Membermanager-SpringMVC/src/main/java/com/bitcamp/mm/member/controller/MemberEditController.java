@@ -7,27 +7,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bitcamp.mm.member.domain.RequestMemberRegist;
-import com.bitcamp.mm.member.service.MemberRegService;
+import com.bitcamp.mm.member.service.MemberEditService;
 
 @Controller
-@RequestMapping("/member/regist")
-public class MemberRegController {
-	@Autowired
-	private MemberRegService registService;
+@RequestMapping("member/edit")
+public class MemberEditController {
+	@Autowired 
+	private MemberEditService editService;
 	
-	@RequestMapping(method = RequestMethod.GET)
-	public String getForm() {
-		return "member/registForm";
+	@RequestMapping(method= RequestMethod.GET)
+	public String getEditForm() {
+		return "member/editForm";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String memberRegist(RequestMemberRegist regist, HttpServletRequest request, Model model) {
-		
-		int rCnt = registService.memberInsert(request, regist);
+	public String edit(RequestMemberRegist regist, Model model, HttpServletRequest request) {
+		int rCnt = editService.editService(regist, request);
 		model.addAttribute("rCnt", rCnt);
-		
-		return "member/memberRegist";
+		return "member/edit";
 	}
 }

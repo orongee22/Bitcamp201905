@@ -26,6 +26,6 @@
 		</li>
 		<li><a href="<c:url value="/member/regist" />">회원가입</a></li>
 		<li><a href="<c:url value="/member/mypage" />">MY PAGE</a></li>
-		<li><a href="<c:url value="/member-el/memberList2.jsp" />">회원리스트</a></li>
+		<li><a href="<c:url value="/member/memberList" />">회원리스트</a></li>
 	</ul>
 </div>

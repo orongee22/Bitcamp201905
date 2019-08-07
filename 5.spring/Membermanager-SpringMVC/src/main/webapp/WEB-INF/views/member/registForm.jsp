@@ -35,7 +35,7 @@
 	<h3>회원가입 페이지</h3>
 	<hr>
 	<!-- 파일 업로드 할때 post방식은 필수. 파일을 넘겨주기 위해선 현재 타입이 multipart여야만 가능하다. 이 형식으로 들어오지 않으면 안됨. -->
-	<form id="regform" method="post" enctype="multipart/form-data">
+	<form method="post" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>아이디(이메일)</td>

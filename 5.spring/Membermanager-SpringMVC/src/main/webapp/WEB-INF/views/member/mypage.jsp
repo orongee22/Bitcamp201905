@@ -23,6 +23,10 @@
 	회원 이름 : ${loginInfo.uName}<br>
 	회원 아이디 : ${loginInfo.uId}<br>
 	<!-- 푸터 시작 -->
+	<div>
+		<a href="edit?uId=${loginInfo.uId}">회원 정보 수정</a>
+		<a href="deleteConfirm?uId=${loginInfo.uId}">회원 탈퇴</a>
+	</div>
 </div>
 <%@ include file="/WEB-INF/views/frame/footer.jsp" %>
 <!-- 푸터 끝 -->

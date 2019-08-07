@@ -64,11 +64,14 @@ public class MemberRegService implements MemberService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			// DB에서 오류가 발생 했을 시
-			new File(dir, newFileName).delete();
 		} catch (IOException e) {
 			e.printStackTrace();
 			// 입출력 문제가 발생했을 시
+		}catch (Exception e) {
+			System.out.println("오류");
+			new File(dir,newFileName).delete();
 		}
+		
 		return resultCnt;
 		
 	}

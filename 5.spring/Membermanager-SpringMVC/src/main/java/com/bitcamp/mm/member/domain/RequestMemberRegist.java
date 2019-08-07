@@ -10,6 +10,7 @@ public class RequestMemberRegist {
 	private MultipartFile uPhoto;
 	
 	
+	
 	public String getuId() {
 		return uId;
 	}
