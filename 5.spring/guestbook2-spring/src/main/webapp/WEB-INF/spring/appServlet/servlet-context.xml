@@ -3,9 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
@@ -20,6 +23,28 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+	
+	<!-- @ DB 드라이버 연동하는 bean객체 : dataSource -->
+	<beans:bean id="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource"
+		p:driverClassName="oracle.jdbc.driver.OracleDriver" 		p:url="jdbc:oracle:thin:localhost:1521:orcl"
+		p:username="SCOTT"
+		p:password="tiger" />
+		
+	<!-- @ Connection / Resultset / PreparedStatement 등을 자동으로 처리하는 빈 객체 : jdbcTemplate - dataSource를 주입받아야 사용가능함. 반드시! -->
+	<beans:bean 
+		id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="dataSource"
+	/>
+	<!-- PlatformTransactionManager 빈 설정 --> 
+	<beans:bean id="transactionManager" 				class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+	
+				p:dataSource-ref="dataSource" />
+	
+	<!-- @Transactional 애노테이션 활성화 설정 --> 
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	<context:component-scan base-package="com.bitcamp.guest" />
 	

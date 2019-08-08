@@ -33,10 +33,10 @@ public class GuestDeleteController {
 		try {
 			resultCnt = deleteService.deleteMessage(messageId, password);
 			chk = true;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			msg = e.getMessage();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//			msg = e.getMessage();
 		} catch (MessageNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
