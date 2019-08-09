@@ -37,43 +37,6 @@ public class MessageJdbcTemplateDao {
 		
 		return template.queryForObject(sql, new MessageRowMapper(), messageId);
 	}
-	// select의 반환 값은 행 단위 웅앵~
-	// 이걸 message객체로 받아서 사용할 것임.
-//	public Message select(Connection conn, int messageId) {
-//		Message message = null;
-//		
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		
-//		String sql = "select * from guestbook_message where message_id=?";
-//		
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setInt(1, messageId);
-//			
-//			rs = pstmt.executeQuery();
-//			
-//			if(rs.next()) {
-//				message = new Message();
-//				message.setId(rs.getInt(1));
-//				message.setGuestName(rs.getString(2));
-//				message.setPassword(rs.getString(3));
-//				message.setMessage(rs.getString(4));
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			try {
-//				rs.close();
-//				pstmt.close();
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		
-//		return message;
-//		
-//	}
 	
 	public int selectCount() {
 		String sql = "select count(*) from guestbook_message";
@@ -101,22 +64,5 @@ public class MessageJdbcTemplateDao {
 		
 		
 		return template.update(sql, messageId); 
-	}
-	public int deleteMessage(Connection conn, int messageId) throws SQLException {
-		int resultCnt = 0;
-		// Result rs에 담기
-		
-		PreparedStatement pstmt = null;
-		String sql = "delete from guestbook_message where message_id=?";
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, messageId);
-			
-			resultCnt = pstmt.executeUpdate();
-		} finally {
-			JdbcUtil.close(pstmt);
-		}
-		return resultCnt;
 	}
 }
