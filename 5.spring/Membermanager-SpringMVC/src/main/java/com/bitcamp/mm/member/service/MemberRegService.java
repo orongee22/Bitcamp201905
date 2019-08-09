@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import com.bitcamp.mm.jdbc.ConnectionProvider;
 import com.bitcamp.mm.member.dao.MemberDao;
+import com.bitcamp.mm.member.dao.MemberJdbcTemplateDao;
 import com.bitcamp.mm.member.domain.MemberInfo;
 import com.bitcamp.mm.member.domain.RequestMemberRegist;
 
@@ -27,7 +28,9 @@ import com.bitcamp.mm.member.domain.RequestMemberRegist;
 public class MemberRegService implements MemberService {
 	
 	@Autowired
-	private MemberDao dao; 
+	private MemberJdbcTemplateDao dao;
+	//	private MemberDao dao; 
+
 
 	// request : request path 를 통해 파일 절대 경로 구하기 위해서 매개변수로 받아옴.
 	// regist : 회원 정보 받아오기 필수.
@@ -47,22 +50,22 @@ public class MemberRegService implements MemberService {
 		
 		int resultCnt = 0;
 		
-		Connection conn = null;
+//		Connection conn = null;
 		
 		// photo값 웅앵에서 예외발생 시 DB 저장 못하게 미리 방지
 		try {
-			conn = ConnectionProvider.getConnection();
+//			conn = ConnectionProvider.getConnection();
 
 			// 파일을 서버의 지정 경로에 저장하기.
 			regist.getuPhoto().transferTo(new File(dir, newFileName));
 			// DB 저장용 . uphoto에 저장하기.
 			memberInfo.setuPhoto(newFileName);
-			resultCnt = dao.insertMember(conn, memberInfo);
-		
+//			resultCnt = dao.insertMember(conn, memberInfo);
+			resultCnt = dao.insertMember(memberInfo);
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
 			// DB에서 오류가 발생 했을 시
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -75,6 +78,10 @@ public class MemberRegService implements MemberService {
 		return resultCnt;
 		
 	}
-		
+	
+	public char idCheck(String id) {
+		char chk = dao.selectMemberById(id)==null?'Y':'N';
+		return chk;
+	}
 	
 }

@@ -78,7 +78,7 @@
 		// 다시 포커스 인이 된다면 체크값이 풀리고 포커스 아웃되면 새로운 아이디 중복여부가 떠야함...ㅇㅋ?
 		$('#uId').focusout(function(){
 			$.ajax({
-				url : 'idCheck.do',
+				url : 'idCheck2',
 				// 메소드 방식은 get이든 post든 상관,,,X
 				type : 'get',
 				// idcheck.do 파일에 get방식으로 id라는 이름의 this.val()을 data로 보냄. 만약 통신이 성공한다면 보낸 데이터를 매개변수로 다시 불러들여온다.

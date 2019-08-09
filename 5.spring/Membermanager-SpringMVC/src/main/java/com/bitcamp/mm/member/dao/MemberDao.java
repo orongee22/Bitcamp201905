@@ -44,7 +44,6 @@ public class MemberDao {
 					new Date(rs.getTimestamp("regdate").getTime()));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			JdbcUtil.close(rs);
@@ -73,7 +72,6 @@ public class MemberDao {
 			
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -96,7 +94,6 @@ public class MemberDao {
 				memberList.add(new MemberInfo(rs.getInt("idx"), rs.getString("uid"), rs.getString("upw"), rs.getString("uname"), rs.getString("uphoto"), new Date(rs.getDate("regdate").getTime())));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -131,7 +128,6 @@ public class MemberDao {
 				System.out.println("totalCount"+totalCount);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return totalCount;
@@ -154,7 +150,6 @@ public class MemberDao {
 				memberList.add(new MemberInfo(rs.getInt("idx"), rs.getString("uid"), rs.getString("upw"), rs.getString("uname"), rs.getString("uphoto"), new Date(rs.getDate("regdate").getTime())));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -177,7 +172,6 @@ public class MemberDao {
 				memberList.add(new MemberInfo(rs.getInt("idx"), rs.getString("uid"), rs.getString("upw"), rs.getString("uname"), rs.getString("uphoto"), new Date(rs.getDate("regdate").getTime())));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -200,7 +194,6 @@ public class MemberDao {
 				memberList.add(new MemberInfo(rs.getInt("idx"), rs.getString("uid"), rs.getString("upw"), rs.getString("uname"), rs.getString("uphoto"), new Date(rs.getDate("regdate").getTime())));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -222,7 +215,6 @@ public class MemberDao {
 			rCnt = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -242,7 +234,6 @@ public class MemberDao {
 			
 			rCnt = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return rCnt;

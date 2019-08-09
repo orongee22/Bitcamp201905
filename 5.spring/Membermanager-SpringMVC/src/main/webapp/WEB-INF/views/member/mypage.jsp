@@ -25,12 +25,22 @@
 	<!-- 푸터 시작 -->
 	<div>
 		<a href="edit?uId=${loginInfo.uId}">회원 정보 수정</a>
-		<a href="deleteConfirm?uId=${loginInfo.uId}">회원 탈퇴</a>
+		<a href="#" onclick="delMember( '${loginInfo.uId}' )">회원 탈퇴</a>
 	</div>
 </div>
 <%@ include file="/WEB-INF/views/frame/footer.jsp" %>
 <!-- 푸터 끝 -->
 
-	
+	<script>
+		function delMember(uId){
+			var chk = confirm("탈퇴 하시겠습니까?");
+			
+			if(chk){
+				location.href='delete?uId='+uId;
+			} else{
+				alert("탈퇴를 취소했습니다.");
+			}
+		}
+	</script>
 </body>
 </html>

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.bitcamp.mm.jdbc.ConnectionProvider;
 import com.bitcamp.mm.member.dao.MemberDao;
+import com.bitcamp.mm.member.dao.MemberJdbcTemplateDao;
 import com.bitcamp.mm.member.domain.LoginInfo;
 import com.bitcamp.mm.member.domain.MemberInfo;
 import com.bitcamp.mm.member.domain.RequestMemberRegist;
@@ -19,11 +20,12 @@ import com.bitcamp.mm.member.domain.RequestMemberRegist;
 @Service
 public class MemberEditService implements MemberService {
 	@Autowired
-	private MemberDao dao;
+	private MemberJdbcTemplateDao dao;
+	//	private MemberDao dao;
 	
 	public int editService(RequestMemberRegist regist, HttpServletRequest request) {
 		int rCnt = 0;
-		Connection conn = null;
+//		Connection conn = null;
 		
 		MemberInfo memberinfo = regist.toMemberInfo();
 		LoginInfo logininfo = null;
@@ -33,7 +35,7 @@ public class MemberEditService implements MemberService {
 		
 		String newFileName = memberinfo.getuId()+"_"+regist.getuPhoto().getOriginalFilename();
 		try {
-			conn = ConnectionProvider.getConnection();
+//			conn = ConnectionProvider.getConnection();
 			
 			regist.getuPhoto().transferTo(new File(dir, newFileName));
 			memberinfo.setuPhoto(newFileName);
@@ -41,10 +43,11 @@ public class MemberEditService implements MemberService {
 			
 			request.getSession(false).setAttribute("loginInfo", memberinfo.toLoginInfo());
 			
-			rCnt = dao.editMemberById(conn, memberinfo);
-		} catch (SQLException e) {
+//			rCnt = dao.editMemberById(conn, memberinfo);
+			rCnt = dao.editMemberById(memberinfo);
+//		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

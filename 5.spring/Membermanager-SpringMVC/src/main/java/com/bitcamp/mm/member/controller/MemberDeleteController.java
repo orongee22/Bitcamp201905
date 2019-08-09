@@ -13,11 +13,6 @@ public class MemberDeleteController {
 	@Autowired
 	private MemberDeleteService deleteService;
 	
-	@RequestMapping("member/deleteConfirm")
-	public String deleteConfirm(@RequestParam("uId")String uId, Model model) {
-		model.addAttribute("uId",uId);
-		return "member/deleteConfirm";
-	}
 	@RequestMapping("member/delete")
 	public String delete(@RequestParam("uId") String uId, Model model) {
 		

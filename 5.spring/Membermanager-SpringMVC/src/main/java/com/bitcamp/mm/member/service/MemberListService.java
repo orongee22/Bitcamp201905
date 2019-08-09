@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bitcamp.mm.jdbc.ConnectionProvider;
 import com.bitcamp.mm.member.dao.MemberDao;
+import com.bitcamp.mm.member.dao.MemberJdbcTemplateDao;
 import com.bitcamp.mm.member.domain.ListViewData;
 import com.bitcamp.mm.member.domain.MemberInfo;
 import com.bitcamp.mm.member.domain.SearchParam;
@@ -17,7 +18,8 @@ import org.springframework.stereotype.Service;
 @Service("listService")
 public class MemberListService implements MemberService {
 	@Autowired
-	private MemberDao dao;
+	private MemberJdbcTemplateDao dao;
+//	private MemberDao dao;
 	
 	final int MEMBER_COUNT_LIST = 10;
 	
@@ -25,15 +27,15 @@ public class MemberListService implements MemberService {
 		ListViewData listData = new ListViewData();
 		int currentPageNumber = PageNumber;
 		
-		Connection conn = null;
+//		Connection conn = null;
 		
-		try {
-			conn = ConnectionProvider.getConnection();
+//		try {
+//			conn = ConnectionProvider.getConnection();
 			listData.setCurrentPageNumber(currentPageNumber);
 			
 			// 전체 게시물의 개수
-			int totalCnt = dao.selectTotalCount(conn, searchparam);
-			
+//			int totalCnt = dao.selectTotalCount(conn, searchparam);
+			int totalCnt = dao.selectTotalCount(searchparam);
 			// 전체 페이지 개수
 			int totalPageCnt = 0;
 			if(totalCnt > 0) {
@@ -53,13 +55,13 @@ public class MemberListService implements MemberService {
 			// 3. name으로 검색 : dao.selectListByName()
 			
 			if(searchparam == null) {
-				memberList = dao.selectList(conn, index, MEMBER_COUNT_LIST);
+				memberList = dao.selectList(index, MEMBER_COUNT_LIST);
 			} else if(searchparam.getSearchType().equals("both")) {
-				memberList = dao.selectListByBoth(conn, index, MEMBER_COUNT_LIST, searchparam);
+				memberList = dao.selectListByBoth(index, MEMBER_COUNT_LIST, searchparam);
 			} else if(searchparam.getSearchType().equals("id")) {
-				memberList = dao.selectListById(conn, index, MEMBER_COUNT_LIST, searchparam);
+				memberList = dao.selectListById(index, MEMBER_COUNT_LIST, searchparam);
 			} else if(searchparam.getSearchType().equals("name")) {
-				memberList = dao.selectListByName(conn, index, MEMBER_COUNT_LIST, searchparam);
+				memberList = dao.selectListByName(index, MEMBER_COUNT_LIST, searchparam);
 			}
 			
 			
@@ -71,10 +73,10 @@ public class MemberListService implements MemberService {
 			listData.setNo(no);
 			listData.setPageTotalCount(totalPageCnt);
 			listData.setTotalCount(totalCnt);
-		} catch (SQLException e) {
+//		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//			e.printStackTrace();
+//		}
 		
 		
 		

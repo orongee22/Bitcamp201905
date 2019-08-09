@@ -42,7 +42,7 @@
 			</tr>
 			<tr>
 				<td>사진</td>
-				<td><input type="file" name="uPhoto"> </td>
+				<td><input type="file" value="${loginInfo.uPhoto}" name="uPhoto"> </td>
 			</tr>
 			<tr>
 				<td></td>

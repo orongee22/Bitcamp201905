@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bitcamp.mm.member.domain.MemberInfo;
 import com.bitcamp.mm.member.domain.RequestMemberRegist;
 import com.bitcamp.mm.member.service.MemberEditService;
 
@@ -19,7 +20,11 @@ public class MemberEditController {
 	private MemberEditService editService;
 	
 	@RequestMapping(method= RequestMethod.GET)
-	public String getEditForm() {
+	public String getEditForm(HttpServletRequest request, @RequestParam("uId") String uId, Model model) {
+//		MemberInfo memberInfo = editService.editService(regist, request)
+//		
+//		model.addAttribute("mInfo", memberInfo);
+		
 		return "member/editForm";
 	}
 	
