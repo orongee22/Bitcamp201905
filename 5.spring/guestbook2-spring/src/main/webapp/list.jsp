@@ -32,38 +32,37 @@
 			page(1);
 		});
 			
-			function page(num){
-				$.ajax({
-					url: 'guest/listJson',
-					type : 'get',
-					data : {page:num},
-					success : function(data){
-						console.log(data);
-						console.log(data.messageTotalCount);
-						console.log(JSON.stringify(data));
-						var output = "";
-						var list = data.messageList;
-						for(var i = 0;i<list.length;i++){
-							console.log();
-							var id = list[i].id;
-							var guestName = list[i].guestName;
-							var message = list[i].message;
-							output += '<div>\n';
-							output += '메시지 번호 : '+id+' <br>\n';
-							output += '손님 이름 : '+guestName+' <br>\n';
-							output += '메시지 : '+message+'\n';
-							output += '</div>\n';
-						}
-						
-						var paging = '';
-						for(var j=1;j<=data.pageTotalCount;j++){
-							paging += '<span class="paging"><a href="#" onclick="page('+j+')">'+ j +'</a></span>';
-						}
-						$('#list').html(output);
-						$('#paging').html(paging);
+		function page(num){
+			$.ajax({
+				url: 'guest/listJson',
+				type : 'get',
+				data : {page:num},
+				success : function(data){
+					console.log(data);
+					console.log(data.messageTotalCount);
+					console.log(JSON.stringify(data));
+					var output = "";
+					var list = data.messageList;
+					for(var i = 0;i<list.length;i++){
+						var id = list[i].id;
+						var guestName = list[i].guestName;
+						var message = list[i].message;
+						output += '<div>\n';
+						output += '메시지 번호 : '+id+' <br>\n';
+						output += '손님 이름 : '+guestName+' <br>\n';
+						output += '메시지 : '+message+'\n';
+						output += '</div>\n';
 					}
-				});
-			}
+					
+					var paging = '';
+					for(var j=1;j<=data.pageTotalCount;j++){
+						paging += '<span class="paging"><a href="#" onclick="page('+j+')">'+ j +'</a></span>';
+					}
+					$('#list').html(output);
+					$('#paging').html(paging);
+				}
+			});
+		}
 	</script>
 
 </body>
