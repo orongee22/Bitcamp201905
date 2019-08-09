@@ -38,9 +38,7 @@
 		p:dataSource-ref="dataSource"
 	/>
 	<!-- PlatformTransactionManager 빈 설정 --> 
-	<beans:bean id="transactionManager" 				class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-	
-				p:dataSource-ref="dataSource" />
+	<beans:bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSource" />
 	
 	
 	<!-- @Transactional 애노테이션 활성화 설정 --> 

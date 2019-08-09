@@ -40,6 +40,8 @@ public class MemberJdbcTemplateDao {
 		
 		try {
 		memberinfo = template.queryForObject(sql, new Object[] {userId}, new MemberInfoRowMapper());
+		// RowMapper에 제대로 값이 전달되지 못하는 경우가 생길 수도 있다. DataAccessException 에러임!
+		// 그래서 예외 처리 따로 설정해주는 거
 		} catch(DataAccessException e) {
 			e.printStackTrace();
 		}
