@@ -27,7 +27,8 @@
 	<!-- @ DB 드라이버 연동하는 bean객체 : dataSource -->
 	<beans:bean id="dataSource"
 		class="org.apache.commons.dbcp2.BasicDataSource"
-		p:driverClassName="oracle.jdbc.driver.OracleDriver" 		p:url="jdbc:oracle:thin:localhost:1521:orcl"
+		p:driverClassName="oracle.jdbc.driver.OracleDriver" 		
+		p:url="jdbc:oracle:thin:localhost:1521:orcl"
 		p:username="SCOTT"
 		p:password="tiger" />
 		
@@ -40,6 +41,22 @@
 	<!-- PlatformTransactionManager 빈 설정 --> 
 	<beans:bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSource" />
 	
+	
+	
+	<!-- @ MyBatis 설정 : dataSource / mapperLocations 추가 -->
+	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> 
+		<!-- DB사용을 위해 datasource를 반드시 주입 -->
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="configLocation" value="/WEB-INF/spring/mybatis-config.xml" />
+		<!-- String value값 : classpath 경로 이름을 주입. -->
+		<beans:property name="mapperLocations" value="classpath:com/bitcamp/guest/mapper/mybatis/*.xml" /> 
+	</beans:bean>
+	
+	
+	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<!-- index="0" : sqlSessionTemplate.class 속 0번째 생성자 찾아서 주입하기. -->
+		<beans:constructor-arg index="0" ref="sqlSessionFactory"/>
+	</beans:bean>
 	
 	<!-- @Transactional 애노테이션 활성화 설정 --> 
 	<tx:annotation-driven transaction-manager="transactionManager"/>

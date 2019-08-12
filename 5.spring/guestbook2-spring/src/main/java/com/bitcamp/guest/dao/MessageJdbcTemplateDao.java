@@ -19,6 +19,7 @@ import com.bitcamp.guest.jdbc.JdbcUtil;
 @Repository("jdbcTemplateDao")
 public class MessageJdbcTemplateDao {
 	
+	
 	@Autowired
 	JdbcTemplate template;
 	

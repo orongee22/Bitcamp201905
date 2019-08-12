@@ -6,11 +6,14 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.guest.dao.MessageDao;
 import com.bitcamp.guest.dao.MessageJdbcTemplateDao;
+import com.bitcamp.guest.dao.MessageSessionDao;
+import com.bitcamp.guest.dao.MessageSessionTemplateDao;
 import com.bitcamp.guest.domain.Message;
 import com.bitcamp.guest.jdbc.ConnectionProvider;
 import com.bitcamp.guest.jdbc.JdbcUtil;
@@ -31,14 +34,18 @@ public class DeleteMessageService implements GuestBookService{
 	 * @Autowired private MessageDao dao;
 	 */
 	@Autowired
-	private MessageJdbcTemplateDao dao;
+	private SqlSessionTemplate template;
+	
+	private MessageSessionDao dao;
+//	private MessageSessionTemplateDao dao;
+//	private MessageJdbcTemplateDao dao;
 	
 	public int deleteMessage(int messageId, String password) throws MessageNotFoundException, InvalidMessagePasswordException {
 		
+		dao = template.getMapper(MessageSessionDao.class);
 		
 		int resultCnt = 0;
 		
-		System.out.println(password);
 		
 //		Connection conn=null;
 		

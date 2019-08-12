@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @ namespace : DAO에서 식별하기 위한 이름. 필수 속성 -->
+<!-- DAO - com.bitcamp.guest.mapper.mybatis.guestMapper.insertMessage(str, id) / 이런 식으로 메소드를 연결지음 -->
+<mapper namespace="com.bitcamp.guest.dao.MessageSessionDao">
+
+<insert id="insert" parameterType="com.bitcamp.guest.domain.Message">
+	insert into guestbook_message(message_id, guest_name, password, message) values (gm_mid_seq.nextval, #{guestName},#{password},#{message})
+</insert>
+<select id="selectCount" resultType="int">
+	select count(*) from guestbook_message
+</select>
+
+<select id="select" resultType="com.bitcamp.guest.domain.Message" resultMap="messageResultmap">
+	select * from guestbook_message where message_id=#{id}
+</select>
+
+<select id="selectList" 
+parameterType="map"
+resultType="com.bitcamp.guest.domain.Message"
+resultMap="messageResultMap">
+<![CDATA[
+select message_id, guest_name, password, message from (select rownum rnum, message_id, guest_name, password, message from (select * from guestbook_message m order by m.message_id desc ) where rownum <= #{endRow} ) where rnum >= #{firstRow}
+]]>
+</select>
+<delete id="deleteMessage">
+	delete from guestbook_message where message_id=#{id}
+</delete>
+
+<resultMap id="messageResultmap" type="com.bitcamp.guest.domain.Message" >
+	<!-- id : DB에서 PK를 뜻함 -->
+	<id property="id" column="message_id"/>
+	<result property="guestName" column="guest_name"/>
+	<result property="password" column="password"/>
+	<result property="message" column="message"/>
+</resultMap>
+	
+
+
+</mapper>
