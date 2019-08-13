@@ -36,11 +36,21 @@
 	<beans:bean
 		id="dataSource"
 		class="org.apache.commons.dbcp2.BasicDataSource"
-		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://localhost:3306/project?characterEncoding=utf8&amp;serverTimezone=UTC"
+		p:driverClassName="com.mysql.cj.jdbc.Driver" p:url="jdbc:mysql://localhost:3306/project?characterEncoding=utf8&amp;serverTimezone=UTC"
 		p:username="bit"
 		p:password="bit" />
 	
 	<beans:bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" p:dataSource-ref="dataSource" />
+	
+	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="configLocation" value="" />
+		<beans:property name="mapperLocations" value="/WEB-INF/mapper/*.xml" />
+	</beans:bean>
+	
+	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg index="0" ref="sqlSessionFactory"/>
+	</beans:bean>
 	
 </beans:beans>
 

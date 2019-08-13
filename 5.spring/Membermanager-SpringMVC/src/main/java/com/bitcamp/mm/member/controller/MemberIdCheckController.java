@@ -30,8 +30,8 @@ public class MemberIdCheckController {
 	
 	@RequestMapping("member/idCheck2")
 	@ResponseBody
-	public char idCheck2(@RequestParam("id") String id) {
-				
+	public String idCheck2(@RequestParam("id") String id) {
+			
 		return regService.idCheck(id);
 	}
 }

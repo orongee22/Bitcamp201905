@@ -7,12 +7,14 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.mm.jdbc.ConnectionProvider;
 import com.bitcamp.mm.member.dao.MemberDao;
 import com.bitcamp.mm.member.dao.MemberJdbcTemplateDao;
+import com.bitcamp.mm.member.dao.MemberSessionDao;
 import com.bitcamp.mm.member.domain.LoginInfo;
 import com.bitcamp.mm.member.domain.MemberInfo;
 import com.bitcamp.mm.member.domain.RequestMemberRegist;
@@ -20,11 +22,14 @@ import com.bitcamp.mm.member.domain.RequestMemberRegist;
 @Service
 public class MemberEditService implements MemberService {
 	@Autowired
-	private MemberJdbcTemplateDao dao;
+	SqlSessionTemplate template;
+//	private MemberJdbcTemplateDao dao;
 	//	private MemberDao dao;
+	private MemberSessionDao dao;
 	
 	public int editService(RequestMemberRegist regist, HttpServletRequest request) {
 		int rCnt = 0;
+		dao=template.getMapper(MemberSessionDao.class);
 //		Connection conn = null;
 		
 		MemberInfo memberinfo = regist.toMemberInfo();

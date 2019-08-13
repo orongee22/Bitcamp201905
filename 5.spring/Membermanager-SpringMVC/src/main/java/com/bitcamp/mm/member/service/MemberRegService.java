@@ -15,23 +15,29 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.mm.jdbc.ConnectionProvider;
 import com.bitcamp.mm.member.dao.MemberDao;
 import com.bitcamp.mm.member.dao.MemberJdbcTemplateDao;
+import com.bitcamp.mm.member.dao.MemberSessionDao;
 import com.bitcamp.mm.member.domain.MemberInfo;
 import com.bitcamp.mm.member.domain.RequestMemberRegist;
 
 @Service("registService")
 public class MemberRegService implements MemberService {
 	
-	@Autowired
-	private MemberJdbcTemplateDao dao;
+//	@Autowired
+//	private MemberJdbcTemplateDao dao;
 	//	private MemberDao dao; 
+	
+	@Autowired
+	private SqlSessionTemplate template;
 
-
+	private MemberSessionDao dao;
+	
 	// request : request path 를 통해 파일 절대 경로 구하기 위해서 매개변수로 받아옴.
 	// regist : 회원 정보 받아오기 필수.
 	public int memberInsert(HttpServletRequest request, RequestMemberRegist regist) {
@@ -55,7 +61,7 @@ public class MemberRegService implements MemberService {
 		// photo값 웅앵에서 예외발생 시 DB 저장 못하게 미리 방지
 		try {
 //			conn = ConnectionProvider.getConnection();
-
+			dao = template.getMapper(MemberSessionDao.class);
 			// 파일을 서버의 지정 경로에 저장하기.
 			regist.getuPhoto().transferTo(new File(dir, newFileName));
 			// DB 저장용 . uphoto에 저장하기.
@@ -71,7 +77,6 @@ public class MemberRegService implements MemberService {
 			e.printStackTrace();
 			// 입출력 문제가 발생했을 시
 		}catch (Exception e) {
-			System.out.println("오류");
 			new File(dir,newFileName).delete();
 		}
 		
@@ -79,8 +84,11 @@ public class MemberRegService implements MemberService {
 		
 	}
 	
-	public char idCheck(String id) {
-		char chk = dao.selectMemberById(id)==null?'Y':'N';
+	public String idCheck(String uId) {
+		dao=template.getMapper(MemberSessionDao.class);
+		System.out.println("gdl");
+		System.out.println("dao select"+dao.selectMemberById(uId));
+		String chk = dao.selectMemberById(uId)==null?"Y":"N";
 		return chk;
 	}
 	

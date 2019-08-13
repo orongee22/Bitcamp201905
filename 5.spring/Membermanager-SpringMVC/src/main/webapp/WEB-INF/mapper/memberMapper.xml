@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitcamp.mm.member.dao.MemberSessionDao">
+
+
+<!-- resultMap을 해두는 편이 좀 더 안전한 코딩이 될 수 있음. select의 결과값을 매핑.-->
+<!-- @ resultMap = resultType 대신 DB의 column명과 똑같이 맞춰주는 속성이 추가될 뿐임. -->
+<resultMap id="resultMemberInfo" type="com.bitcamp.mm.member.domain.MemberInfo">
+	<id property="idx" column="idx"/>
+	<result property="uId" column="uid" />
+	<result property="uPW" column="upw" />
+	<result property="uName" column="uname"/>
+	<result property="uPhoto" column="uphoto"/>
+	<result property="regDate" column="regdate"/>
+</resultMap>
+
+<insert id="insertMember" parameterType="com.bitcamp.mm.member.domain.MemberInfo">
+	insert into member (uid, uname, upw, uphoto) values (#{uId},#{uName},#{uPW},#{uPhoto})
+</insert>
+
+<select id="selectMemberById" resultMap="resultMemberInfo">
+	<!-- 파라미터가 하나일 경우, #{} 아무 값이나 상관ㄴㄴ -->
+	select * from member where uid=#{mmm}
+</select>
+
+<select id="selectList" resultMap="resultMemberInfo" parameterType="map">
+	SELECT * FROM member 
+	
+	<where>
+		<if test="search!=null">
+			<if test="search.searchType == 'both'">
+				<include refid="whereid"></include>
+				<include refid="wherename"></include>
+				<!-- uid LIKE CONCAT ('%',#{keyword},'%') or uname LIKE CONCAT('%',#{keyword}, '%') -->
+			</if>
+			<if test="search.searchType == 'id'">
+				<include refid="whereid"></include>
+				<!-- uid LIKE CONCAT ('%',#{keyword},'%') -->
+			</if>
+			<if test="search.searchType == 'name'">
+				<include refid="wherename"></include>
+				<!-- uname LIKE CONCAT('%',#{keyword}, '%') -->
+			</if>
+		</if>
+	</where>
+	<!-- where절  -->
+	order by uname limit #{index},#{count}
+	
+</select>
+<sql id="whereid">
+	or uid LIKE CONCAT('%',#{search.keyword},'%')
+</sql>
+<sql id="wherename">
+	or uname LIKE CONCAT('%',#{search.keyword},'%')
+</sql>
+
+<select id="selectTotalCount" resultType="int" parameterType="com.bitcamp.mm.member.domain.SearchParam">
+		select count(*) from member
+		
+		<where>
+			<if test="searchType!=null">
+				<if test="searchType == 'both'">
+					<!-- <include refid="whereid"></include>
+					<include refid="wherename"></include> -->
+					uid LIKE CONCAT('%',#{keyword},'%') or uname LIKE CONCAT('%',#{keyword},'%')
+				</if>
+				<if test="searchType == 'id'">
+					<!-- <include refid="whereid"></include> -->
+					uid LIKE CONCAT('%',#{keyword},'%')
+				</if>
+				<if test="searchType == 'name'">
+					<!-- <include refid="wherename"></include> -->
+					uname LIKE CONCAT('%',#{keyword},'%')
+				</if>
+			</if>
+		</where>
+</select>
+<update id="editMemberById" parameterType="com.bitcamp.mm.member.domain.MemberInfo">
+	<!-- 버뜨... 파라미터타입이 객체로 정해져있다면 해당 객체 변수이름을 지정한다. -->
+	<!-- 타입이 정해지지 않고 여러개를 받을 경우 param1, param2 혹은 arg0, arg1... 으로 표기한다. -->
+	update project.member set upw = #{uPW}, uname =#{uName}, uphoto=#{uPhoto} where uid = #{uId}
+</update>
+
+<delete id="deleteMemberById">
+delete from project.member where uid = #{uId}
+</delete>
+
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitcamp.mm.member.dao.MemberSessionDao">
+
+<insert id="insertMember" parameterType="com.bitcamp.mm.member.domain.MemberInfo">
+	insert into member (uid, uname, upw, uphoto) values (#{uId},#{uName},#{uPW},#{uPhoto})
+</insert>
+
+<select id="selectMemberById" resultType="com.bitcamp.mm.member.domain.MemberInfo">
+	select * from member where uid=#{mmm}
+</select>
+
+<select id="selectList" parameterType="map" resultType="com.bitcamp.mm.member.domain.MemberInfo">
+	SELECT * FROM project.member order by uname limit #{param1},#{param2}
+</select>
+
+<select id="selectTotalCount" resultType="int" parameterType="com.bitcamp.mm.member.domain.SearchParam">
+		select count(*) from member
+</select>
+<update id="editMemberById" parameterType="com.bitcamp.mm.member.domain.MemberInfo">
+	update project.member set upw = #{uPW}, uname =#{uName}, uphoto=#{uPhoto} where uid = #{uId}
+</update>
+
+<delete id="deleteMemberById">
+delete from project.member where uid = #{uId}
+</delete>
+
+</mapper>

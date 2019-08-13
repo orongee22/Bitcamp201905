@@ -5,12 +5,14 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.mm.jdbc.ConnectionProvider;
 import com.bitcamp.mm.member.dao.MemberDao;
 import com.bitcamp.mm.member.dao.MemberJdbcTemplateDao;
+import com.bitcamp.mm.member.dao.MemberSessionDao;
 import com.bitcamp.mm.member.domain.MemberInfo;
 
 @Service
@@ -19,19 +21,25 @@ public class MemberLoginService implements MemberService{
 	/*
 	 * @Autowired private MemberDao dao;
 	 */
+//	@Autowired
+//	private MemberJdbcTemplateDao dao;
+	
 	@Autowired
-	private MemberJdbcTemplateDao dao;
+	private SqlSessionTemplate template;
+	
+	private MemberSessionDao dao;
 
 	public boolean login(String id, String pw, HttpServletRequest request) {
 		boolean loginChk = false;
 	
 		MemberInfo memberInfo = null;
+		dao = template.getMapper(MemberSessionDao.class);
 		
 //		Connection conn = null;
 //		try {
 //			conn = ConnectionProvider.getConnection();
 //			memberInfo = dao.selectMemberById(conn, id);
-			memberInfo =dao.selectMemberById(id);
+			memberInfo = dao.selectMemberById(id);
 			
 			if(memberInfo!=null && memberInfo.pwChk(pw)) {
 				// 세션에 저장함.

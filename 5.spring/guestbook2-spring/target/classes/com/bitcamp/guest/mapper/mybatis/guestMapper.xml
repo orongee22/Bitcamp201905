@@ -27,14 +27,12 @@ select message_id, guest_name, password, message from (select rownum rnum, messa
 	delete from guestbook_message where message_id=#{id}
 </delete>
 
-<!-- <resultMap id="messageResultmap"
-			   type="com.bitcamp.guest.domain.Message" >
-		id : DB에서 PK를 뜻함
+<resultMap id="messageResultmap" type="com.bitcamp.guest.domain.Message" >
 		<id property="id" column="message_id"/>
 		<result property="guestName" column="guest_name"/>
 		<result property="password" column="password"/>
 		<result property="message" column="message"/>
-	</resultMap> -->
+	</resultMap>
 	
 	
 
