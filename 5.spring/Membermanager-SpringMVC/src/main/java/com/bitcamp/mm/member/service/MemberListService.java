@@ -104,4 +104,15 @@ public class MemberListService implements MemberService {
 		
 		return listData;
 	}
+	
+	
+	// 페이징 처리 없는 전체 리스트 가져오기.
+	public List<MemberInfo> getAllList(){
+		List<MemberInfo> list = null;
+		
+		dao = template.getMapper(MemberSessionDao.class);
+		list = dao.selectListAll();
+		
+		return list;
+	}
 }

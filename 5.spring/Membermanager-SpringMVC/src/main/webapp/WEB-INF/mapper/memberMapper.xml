@@ -85,4 +85,9 @@
 delete from project.member where uid = #{uId}
 </delete>
 
+<!-- 전체 회원 리스트 받아오는 select문 -->
+<select id="selectListAll" resultMap="resultMemberInfo">
+	select * from member order by uname
+</select>
+
 </mapper>

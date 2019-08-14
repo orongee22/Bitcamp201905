@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<style>
+    #member-list{
+        overflow: hidden;
+    }
+    div.card{
+        float: left;
+/*        margin: 5px;*/
+        width: 33%;
+        border: 1px solid #bbb;
+    }        
+</style>
+</head>
+<body>
+	<h1>회원 리스트</h1>
+	<hr>
+	<div id="member-list">
+		
+	</div>
+	<script>	
+		$(document).ready(function(){
+			list();
+		});
+        
+        function del(uId){
+            if(confirm('삭제하시겠습니까?')){
+                $.ajax({
+				    // 다른 어플리케이션의 url을 가져올 수 있음.
+                    url : 'http://localhost:8080/mm/rest-api/members/'+uId,
+                    type : 'DELETE',
+                    success : function(data){
+                        if(data=='success'){
+                        alert('삭제되었습니다');
+                        list();
+                    } 
+                    }
+                });
+            }
+        }
+        
+        function list(){
+            
+                $.ajax({
+				    // 다른 어플리케이션의 url을 가져올 수 있음.
+                    url : 'http://localhost:8080/mm/rest-api/members',
+                    type : 'GET',
+                    success : function(data){
+
+                        var html = '';
+                        for(var i=0;i<data.length;i++){
+                            html += '<div class="card">';
+                            html += 'idx : '+data[i].idx +'<br>';
+                            html += 'id : '+data[i].uId +'<br>';
+                            html += 'name : '+data[i].uName +'<br>';
+                            html += 'photo : '+data[i].uPhoto +'<br>';
+                            html += '<button onclick="del('+'\''+data[i].uId+'\''+')">삭제하기</button>';
+                            html += '</div>';
+                        }
+                        $('#member-list').html(html);
+                    }
+                });
+        }
+	</script>
+</body>
+</html>

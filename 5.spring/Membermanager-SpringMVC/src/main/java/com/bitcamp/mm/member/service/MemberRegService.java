@@ -52,20 +52,22 @@ public class MemberRegService implements MemberService {
 		// 1. 회원 아이디 + 시간
 		//String newFileName = memberInfo.getuId()+System.nanoTime()+;
 		// 2. 회원 아이디 + 파일이름
-		String newFileName = memberInfo.getuId()+"_"+regist.getuPhoto().getOriginalFilename();
 		
 		int resultCnt = 0;
-		
+		String newFileName = null;
 //		Connection conn = null;
 		
 		// photo값 웅앵에서 예외발생 시 DB 저장 못하게 미리 방지
 		try {
 //			conn = ConnectionProvider.getConnection();
 			dao = template.getMapper(MemberSessionDao.class);
+			if(regist.getuPhoto()!= null) {
+				newFileName = memberInfo.getuId()+"_"+regist.getuPhoto().getOriginalFilename();
+				regist.getuPhoto().transferTo(new File(dir, newFileName));
+				memberInfo.setuPhoto(newFileName);
+			}
 			// 파일을 서버의 지정 경로에 저장하기.
-			regist.getuPhoto().transferTo(new File(dir, newFileName));
 			// DB 저장용 . uphoto에 저장하기.
-			memberInfo.setuPhoto(newFileName);
 //			resultCnt = dao.insertMember(conn, memberInfo);
 			resultCnt = dao.insertMember(memberInfo);
 		} catch (IllegalStateException e) {
@@ -77,7 +79,9 @@ public class MemberRegService implements MemberService {
 			e.printStackTrace();
 			// 입출력 문제가 발생했을 시
 		}catch (Exception e) {
-			new File(dir,newFileName).delete();
+			if(regist.getuPhoto()!=null) {
+				new File(dir,newFileName).delete();
+			}
 		}
 		
 		return resultCnt;

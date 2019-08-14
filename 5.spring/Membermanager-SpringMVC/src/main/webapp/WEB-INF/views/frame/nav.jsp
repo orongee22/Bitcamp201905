@@ -27,5 +27,8 @@
 		<li><a href="<c:url value="/member/regist" />">회원가입</a></li>
 		<li><a href="<c:url value="/member/mypage" />">MY PAGE</a></li>
 		<li><a href="<c:url value="/member/memberList" />">회원리스트</a></li>
+		<li><a href="<c:url value="/member/memberListJson" />">회원리스트 JSON</a></li>
+		<li><a href="<c:url value="/member/memberListJson2" />">회원리스트 JSON2</a></li>
+		<li><a href="<c:url value="/rest-api/members/" />">회원리스트 REST-API</a></li>
 	</ul>
 </div>

@@ -19,6 +19,4 @@ public class GuestMessageList {
 	public List<GuestMessage> getMessages(){
 		return messages;
 	}
-	
-	
 }

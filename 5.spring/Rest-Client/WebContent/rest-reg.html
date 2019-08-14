@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<style>       
+</style>
+</head>
+<body>
+	<h1>회원가입</h1>
+	<hr>
+	<form id="form" method="post">
+		아이디 <input type="text" name="uId" id="uId"><br>
+		비밀번호 <input type="password" name="uPW" id="uPW"><br>
+       	이름 <input type="text" name="uName" id="uName"><br>
+        <input type="submit" value="가입하기">
+    </form>
+	<script>	
+		$(document).ready(function(){
+            
+            
+            $('#form').submit(function(){
+                var list ={
+                uId : $('#uId').val(),
+                uPW : $('#uPW').val(),
+                uName : $('#uName').val()
+                };
+                
+                $.ajax({
+                    // 다른 어플리케이션의 url을 가져올 수 있음.
+                    url : 'http://localhost:8080/mm/rest-api/members',
+                    type : 'post',
+                    data : JSON.stringify(list),
+                    contentType : 'application/json; charset=utf-8',
+                    dataType : 'json',
+                    success : function(data){
+                        }
+                });
+			     return false;  
+            });
+        });   
+	</script>
+</body>
+</html>

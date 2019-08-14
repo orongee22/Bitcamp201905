@@ -15,4 +15,6 @@ public interface MemberSessionDao {
 	public int selectTotalCount(SearchParam searchparam);
 	public int editMemberById(MemberInfo memberinfo);
 	public int deleteMemberById(String uId);
+	// 회원 전체 리스트 받아오는 select
+	public List<MemberInfo> selectListAll();
 }
