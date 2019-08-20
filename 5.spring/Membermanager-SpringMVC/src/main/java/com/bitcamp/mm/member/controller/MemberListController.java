@@ -20,7 +20,7 @@ public class MemberListController {
 	@Autowired
 	private MemberListService listService;
 	
-	@RequestMapping("member/memberListJson")
+	@RequestMapping("member/json/memberListJson")
 	// 회원 리스트 페이지에 들어갔을 댸 기본 페이지 번호는 언제나 1이어야 한다. defaultValue값 필수
 	public @ResponseBody ListViewData memberlist(@RequestParam(value = "page", defaultValue="1") int pageNumber,
 			@RequestParam(value="searchType", required = false) String sType,
@@ -44,7 +44,7 @@ public class MemberListController {
 	
 	// 반환 타입 : ResponseEntity<T> - Spring 4.2 이상
 	// 반환 값 : Body(ListViewData), statusCode, HttpHeader
-	@RequestMapping("member/memberListJson2")
+	@RequestMapping("member/json/memberListJson2")
 	public ResponseEntity<ListViewData> memberlist2(@RequestParam(value = "page", defaultValue="1") int pageNumber,
 			@RequestParam(value="searchType", required = false) String sType,
 			@RequestParam(value="keyword", required = false) String keyword

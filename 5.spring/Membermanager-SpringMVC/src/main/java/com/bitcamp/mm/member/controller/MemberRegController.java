@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bitcamp.mm.member.domain.RequestMemberRegist;
+import com.bitcamp.mm.member.service.MailSenderervice;
 import com.bitcamp.mm.member.service.MemberRegService;
 
 @Controller
@@ -16,6 +17,8 @@ import com.bitcamp.mm.member.service.MemberRegService;
 public class MemberRegController {
 	@Autowired
 	private MemberRegService registService;
+	@Autowired
+	private MailSenderervice mailService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String getForm() {
@@ -27,6 +30,8 @@ public class MemberRegController {
 		
 		int rCnt = registService.memberInsert(request, regist);
 		model.addAttribute("rCnt", rCnt);
+		
+//		mailService.send(regist.getuId());
 		
 		return "member/memberRegist";
 	}

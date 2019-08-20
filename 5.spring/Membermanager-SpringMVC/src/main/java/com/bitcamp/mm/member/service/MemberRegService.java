@@ -35,6 +35,9 @@ public class MemberRegService implements MemberService {
 	
 	@Autowired
 	private SqlSessionTemplate template;
+	
+	@Autowired
+	private MailSenderervice mailService;
 
 	private MemberSessionDao dao;
 	
@@ -55,6 +58,8 @@ public class MemberRegService implements MemberService {
 		
 		int resultCnt = 0;
 		String newFileName = null;
+		
+		
 //		Connection conn = null;
 		
 		// photo값 웅앵에서 예외발생 시 DB 저장 못하게 미리 방지
@@ -70,6 +75,8 @@ public class MemberRegService implements MemberService {
 			// DB 저장용 . uphoto에 저장하기.
 //			resultCnt = dao.insertMember(conn, memberInfo);
 			resultCnt = dao.insertMember(memberInfo);
+			
+			mailService.send(regist.getuId());
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
 //		} catch (SQLException e) {
