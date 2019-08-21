@@ -37,10 +37,15 @@ public class LoginController {
 			) {
 		String view = "member/loginFail";
 		
-		boolean loginChk = loginService.login(id, pw, request);
+		int loginChk = loginService.login(id, pw, request);
 		
-		if(loginChk) {
-			view = "redirect:/main";
+		switch(loginChk) {
+			case 1: 
+				view = "member/notVerify";
+				break;
+			case 2:
+				view = "redirect:/main";
+				break;
 		}
 		
 		return view;

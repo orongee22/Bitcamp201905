@@ -76,7 +76,7 @@ public class MemberRegService implements MemberService {
 //			resultCnt = dao.insertMember(conn, memberInfo);
 			resultCnt = dao.insertMember(memberInfo);
 			
-			mailService.send(regist.getuId());
+			mailService.send(regist.getuId(), memberInfo.getCode());
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
 //		} catch (SQLException e) {

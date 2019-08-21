@@ -29,9 +29,21 @@ public class MemberLoginService implements MemberService{
 	
 	private MemberSessionDao dao;
 
-	public boolean login(String id, String pw, HttpServletRequest request) {
-		boolean loginChk = false;
+	/* 
+	 * loginChk = 0  // 로그인 실패
+	 * loginChk = 1 // 로그인 미인증상태
+	 * loginChk = 2 // 로그이 인증상태
+	 * 
+	 * */
 	
+	
+	public int login(String id, String pw, HttpServletRequest request) {
+//		boolean loginChk = false;
+	
+	
+		int loginChk = 0;
+		
+		
 		MemberInfo memberInfo = null;
 		dao = template.getMapper(MemberSessionDao.class);
 		
@@ -44,13 +56,15 @@ public class MemberLoginService implements MemberService{
 			if(memberInfo!=null && memberInfo.pwChk(pw)) {
 				// 세션에 저장함.
 				// loginChk 상태값을 변경함.
-				request.getSession(true).setAttribute("loginInfo", memberInfo.toLoginInfo());
-				loginChk = true;
+				
+				if(memberInfo.getVerify()== 'Y') {
+					request.getSession(true).setAttribute("loginInfo", memberInfo.toLoginInfo());
+					loginChk = 2;
+				} else {
+					request.getSession(true).setAttribute("reEmail", memberInfo.getuId());
+					loginChk = 1;
+				}
 			}
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 		
 		return loginChk;
 	}

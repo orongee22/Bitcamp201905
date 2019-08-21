@@ -17,4 +17,5 @@ public interface MemberSessionDao {
 	public int deleteMemberById(String uId);
 	// 회원 전체 리스트 받아오는 select
 	public List<MemberInfo> selectListAll();
+	public int verify(String id, String code);
 }

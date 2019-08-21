@@ -12,10 +12,12 @@
 	<result property="uName" column="uname"/>
 	<result property="uPhoto" column="uphoto"/>
 	<result property="regDate" column="regdate"/>
+	<result property="verify" column="verify" />
+	<result property="code" column="code"/>
 </resultMap>
 
 <insert id="insertMember" parameterType="com.bitcamp.mm.member.domain.MemberInfo">
-	insert into member (uid, uname, upw, uphoto) values (#{uId},#{uName},#{uPW},#{uPhoto})
+	insert into member (uid, uname, upw, uphoto, code) values (#{uId},#{uName},#{uPW},#{uPhoto},#{code})
 </insert>
 
 <select id="selectMemberById" resultMap="resultMemberInfo">
@@ -89,5 +91,10 @@ delete from project.member where uid = #{uId}
 <select id="selectListAll" resultMap="resultMemberInfo">
 	select * from member order by uname
 </select>
+
+<update id="verify">
+	update member set verify='Y'
+	where uid=#{param1} and code=#{param2}
+</update>
 
 </mapper>

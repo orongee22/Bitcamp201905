@@ -1,6 +1,7 @@
 package com.bitcamp.mm.member.domain;
 
 import java.util.Date;
+import java.util.Random;
 
 // usebean Class
 public class MemberInfo {
@@ -12,10 +13,30 @@ public class MemberInfo {
 	private String uName;
 	private String uPhoto;
 	private Date regDate;
+	private char verify;
+	private String code;
+
+	
+	public char getVerify() {
+		return verify;
+	}
+
+	public void setVerify(char verify) {
+		this.verify = verify;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
 
 	// default 생성자 필수
 	public MemberInfo() {
 		this.regDate = new Date();
+		getRandomString();
 	}
 
 	public MemberInfo(String uId, String uPW, String uName, String uPhoto) {
@@ -25,6 +46,7 @@ public class MemberInfo {
 		this.uName = uName;
 		this.uPhoto = uPhoto;
 		this.regDate = new Date();
+		getRandomString();
 	}
 
 	public MemberInfo(int idx, String uId, String uPW, String uName, String uPhoto, Date regDate) {
@@ -35,6 +57,7 @@ public class MemberInfo {
 		this.uName = uName;
 		this.uPhoto = uPhoto;
 		this.regDate = regDate;
+		getRandomString();
 	}
 
 	// 변수들의 Getter/Setter 시작
@@ -87,11 +110,10 @@ public class MemberInfo {
 		this.regDate = regDate;
 	}
 
-	// 데이터 확인을 위한 toString 오버라이딩
 	@Override
 	public String toString() {
 		return "MemberInfo [idx=" + idx + ", uId=" + uId + ", uPW=" + uPW + ", uName=" + uName + ", uPhoto=" + uPhoto
-				+ ", regDate=" + regDate + "]";
+				+ ", regDate=" + regDate + ", verify=" + verify + ", code=" + code + "]";
 	}
 	
 
@@ -125,6 +147,29 @@ public class MemberInfo {
 	}
 	
 	
+	// 2019.08.20
+	// 난수 코드 발생 메소드
+	
+	private void getRandomString() {
+		Random r = new Random(System.nanoTime());
+		StringBuffer sb = new StringBuffer();
+		
+		for(int i=0 ; i<20 ; i++ ) {
+
+ 			if(r.nextBoolean()) {
+
+ 				sb.append(r.nextInt(10));
+
+ 			} else {
+
+ 				sb.append((char)(r.nextInt(26)+97));
+			}
+		}
+		
+		System.out.println("난수코드 : "+sb);
+		
+		setCode(sb.toString());
+	}
 	
 	
 	
