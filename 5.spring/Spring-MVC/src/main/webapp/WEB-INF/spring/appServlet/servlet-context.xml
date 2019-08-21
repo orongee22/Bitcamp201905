@@ -45,6 +45,13 @@ class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 <beans:value>utf-8</beans:value>
 </beans:property>
 </beans:bean>
+	<beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 	
+	
+	<beans:bean id="AES256Util" class="com.bitcamp.mvc.AES256Util">
+		<beans:constructor-arg>
+			<beans:value>1111111111111111</beans:value>
+		</beans:constructor-arg>
+	</beans:bean>
 	
 </beans:beans>
