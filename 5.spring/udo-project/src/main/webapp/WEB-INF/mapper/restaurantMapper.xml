@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.wad.udo.restaurant.dao.RestDao">
+ 
+ <resultMap id="resultRestInfo" type="com.wad.udo.restaurant.domain.RestInfo">
+ 	<id property="r_idx" column="r_idx" />
+ 	<result property="r_name" column="r_name"/>
+ 	<result property="r_address" column="r_address" />
+ 	<result property="r_pnum" column="r_pnum" />
+ </resultMap>
+ 
+ <resultMap id="resultRestCmtInfo" type="com.wad.udo.restaurant.domain.RestCmtInfo">
+ <id property="r_c_idx" column="r_c_idx" />
+ 	<result property="r_idx" column="r_idx"/>
+ 	<result property="idx" column="idx"/>
+ 	<result property="r_c_comment" column="r_c_comment" />
+ 	<result property="r_c_star" column="r_c_star" />
+ 	<result property="r_c_photo" column="r_c_photo" />
+ 	<result property="r_c_date" column="r_c_date" />
+ 	
+ </resultMap>
+ <select id="selectRestInfoByIdx" resultMap="resultRestInfo">
+ 	select * from restaurant where r_idx = #{r_idx}
+ </select>
+ <select id="selectListAll" resultMap="resultRestInfo" parameterType="map">
+ 	select * from restaurant
+ 	<where>
+ 		<if test="search != null">
+ 		
+ 			<if test="search.searchType == 'r_name'">
+ 				r_name like CONCAT('%', #{search.keyword},'%')
+ 			</if>
+ 			
+ 			<if test="search.searchType == 'r_address'">
+ 				r_address LIKE CONCAT('%',#{search.keyword},'%')
+ 			</if>
+ 			
+ 		</if>
+ 	</where>
+ 	limit #{index}, #{count}
+ </select>	
+ 
+ <select id="selectTotalCount" resultType="int" parameterType="com.wad.udo.restaurant.domain.SearchParam">
+ 	select count(*) from restaurant
+ 	<where>
+ 		<if test="searchType != null">
+ 			<if test="searchType == 'r_name'">
+ 				r_name like CONCAT('%', #{keyword},'%')
+ 			</if>
+ 			<if test="searchType == 'r_address'">
+ 				r_address LIKE CONCAT('%',#{keyword},'%')
+ 			</if>
+ 		</if>
+ 	</where>
+ </select>
+ 
+ <delete id="deleteCmt">
+ 	delete from restaurant_comment where r_c_idx = #{r_c_idx}
+ </delete>
+ 
+<insert id="insertComment" parameterType="com.wad.udo.restaurant.domain.RestCmtInfo">
+ 	insert into udo.restaurant_comment (idx,r_idx,r_c_comment,r_c_star,r_c_photo,r_c_date) values (#{idx},#{r_idx},#{r_c_comment},#{r_c_star},#{r_c_photo},#{r_c_date})
+ </insert>
+ 
+ 
+ <select id="selectCommentListAll" resultMap="resultRestCmtInfo" parameterType="map">
+ 	select * from udo.restaurant_comment, udo.restaurant where udo.restaurant.r_idx = udo.restaurant_comment.r_idx and udo.restaurant.r_idx = #{r_idx}
+ </select> 
+ 
+ <update id="updateCmt" parameterType="map">
+ 	update restaurant_comment set r_c_comment = #{cmtInfo.r_c_comment}, r_c_star =#{cmtInfo.r_c_star}, r_c_photo=#{cmtInfo.r_c_photo} where r_c_idx = #{r_c_idx}
+ </update>
+ 
+ </mapper>
